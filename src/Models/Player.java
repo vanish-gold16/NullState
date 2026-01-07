@@ -9,6 +9,22 @@ public class Player {
     private int cyberpsychosisLevel;
     private int eddie;
 
+    public void increaseCyberpsychosis(int amount) throws InterruptedException {
+        if(amount > 0){
+            setCyberpsychosisLevel(this.cyberpsychosisLevel + amount);
+        }
+        gameOver();
+    }
+
+    public void gameOver() throws InterruptedException {
+        if(this.cyberpsychosisLevel >= 100){
+            System.out.println("Vex got cyberpsychosis.");
+            Thread.sleep(2000);
+            System.out.println("Game Over.");
+            System.exit(0);
+        }
+    }
+
     public Player(List<Item> inventory) {
         this.inventory = inventory;
         this.cyberpsychosisLevel = 20;
@@ -29,8 +45,7 @@ public class Player {
     }
 
     public void setCyberpsychosisLevel(int cyberpsychosisLevel) {
-        if(cyberpsychosisLevel <= 100 && cyberpsychosisLevel >= 0) this.cyberpsychosisLevel = cyberpsychosisLevel;
-        else System.out.println("Invalid cyberpsychosis level");
+        this.cyberpsychosisLevel = cyberpsychosisLevel;
     }
 
     public int getEddie() {

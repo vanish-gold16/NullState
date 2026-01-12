@@ -6,7 +6,15 @@ public class NPC {
     private String description;
     private Location location;
 
+    public NPC(String name, String description, Location location) {
+        this.name = name;
+        this.description = description;
+        this.location = location;
+    }
 
+    public void interaction(){
+
+    }
 
     public String getName() {
         return name;

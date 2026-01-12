@@ -1,7 +1,5 @@
 package Models;
 
-import Locations.Location;
-
 public class NPC {
 
     private String name;

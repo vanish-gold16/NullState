@@ -1,16 +1,26 @@
 package Commands;
 
-import Locations.Location;
+import Models.Location;
 import Models.Player;
 
 public class Enter implements Command{
 
     private Location location;
-    private Player player;
+    private Location newLocation;
 
     @Override
     public String execute() {
-        return location.setNa;
+        location.setName(newLocation.getName());
+        location.setDescription(newLocation.getDescription());
+        location.setLocationItems(newLocation.getLocationItems());
+        location.setNpcs(newLocation.getNpcs());
+        location.setExits(newLocation.getExits());
+        return "You have entered: " + location.getName();
+    }
+
+    public Enter(Location location, Location newLocation) {
+        this.location = location;
+        this.newLocation = newLocation;
     }
 
     @Override

@@ -1,6 +1,7 @@
 package Main;
 
 import Commands.Command;
+import Commands.Enter;
 import Commands.Exit;
 
 import java.util.HashMap;
@@ -15,7 +16,7 @@ public class CommandManager {
         commands.put("exit", new Exit());
         // commands.put("status", )
         //commands.put("jdi", )
-        commands.put("vstup", )
+        commands.put("vstup", new Enter());
     }
 
 }

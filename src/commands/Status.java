@@ -1,6 +1,6 @@
-package Commands;
+package commands;
 
-public class Go implements Command{
+public class Status implements Command{
     @Override
     public String execute() {
         return "";

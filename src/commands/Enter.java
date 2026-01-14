@@ -1,7 +1,6 @@
-package Commands;
+package commands;
 
-import Models.Location;
-import Models.Player;
+import models.Location;
 
 public class Enter implements Command{
 

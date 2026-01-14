@@ -1,4 +1,4 @@
-package Models;
+package models;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,6 +11,14 @@ public class Location {
     private List<Item> locationItems = new ArrayList<>();
     private List<NPC> npcs = new ArrayList<>();
     private HashMap<String, Location> exits = new HashMap<>();
+
+    public Location(String name, String description, List<Item> locationItems, List<NPC> npcs, HashMap<String, Location> exits) {
+        this.name = name;
+        this.description = description;
+        this.locationItems = locationItems;
+        this.npcs = npcs;
+        this.exits = exits;
+    }
 
     public String getName() {
         return name;

@@ -1,7 +1,6 @@
-package Commands;
+package commands;
 
-public class Help implements Command{
-
+public class Go implements Command{
     @Override
     public String execute() {
         return "";

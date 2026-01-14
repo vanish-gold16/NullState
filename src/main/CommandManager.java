@@ -1,9 +1,8 @@
-package Main;
+package main;
 
-import Commands.Command;
-import Commands.Enter;
-import Commands.Exit;
-import Models.Location;
+import commands.Command;
+import commands.Enter;
+import commands.Exit;
 
 import java.util.HashMap;
 

@@ -13,5 +13,9 @@ public class LocationDAO {
         this.locations = new HashMap<>();
     }
 
-
+    private void initializations(){
+        String name = "Postranní úlička";
+        String description =
+                "Nacháziš se úzke uličce.";
+    }
 }

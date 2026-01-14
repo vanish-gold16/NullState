@@ -8,6 +8,10 @@ public class Enter implements Command{
     private Location location;
     private Location newLocation;
 
+    /**
+     * changing current location
+     * @return name of location you've entered
+     */
     @Override
     public String execute() {
         location.setName(newLocation.getName());
@@ -21,6 +25,9 @@ public class Enter implements Command{
     public Enter(Location location, Location newLocation) {
         this.location = location;
         this.newLocation = newLocation;
+    }
+
+    public Enter() {
     }
 
     @Override

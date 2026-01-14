@@ -3,6 +3,7 @@ package Main;
 import Commands.Command;
 import Commands.Enter;
 import Commands.Exit;
+import Models.Location;
 
 import java.util.HashMap;
 
@@ -10,8 +11,10 @@ public class CommandManager {
 
     private HashMap<String, Command> commands = new HashMap<>();
 
-
-    public void inicialization(){
+    /**
+     * initializing commands
+     */
+    public void inicialization() {
         // commands.put("pomoc", )
         commands.put("exit", new Exit());
         // commands.put("status", )

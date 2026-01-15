@@ -16,8 +16,10 @@ import java.util.Map;
 
 public class LocationDAO {
 
+    private Map<String, Location> locations = new HashMap<>();
+
     public LocationDAO() {
-           loadLocationsFromFile("locations.json");
+        loadLocationsFromFile("locations.json");
     }
 
     /**

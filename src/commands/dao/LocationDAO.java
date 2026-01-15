@@ -40,11 +40,19 @@ public class LocationDAO {
      * @return
      */
     public Location getLocationByName(String name){
-        return locations.get(name)
+        return locations.get(name);
     }
 
     private static class LocationWrapper{
         List<LocationData> locations;
+    }
+
+    private static class LocationData{
+        String name;
+        String description;
+        List<String> items;
+        List<String> npcs;
+        Map<String, Location> exits;
     }
 
 }

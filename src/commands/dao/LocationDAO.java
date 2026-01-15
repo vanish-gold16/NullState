@@ -34,8 +34,17 @@ public class LocationDAO {
         }
     }
 
-    private static class LocationWrapper{
+    /**
+     * Get location by name
+     * @param name the name of the location
+     * @return
+     */
+    public Location getLocationByName(String name){
+        return locations.get(name)
+    }
 
+    private static class LocationWrapper{
+        List<LocationData> locations;
     }
 
 }

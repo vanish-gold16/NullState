@@ -1,8 +1,12 @@
 package commands.dao;
 
+import models.Item;
 import models.Location;
+import models.NPC;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class LocationDAO {
@@ -14,8 +18,17 @@ public class LocationDAO {
     }
 
     private void initializations(){
-        String name = "Postranní úlička";
         String description =
-                "Nacháziš se úzke uličce.";
+                "Temný, stísněný prostor mezi vysokými domy. " +
+                        "Jemný déšť tiše bubnuje o beton a neonové " +
+                        "odlesky se lámou v kalužích. " +
+                        "Ležíš na hromadě odpadkových pytlů, promočených a páchnoucích chemií."  +
+                        "Studený asfalt tlačí do zad a město kolem tebe dýchá cizí, lhostejnou energií.";
+        List<Item> locationItems = new ArrayList<>();
+        List<NPC> npcs = new ArrayList<>();
+        npcs.add(new NPCDAO().getNPCByName("Bezdomovec"));
+
+        Location startingLocation = new Location("Postranní úlička",
+                description, locationItems, );
     }
 }

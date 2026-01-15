@@ -30,7 +30,7 @@ public class LocationDAO {
         try{
             String json = new String(Files.readAllBytes(Paths.get(filePath)));
             Gson gson = new Gson();
-
+            LocationWrapper wrapper = gson.fromJson(json, LocationWrapper)
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

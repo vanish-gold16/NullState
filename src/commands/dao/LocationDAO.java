@@ -28,7 +28,14 @@ public class LocationDAO {
         List<NPC> npcs = new ArrayList<>();
         npcs.add(new NPCDAO().getNPCByName("Bezdomovec"));
 
+        HashMap <String, Location> exits = new HashMap<>();
+        exits.put("sever", new LocationDAO().getLocationByName("Trh v Malé Čině"));
         Location startingLocation = new Location("Postranní úlička",
-                description, locationItems, );
+                description, locationItems, npcs, );
     }
+
+    public void getLocationByName(String name){
+
+    }
+
 }

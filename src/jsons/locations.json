@@ -1,0 +1,13 @@
+{
+  "locations": [
+    {
+      "name": "Postranní úlička",
+      "description": "Temný, stísněný prostor mezi vysokými domy..."
+      "items": ["žádné předměty"],
+      "npcs: [Bezdomověc]",
+      "exits": {
+        "sever": "Trh v malé Číně"
+      }
+    }
+  ]
+}

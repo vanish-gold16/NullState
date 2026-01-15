@@ -3,7 +3,12 @@ package commands.dao;
 import models.Item;
 import models.Location;
 import models.NPC;
+import com.google.gson.Gson;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -11,30 +16,25 @@ import java.util.Map;
 
 public class LocationDAO {
 
-    private Map<String, Location> locations;
-
     public LocationDAO() {
-        this.locations = new HashMap<>();
+           loadLocationsFromFile("locations.json");
     }
 
-    private void initializations(){
-        String description =
-                "Temný, stísněný prostor mezi vysokými domy. " +
-                        "Jemný déšť tiše bubnuje o beton a neonové " +
-                        "odlesky se lámou v kalužích. " +
-                        "Ležíš na hromadě odpadkových pytlů, promočených a páchnoucích chemií."  +
-                        "Studený asfalt tlačí do zad a město kolem tebe dýchá cizí, lhostejnou energií.";
-        List<Item> locationItems = new ArrayList<>();
-        List<NPC> npcs = new ArrayList<>();
-        npcs.add(new NPCDAO().getNPCByName("Bezdomovec"));
+    /**
+     * Load locations from a file
+     * @param filePath the path to the file
+     */
+    private void loadLocationsFromFile(String filePath){
+        try{
+            String json = new String(Files.readAllBytes(Paths.get(filePath)));
+            Gson gson = new Gson();
 
-        HashMap <String, Location> exits = new HashMap<>();
-        exits.put("sever", new LocationDAO().getLocationByName("Trh v Malé Čině"));
-        Location startingLocation = new Location("Postranní úlička",
-                description, locationItems, npcs, );
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
-    public void getLocationByName(String name){
+    private static class LocationWrapper{
 
     }
 

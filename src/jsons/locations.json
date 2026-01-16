@@ -50,7 +50,17 @@
     },
     {
       "name": "Tunely metra",
-      "description": ""
+      "description": "Temné, vlhké chodby, kde pobíhají krysy. Ze stropu visí kabely a jiskří.",
+      "items": [""],
+      "npcs": ["Strážce Bergestu"],
+      "exits": {
+        "sever": "Dogtown"
+      }
+    },
+    {
+      "name": "Dogtown",
+      "description": "Nebezpečná zóna vedoucí k budově, kde se ukrývá netrunner. Nezávislá, anarchická čtvrť za metrem. Rozpadlé stánky, hořící sudy, nebezpeční lidé.",
+      "items": ["Inhibitor", ]
     }
   ]
 }

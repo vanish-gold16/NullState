@@ -10,11 +10,13 @@ public class NPC {
 
     private NPCs currentNPC;
     private String description;
+    private String affiliation;
     private Location location;
 
-    public NPC(NPCs currentNPC, String description, Location location) {
+    public NPC(NPCs currentNPC, String description, String affiliation, Location location) {
         this.currentNPC = currentNPC;
         this.description = description;
+        this.affiliation = affiliation;
         this.location = location;
     }
 
@@ -58,6 +60,14 @@ public class NPC {
         else{
             System.out.println("...");
         }
+    }
+
+    public String getAffiliation() {
+        return affiliation;
+    }
+
+    public void setAffiliation(String affiliation) {
+        this.affiliation = affiliation;
     }
 
     public NPCs currentNPC() {

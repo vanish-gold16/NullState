@@ -6,6 +6,7 @@ import models.NPC;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class NPCDAO {
@@ -24,7 +25,15 @@ public class NPCDAO {
         try{
             String json = new String(Files.readAllBytes(Paths.get(filePath)));
             Gson gson = new Gson();
-
+            NPCWrapper npcWrapper = gson.fromJson(json,NPCWrapper.class);
+            for(NPCData data: npcWrapper.npcs){
+                NPC npc = new NPC(
+                        "data.name",
+                        "data.description",
+                        "data.affiliation",
+                        "data.location"
+                );
+            }
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -35,12 +44,14 @@ public class NPCDAO {
     }
 
     private static class NPCWrapper{
-
+        List<NPCData> npcs;
     }
 
     private static class NPCData{
         String name;
         String description;
+        String affiliation;
+        String location;
     }
 
 }

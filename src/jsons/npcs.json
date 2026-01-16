@@ -1,5 +1,46 @@
 {
   "npcs": [
-
+    {
+      "name": "Glitch",
+      "description": "Glitch je Vexův nejlepší přítel a geniální hacker, ale momentálně je nezvěstný. Nosí netrunnerský overal a na hlavě má připevněný kabel. S dlouhými vlasy vypadá rozcuchaně."
+      "affiliation": "Independent",
+      "location": "Serverovna"
+    },
+    {
+      "name": "Bestie",
+      "description": "Bestie slouží jako zadavatel úkolů a nachází se v baru Afterlife. Je královnou podsvětí Night City, oblečenou v zářivě žluté mikině s tmavě modrými vlasy. Je chladná a pragmatická, vždy dobře informovaná. Nikdy nic nedělá zadarmo.",
+      "affiliation": "Independent",
+      "location": "Afterlife"
+    },
+    {
+      "name": "Viktor",
+      "description": "Je to Němec s krátkými vlasy, oblečený v modrém polo tričku. Je to starý známý, který Vexovi dříve nainstaloval implantáty. Opravdu se o Vexe stará, ale zůstává profesionální. Kvůli jeho stavu dává Vexovi značnou slevu.",
+      "affiliation": "Zetatech",
+      "location": "Viktor's Clinic"
+    },
+    {
+      "name": "Mike Kowalski",
+      "description": " Je Polák, má na sobě neprůstřelnou vestu a dlouhé blond vlasy svázané do copu. Jako bývalý partner, který již „vypadl ze hry“, tráví své dny v baru.",
+      "affiliation": "Independent",
+      "location": "Afterlife"
+    },
+    {
+      "name": "Bezdomovec",
+      "description": "Je to zvláštní postava, která mluví v hádankách. Může, ale nemusí být halucinací způsobenou čipem.",
+      "affiliation": "Unknown",
+      "location": "Postranní úlička"
+    },
+    {
+      "name": "Strážce Arasaky",
+      "description": "Jsou to anonymní hrozby, které blokují tvůj postup.",
+      "affiliation": "Arasaka",
+      "location": ["Vstup do metra", "Koncovka"]
+    },
+    {
+      "name": "Strážce Bergestu",
+      "description": "Jsou to anonymní hrozby, které blokují tvůj postup.",
+      "affiliation": "Bergest",
+      "location": ["Tunely metra", "Dogtown"]
+    }
   ]
 }

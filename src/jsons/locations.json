@@ -41,7 +41,7 @@
     {
       "name": "Vstup do metra",
       "description": "puštěný vstup do podzemí, posprejovaný graffiti, turnikety jsou zablokované.",
-      "items": [""],
+      "items": ["Inhibitor"],
       "npcs": ["Strážce Arasaky", "Dron Arasaky"],
       "exits": {
         "jih": "Trh v Malé Číně",
@@ -60,7 +60,25 @@
     {
       "name": "Dogtown",
       "description": "Nebezpečná zóna vedoucí k budově, kde se ukrývá netrunner. Nezávislá, anarchická čtvrť za metrem. Rozpadlé stánky, hořící sudy, nebezpeční lidé.",
-      "items": ["Inhibitor", ]
+      "items": ["Inhibitor"],
+      "npcs": ["Strážce Bergestu", "Dron Bergestu", "Marginál"],
+      "exits": {
+        "západ": "Opuštěná budova"
+      }
+    },
+    {
+      "name": "Opuštěná budová",
+      "description": "Vstupní hala bývalé korporátní budovy, dnes v ruinách. Prach a ticho.",
+      "items": ["Inhibitor", "Kabel připojení k síti"],
+      "npcs": ["Glitch"],
+      "exits": {}
+    },
+    {
+      "name": "Koncovka",
+      "description": "Liší se podle rozhodnutí hráče. Bud' kým ses rozhodl být?",
+      "items": ["Žádné předměty"],
+      "npcs": ["Glitch", "Wild Iskin", "Strážce Arasaky", "Robot Arasaky", "Adam Smasher"],
+      "exits": {}
     }
   ]
 }

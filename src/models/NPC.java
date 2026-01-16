@@ -8,7 +8,7 @@ public class NPC {
 
     private Random random = new Random();
 
-    private NPCs currentNPC;
+    private NPC npc;
     private String description;
     private String affiliation;
     private Location location;

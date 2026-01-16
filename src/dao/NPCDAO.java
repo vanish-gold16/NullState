@@ -1,6 +1,8 @@
 package dao;
 
+import ENUMs.NPCs;
 import com.google.gson.Gson;
+import models.Location;
 import models.NPC;
 
 import java.nio.file.Files;
@@ -14,7 +16,7 @@ public class NPCDAO {
     private Map<String, NPC> npcs = new HashMap<>();
 
     public NPCDAO() {
-        loadNPCsFromFile();
+        loadNPCsFromFile("npcs.json");
     }
 
     /**
@@ -28,11 +30,12 @@ public class NPCDAO {
             NPCWrapper npcWrapper = gson.fromJson(json,NPCWrapper.class);
             for(NPCData data: npcWrapper.npcs){
                 NPC npc = new NPC(
-                        "data.name",
+                        NPCs.valueOf(data.name.toUpperCase()),
                         "data.description",
                         "data.affiliation",
                         "data.location"
                 );
+                npcs.put(data.name, npc);
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -48,10 +51,10 @@ public class NPCDAO {
     }
 
     private static class NPCData{
-        String name;
+        NPC npc;
         String description;
         String affiliation;
-        String location;
+        Location location;
     }
 
 }

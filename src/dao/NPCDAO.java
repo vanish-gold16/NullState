@@ -1,4 +1,4 @@
-package commands.dao;
+package dao;
 
 public class NPCDAO {
 }

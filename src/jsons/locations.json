@@ -3,11 +3,54 @@
     {
       "name": "Postranní úlička",
       "description": "Temný, stísněný prostor mezi vysokými domy..."
-      "items": ["žádné předměty"],
-      "npcs: [Bezdomověc]",
+      "items": ["inhibitor"],
+      "npcs": ["Bezdomověc"],
       "exits": {
         "sever": "Trh v malé Číně"
       }
+    },
+    {
+      "name": "Trh v Malé Číně",
+      "description": "Srdce čtvrti, ozářené neony a plné lidí. Všude hluk a blikající reklamy na implantáty. "
+      "items": ["Žádné předměty"],
+      "npcs": ["Žádné NPC"],
+      "exits": {
+        "sever": "Vstup do metra",
+        "západ": "Afterlife",
+        "východ": "Viktor's Clinic"
+      }
+    },
+    {
+      "name": "Afterlife",
+      "description": "Legendární klub pro žoldáky. Hlasitá hudba, kouř a podezřelé existence. Zde si \nlze dát koktejl na cestu nebo si naposledy promluvit s přítelem Mikem Kowalskim",
+      "items": ["Koktejl Silverhand"],
+      "npcs": ["Mike Kowalski", "Bestie", "Strážný"],
+      "exits": {
+        "východ": "Trh v Malé Číně"
+      }
+    },
+    {
+      "name": "Victor's Clinic",
+      "description": "Sterilní, bíle osvětlená místnost plná kybernetických součástek. Ve vzduchu je cítit dezinfekce.",
+      "items": ["Inhibitor", "Kalibrace zbráně", "Neurologický stabilizátor", "Levný Kyberdeck"],
+      "npcs": ["Viktor"],
+      "exits": {
+          "západ": "Trh v Malé Číně"
+        }
+    },
+    {
+      "name": "Vstup do metra",
+      "description": "puštěný vstup do podzemí, posprejovaný graffiti, turnikety jsou zablokované.",
+      "items": [""],
+      "npcs": ["Strážce Arasaky", "Dron Arasaky"],
+      "exits": {
+        "jih": "Trh v Malé Číně",
+        "sever": "Tunely metra"
+      }
+    },
+    {
+      "name": "Tunely metra",
+      "description": ""
     }
   ]
 }

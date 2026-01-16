@@ -1,6 +1,6 @@
 package models;
 
-import ENUMs.NPCs;
+import dao.NPCDAO;
 
 import java.util.Random;
 
@@ -8,13 +8,13 @@ public class NPC {
 
     private Random random = new Random();
 
-    private NPCs currentNPC;
+    private String name;
     private String description;
     private String affiliation;
     private Location location;
 
-    public NPC(NPCs currentNPC, String description, String affiliation, Location location) {
-        this.currentNPC = currentNPC;
+    public NPC(String name, String description, String affiliation, Location location) {
+        this.name = name;
         this.description = description;
         this.affiliation = affiliation;
         this.location = location;
@@ -23,17 +23,17 @@ public class NPC {
     /**
      * interaction patterns for non-written dialogues
      */
-    public void interaction(){
-        if(currentNPC == NPCs.BESTIE){
+    public void interaction(NPCDAO npcdao){
+        if(name == npcdao.getNPCByName("Bestie").name){
             System.out.println("Hey, I'm busy now. Talk to me later");
         }
-        else if(currentNPC == NPCs.VIKTOR){
+        else if(name == npcdao.getNPCByName("Viktor").name){
             System.out.println("VEX, go and do something with your biochip! Now!");
         }
-        else if(currentNPC == NPCs.KOWALSKI){
+        else if(name == npcdao.getNPCByName("Kowalski").name){
             System.out.println("Good luck with your work!");
         }
-        else if(currentNPC == NPCs.BEZDOMOVEC){
+        else if(name == npcdao.getNPCByName("Bezdomovec").name){
             int replica = random.nextInt(1, 4);
             if(replica == 1){
                 System.out.println("Spare some credits for a poor soul");
@@ -45,7 +45,7 @@ public class NPC {
                 System.out.println("Life is tough in this city");
             }
         }
-        else if(currentNPC == NPCs.ENEMIES){
+        else if(name == npcdao.getNPCByName("Enemies").name){
             int replica = random.nextInt(1, 4);
             if(replica == 1){
                 System.out.println("You'll regret coming here!");
@@ -70,12 +70,12 @@ public class NPC {
         this.affiliation = affiliation;
     }
 
-    public NPCs currentNPC() {
-        return currentNPC;
+    public String getName() {
+        return name;
     }
 
-    public void setCurrentNPC(NPCs currentNPC) {
-        this.currentNPC = currentNPC;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDescription() {

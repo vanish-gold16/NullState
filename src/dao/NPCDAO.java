@@ -1,6 +1,5 @@
 package dao;
 
-import ENUMs.NPCs;
 import com.google.gson.Gson;
 import models.Location;
 import models.NPC;
@@ -30,7 +29,7 @@ public class NPCDAO {
             NPCWrapper npcWrapper = gson.fromJson(json,NPCWrapper.class);
             for(NPCData data: npcWrapper.npcs){
                 NPC npc = new NPC(
-                        NPCs.valueOf(data.name.toUpperCase()),
+                        data.name,
                         data.description,
                         data.affiliation,
                         data.location

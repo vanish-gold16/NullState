@@ -31,9 +31,9 @@ public class NPCDAO {
             for(NPCData data: npcWrapper.npcs){
                 NPC npc = new NPC(
                         NPCs.valueOf(data.name.toUpperCase()),
-                        "data.description",
-                        "data.affiliation",
-                        "data.location"
+                        data.description,
+                        data.affiliation,
+                        data.location
                 );
                 npcs.put(data.name, npc);
             }
@@ -51,7 +51,7 @@ public class NPCDAO {
     }
 
     private static class NPCData{
-        NPC npc;
+        String name;
         String description;
         String affiliation;
         Location location;

@@ -69,6 +69,15 @@
     {
       "name": "Opuštěná budová",
       "description": "Vstupní hala bývalé korporátní budovy, dnes v ruinách. Prach a ticho.",
+      "items": [""],
+      "npcs": [""],
+      "exits": {
+        "sever": "Serverovna"
+      }
+    },
+    {
+      "name": "Serverovna",
+      "description": "Místnost plná hučících serverů a kabelů.",
       "items": ["Inhibitor", "Kabel připojení k síti"],
       "npcs": ["Glitch"],
       "exits": {}

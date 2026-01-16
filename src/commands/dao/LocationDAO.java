@@ -30,7 +30,18 @@ public class LocationDAO {
         try{
             String json = new String(Files.readAllBytes(Paths.get(filePath)));
             Gson gson = new Gson();
-            LocationWrapper wrapper = gson.fromJson(json, LocationWrapper)
+            LocationWrapper wrapper = gson.fromJson(json, LocationWrapper.class);
+
+            for(LocationData data : wrapper.locations){
+                Location loc = new Location(
+                        data.name,
+                        data.description,
+                        new ArrayList<>(),
+                        new ArrayList<>(),
+                        new HashMap<>()
+                );
+                locations.put(data.name, loc);
+            }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

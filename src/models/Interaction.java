@@ -63,11 +63,11 @@ public class Interaction {
         this.dialogNodes = dialogNodes;
     }
 
-    public int getCurrentNodeId() {
+    public String getCurrentNodeId() {
         return currentNodeId;
     }
 
-    public void setCurrentNodeId(int currentNodeId) {
+    public void setCurrentNodeId(String currentNodeId) {
         this.currentNodeId = currentNodeId;
     }
 }

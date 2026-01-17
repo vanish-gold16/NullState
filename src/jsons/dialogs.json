@@ -1,0 +1,29 @@
+{
+  "viktor": {
+    "start": {
+      "npcText": "Ahoj, Vexi. Co máš nového?",
+      "options": [
+        {"text": "No moc dobrý to není (Povíst mu své nedávné zprávy)", "nextDialogNodeId": "smalltalk"},
+        {"text": "Zatím nic", "nextDialogNodeId": "end"}
+      ],
+      "end": false
+    },
+    "smalltalk": {
+      "npcText": "Sakra, Vexi. Snad to zvládneš. Udělam ti slevu, ale podle mě stejně hodně nekoupíš.",
+      "options": [
+        {"text": "Díky, vážím si toho.", "nextDialogNodeId": "shop"}
+      ],
+      "end": false
+    },
+    "shop": {
+      "npcText": "Tak pojď, podíváme se, co mám na skladě.",
+      "options": [],
+      "end": true
+    },
+    "end": {
+      "npcText": "Dobře, kdybys něco potřeboval, víš kde mě najít.",
+      "options": [],
+      "end": true
+    }
+  }
+}

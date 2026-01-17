@@ -1,3 +1,10 @@
 {
-
+  "items": [
+    {
+      "name": "Inhibitor",
+      "description": "Vzácná a drahá ampule naplněná modrou tekutinou. Dočasně snižuje příznaky odmítnutí biočipu.",
+      "weight": 0.1,
+      "type": "consumable"
+    }
+  ]
 }

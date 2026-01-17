@@ -14,7 +14,7 @@ public class ItemDAO {
     private Map<String, Item> itemsDatabase;
 
     public ItemDAO() {
-
+        loadItemsFromFile("items.json");
     }
 
     /**

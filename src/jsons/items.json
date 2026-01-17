@@ -3,8 +3,16 @@
     {
       "name": "Inhibitor",
       "description": "Vzácná a drahá ampule naplněná modrou tekutinou. Dočasně snižuje příznaky odmítnutí biočipu.",
-      "weight": 0.1,
-      "type": "consumable"
+      "weight": "0.1",
+      "type": "consumable",
+      "impact": "-20"
+    },
+    {
+      "name": "Pistole Militech",
+      "description": "Standardní služební zbraň, která je těžká a spolehlivá. Bez ní jsou hráči v boji bezbranní.",
+      "weight": "1.5",
+      "type": "weapon",
+      "impact": ""
     }
   ]
 }

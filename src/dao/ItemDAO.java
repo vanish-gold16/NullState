@@ -32,7 +32,8 @@ public class ItemDAO {
                         data.name,
                         data.description,
                         data.weight,
-                        data.type
+                        data.type,
+                        data.impact
                 );
                 itemsDatabase.put(data.name, item);
             }
@@ -57,8 +58,9 @@ public class ItemDAO {
     private static class ItemData{
         String name;
         String description;
-        String weight;
+        int weight;
         String type;
+        int impact;
     }
 
 }

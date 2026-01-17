@@ -4,14 +4,24 @@ public class Item {
 
     private String name;
     private String description;
-    private String weight;
+    private int weight;
     private String type;
+    private int impact;
 
-    public Item(String name, String description, String weight, String type) {
+    public Item(String name, String description, int weight, String type, int impact) {
         this.name = name;
         this.description = description;
         this.weight = weight;
         this.type = type;
+        this.impact = impact;
+    }
+
+    public int getImpact() {
+        return impact;
+    }
+
+    public void setImpact(int impact) {
+        this.impact = impact;
     }
 
     public String getName() {
@@ -30,11 +40,11 @@ public class Item {
         this.description = description;
     }
 
-    public String getWeight() {
+    public int getWeight() {
         return weight;
     }
 
-    public void setWeight(String weight) {
+    public void setWeight(int weight) {
         this.weight = weight;
     }
 

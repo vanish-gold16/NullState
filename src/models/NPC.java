@@ -23,7 +23,7 @@ public class NPC {
     /**
      * interaction patterns for non-written dialogues
      */
-    public void interaction(NPCDAO npcdao){
+    public void randomInteraction(NPCDAO npcdao){
         if(name == npcdao.getNPCByName("Bestie").name){
             System.out.println("Hey, I'm busy now. Talk to me later");
         }

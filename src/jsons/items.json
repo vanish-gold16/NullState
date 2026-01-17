@@ -32,6 +32,15 @@
       "name": "Terminál",
       "description": "Jedná se o počítačovou konzoli, která se připojuje přímo k lokálnímu serveru nebo softwaru, zabudovanou do zdi (například v metru nebo serverovně).",
       "weight": 0,
+      "type": "NC infrastructure",
+      "impact": 5
+    },
+    {
+      "name": "Láhev",
+      "description": "Jedná se o standardní vodu nebo jídlo, což je v Night City vzácné.",
+      "weight": 0.5,
+      "type": "consumable",
+      "impact": -2
     }
   ]
 }

@@ -1,3 +1,5 @@
+package models;
+
 import java.util.List;
 
 public class DialogNode {
@@ -38,7 +40,7 @@ public class DialogNode {
         this.options = options;
     }
 
-    public boolean isEsEnd() {
+    public boolean isEnd() {
         return isEnd;
     }
 

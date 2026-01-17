@@ -28,7 +28,7 @@ public class DialogDAO {
             return;
         }
 
-        Type type = new TypeToken<Map<String, Dialog>>() {}.getType();
+        Type type = new TypeToken<Map<String, Map<String, DialogNode>>>() {}.getType();
         allDialogs = gson.fromJson(new InputStreamReader(inputStream), type);
     }
 

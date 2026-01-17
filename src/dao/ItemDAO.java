@@ -58,7 +58,7 @@ public class ItemDAO {
     private static class ItemData{
         String name;
         String description;
-        int weight;
+        double weight;
         String type;
         int impact;
     }

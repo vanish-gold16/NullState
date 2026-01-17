@@ -3,16 +3,35 @@
     {
       "name": "Inhibitor",
       "description": "Vzácná a drahá ampule naplněná modrou tekutinou. Dočasně snižuje příznaky odmítnutí biočipu.",
-      "weight": "0.1",
+      "weight": 0.1,
       "type": "consumable",
-      "impact": "-20"
+      "impact": -20
     },
     {
       "name": "Pistole Militech",
       "description": "Standardní služební zbraň, která je těžká a spolehlivá. Bez ní jsou hráči v boji bezbranní.",
-      "weight": "1.5",
+      "weight": 1.5,
       "type": "weapon",
-      "impact": ""
+      "impact": 10
+    },
+    {
+      "name": "Starý kyberdeck",
+      "description": "Je to přenosné hackerské zařízení určené k prolomení jednoduchých systémů.",
+      "weight": 2.0,
+      "type": "weapon",
+      "impact": 10
+    },
+    {
+      "name": "Eurodolary",
+      "description": "Hlavní měna v Night City. Jedná se o digitální měnu uloženou na čipu.",
+      "weight": 0.0,
+      "type": "currency",
+      "impact": 0
+    },
+    {
+      "name": "Terminál",
+      "description": "Jedná se o počítačovou konzoli, která se připojuje přímo k lokálnímu serveru nebo softwaru, zabudovanou do zdi (například v metru nebo serverovně).",
+      "weight": 0,
     }
   ]
 }

@@ -4,11 +4,11 @@ public class Item {
 
     private String name;
     private String description;
-    private int weight;
+    private double weight;
     private String type;
     private int impact;
 
-    public Item(String name, String description, int weight, String type, int impact) {
+    public Item(String name, String description, double weight, String type, int impact) {
         this.name = name;
         this.description = description;
         this.weight = weight;
@@ -40,11 +40,11 @@ public class Item {
         this.description = description;
     }
 
-    public int getWeight() {
+    public double getWeight() {
         return weight;
     }
 
-    public void setWeight(int weight) {
+    public void setWeight(double weight) {
         this.weight = weight;
     }
 

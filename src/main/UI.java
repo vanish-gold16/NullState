@@ -1,16 +1,10 @@
 package main;
 
 import models.Location;
+import models.Player;
 
 public class UI {
 
-    private Location startingLocation =  new Location();
 
-    public void enteringLocation(){
 
-    }
-
-    public UI() {
-
-    }
 }

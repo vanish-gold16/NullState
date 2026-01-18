@@ -2,6 +2,7 @@ package models;
 
 import dao.NPCDAO;
 
+import java.util.Objects;
 import java.util.Random;
 
 public class NPC {
@@ -23,42 +24,42 @@ public class NPC {
     /**
      * interaction patterns for non-written dialogues
      */
-    public void randomInteraction(NPCDAO npcdao){
-        if(name == npcdao.getNPCByName("Bestie").name){
-            System.out.println("Hey, I'm busy now. Talk to me later");
+    public String randomInteraction(NPCDAO npcdao){
+        if(Objects.equals(name, npcdao.getNPCByName("Bestie").name)){
+            return "Hey, I'm busy now. Talk to me later";
         }
-        else if(name == npcdao.getNPCByName("Viktor").name){
-            System.out.println("VEX, go and do something with your biochip! Now!");
+        else if(Objects.equals(name, npcdao.getNPCByName("Viktor").name)){
+            return "VEX, go and do something with your biochip! Now!";
         }
-        else if(name == npcdao.getNPCByName("Kowalski").name){
-            System.out.println("Good luck with your work!");
+        else if(Objects.equals(name, npcdao.getNPCByName("Kowalski").name)){
+            return "Good luck with your work!";
         }
-        else if(name == npcdao.getNPCByName("Bezdomovec").name){
+        else if(Objects.equals(name, npcdao.getNPCByName("Bezdomovec").name)){
             int replica = random.nextInt(1, 4);
             if(replica == 1){
-                System.out.println("Spare some credits for a poor soul");
+                return "Spare some credits for a poor soul";
             }
             else if(replica == 2){
-                System.out.println("Hard path awaits you...");
+                return "Hard path awaits you...";
             }
             else{
-                System.out.println("Life is tough in this city");
+                return "Life is tough in this city";
             }
         }
-        else if(name == npcdao.getNPCByName("Enemies").name){
+        else if(Objects.equals(name, npcdao.getNPCByName("Enemies").name)){
             int replica = random.nextInt(1, 4);
             if(replica == 1){
-                System.out.println("You'll regret coming here!");
+                return "You'll regret coming here!";
             }
             else if(replica == 2){
-                System.out.println("This is our territory!");
+                return "This is our territory!";
             }
             else{
-                System.out.println("Prepare to fight!");
+                return "Prepare to fight!";
             }
         }
         else{
-            System.out.println("...");
+            return "...";
         }
     }
 

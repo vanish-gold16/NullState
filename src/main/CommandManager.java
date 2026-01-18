@@ -18,6 +18,7 @@ public class CommandManager {
     private static DialogDAO dialogDAO;
     private NPCDAO npcDAO;
     private LocationDAO locationDAO;
+    private SaveManager saveManager;
 
     private Player player;
     private Location currentLocation;
@@ -25,8 +26,11 @@ public class CommandManager {
     private Scanner scanner = new Scanner(System.in);
     private HashMap<String, Command> commands = new HashMap<>();
 
+    private boolean isExit;
 
     public CommandManager() {
+        saveManager = new SaveManager();
+        isExit = false;
         List<Item> inventory = new ArrayList<>();
         dialogDAO = new DialogDAO();
         npcDAO = new NPCDAO();
@@ -34,6 +38,25 @@ public class CommandManager {
         player = new Player(inventory);
         currentLocation = locationDAO.getLocationByName("Postranní úlička");
         inicialization();
+    }
+
+    public void saveGame(){
+        saveManager.saveGame(player, currentLocation.getName());
+    }
+
+    public void loadGame(){
+        // TODO
+    }
+
+    public boolean hasSave() {
+        return saveManager.saveExists();
+    }
+
+    public void start() {
+        inicialization();
+        do{
+            execute();
+        }while(!isExit);
     }
 
     /**
@@ -52,6 +75,20 @@ public class CommandManager {
         commands.put("pouzij", new Use());
         commands.put("utok", new Attack());
         commands.put("hackni", new Hack());
+    }
+
+    public void execute(){
+        System.out.println(">>");
+        String command = scanner.next();
+        command = command.trim().toLowerCase();
+
+        if(commands.containsKey(command)){
+            System.out.println(commands.get(command).execute());
+            isExit = commands.get(command).exit();
+        }
+        else{
+            System.out.println("Špatný příkaz, zadej znovu.");
+        }
     }
 
     public HashMap<String, Command> getCommands() {

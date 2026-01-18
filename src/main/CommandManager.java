@@ -2,6 +2,7 @@ package main;
 
 import commands.*;
 import dao.DialogDAO;
+import dao.LocationDAO;
 import dao.NPCDAO;
 import models.Item;
 import models.Location;
@@ -16,6 +17,7 @@ public class CommandManager {
 
     private static DialogDAO dialogDAO;
     private NPCDAO npcDAO;
+    private LocationDAO locationDAO;
 
     private Player player;
     private Location currentLocation;
@@ -66,5 +68,13 @@ public class CommandManager {
 
     public static DialogDAO getDialogDAO() {
         return dialogDAO;
+    }
+
+    public LocationDAO getLocationDAO() {
+        return locationDAO;
+    }
+
+    public void setCurrentLocation(Location currentLocation) {
+        this.currentLocation = currentLocation;
     }
 }

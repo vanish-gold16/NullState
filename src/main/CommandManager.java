@@ -7,6 +7,7 @@ import commands.Talk;
 import dao.DialogDAO;
 import dao.NPCDAO;
 import models.Location;
+import models.Player;
 
 import java.util.HashMap;
 import java.util.Scanner;
@@ -16,6 +17,7 @@ public class CommandManager {
     private static DialogDAO dialogDAO;
     private NPCDAO npcDAO;
 
+    private Player player;
     private Location currentLocation;
 
     private Scanner scanner = new Scanner(System.in);
@@ -31,6 +33,14 @@ public class CommandManager {
         //commands.put("jdi", )
         commands.put("vstup", new Enter());
         commands.put("talk", new Talk(this, dialogDAO));
+    }
+
+    public HashMap<String, Command> getCommands() {
+        return commands;
+    }
+
+    public Player getPlayer() {
+        return player;
     }
 
     public Scanner getScanner() {

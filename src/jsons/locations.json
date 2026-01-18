@@ -2,7 +2,7 @@
   "locations": [
     {
       "name": "Postranní úlička",
-      "description": "Temný, stísněný prostor mezi vysokými domy..."
+      "description": "Temný, stísněný prostor mezi vysokými domy...",
       "items": ["inhibitor"],
       "npcs": ["Bezdomověc"],
       "exits": {
@@ -11,7 +11,7 @@
     },
     {
       "name": "Trh v Malé Číně",
-      "description": "Srdce čtvrti, ozářené neony a plné lidí. Všude hluk a blikající reklamy na implantáty. "
+      "description": "Srdce čtvrti, ozářené neony a plné lidí. Všude hluk a blikající reklamy na implantáty. ",
       "items": ["Žádné předměty"],
       "npcs": ["Žádné NPC"],
       "exits": {

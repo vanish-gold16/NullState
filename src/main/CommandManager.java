@@ -25,12 +25,18 @@ public class CommandManager {
     private Scanner scanner = new Scanner(System.in);
     private HashMap<String, Command> commands = new HashMap<>();
 
+    static {
+        Location startLocation = new Location("")
+    }
+
     public CommandManager() {
         List<Item> inventory = new ArrayList<>();
         dialogDAO = new DialogDAO();
         npcDAO = new NPCDAO();
+        locationDAO = new LocationDAO();
         player = new Player(inventory);
-        currentLocation = new Location("Vstupni hala", "Jsi ve vstupni hale hradu.", false);
+        // TODO: nastavit aktualni lokaci na zacatek hry
+        currentLocation = new Location("Postranní úlička");
         inicialization();
     }
 
@@ -41,9 +47,10 @@ public class CommandManager {
         // commands.put("pomoc", )
         commands.put("exit", new Exit());
         commands.put("status", new Status(this));
-        //commands.put("jdi", )
+        commands.put("jdi", new Go(this));
         commands.put("vstup", new Enter());
         commands.put("talk", new Talk(this, dialogDAO));
+        commands.put("prozkoumej", )
     }
 
     public HashMap<String, Command> getCommands() {

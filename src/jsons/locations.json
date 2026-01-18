@@ -51,7 +51,7 @@
     {
       "name": "Tunely metra",
       "description": "Temné, vlhké chodby, kde pobíhají krysy. Ze stropu visí kabely a jiskří.",
-      "items": [""],
+      "items": ["Zápisky netrunnera", "Zápisky neznámého bojovníka 2. korporativní války", "Inhibitor", "Archivní fotka", "Starý nepřátelský AI"],
       "npcs": ["Strážce Bergestu"],
       "exits": {
         "sever": "Dogtown"
@@ -69,8 +69,8 @@
     {
       "name": "Opuštěná budová",
       "description": "Vstupní hala bývalé korporátní budovy, dnes v ruinách. Prach a ticho.",
-      "items": [""],
-      "npcs": [""],
+      "items": ["Žádné předměty"],
+      "npcs": ["Žádné NPC"],
       "exits": {
         "sever": "Serverovna"
       }

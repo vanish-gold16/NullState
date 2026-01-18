@@ -25,9 +25,6 @@ public class CommandManager {
     private Scanner scanner = new Scanner(System.in);
     private HashMap<String, Command> commands = new HashMap<>();
 
-    static {
-        Location startLocation = new Location("")
-    }
 
     public CommandManager() {
         List<Item> inventory = new ArrayList<>();
@@ -35,8 +32,7 @@ public class CommandManager {
         npcDAO = new NPCDAO();
         locationDAO = new LocationDAO();
         player = new Player(inventory);
-        // TODO: nastavit aktualni lokaci na zacatek hry
-        currentLocation = new Location("Postranní úlička");
+        currentLocation = locationDAO.getLocationByName("Postranní úlička");
         inicialization();
     }
 

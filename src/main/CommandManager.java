@@ -49,11 +49,12 @@ public class CommandManager {
         commands.put("status", new Status(this));
         commands.put("jdi", new Go(this));
         commands.put("vstup", new Enter());
-        commands.put("talk", new Talk(this, dialogDAO));
+        commands.put("mluv", new Talk(this, dialogDAO));
         commands.put("prozkoumej", new Examine());
         commands.put("vezmi", new Take());
         commands.put("poloz", new Drop());
         commands.put("pouzij", new Use());
+        commands.put("utok", new Attack());
     }
 
     public HashMap<String, Command> getCommands() {

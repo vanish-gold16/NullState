@@ -1,9 +1,6 @@
 package main;
 
-import commands.Command;
-import commands.Enter;
-import commands.Exit;
-import commands.Talk;
+import commands.*;
 import dao.DialogDAO;
 import dao.NPCDAO;
 import models.Item;
@@ -41,7 +38,7 @@ public class CommandManager {
     public void inicialization() {
         // commands.put("pomoc", )
         commands.put("exit", new Exit());
-        // commands.put("status", )
+        commands.put("status", new Status(this));
         //commands.put("jdi", )
         commands.put("vstup", new Enter());
         commands.put("talk", new Talk(this, dialogDAO));

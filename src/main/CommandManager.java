@@ -52,7 +52,8 @@ public class CommandManager {
         commands.put("talk", new Talk(this, dialogDAO));
         commands.put("prozkoumej", new Examine());
         commands.put("vezmi", new Take());
-        commands.put("poloz", )
+        commands.put("poloz", new Drop());
+        commands.put("pouzij", new Use());
     }
 
     public HashMap<String, Command> getCommands() {

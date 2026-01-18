@@ -30,7 +30,7 @@ public class CommandManager {
         // commands.put("status", )
         //commands.put("jdi", )
         commands.put("vstup", new Enter());
-        commands.put("talk", new Talk(dialogDAO));
+        commands.put("talk", new Talk(this, dialogDAO));
     }
 
     public Scanner getScanner() {

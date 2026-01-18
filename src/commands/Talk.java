@@ -72,8 +72,4 @@ public class Talk implements Command{
         this.commandManager = commandManager;
         this.dialogDAO = dialogDAO;
     }
-
-    public Talk(DialogDAO dialogDAO) {
-        this.dialogDAO = dialogDAO;
-    }
 }

@@ -12,7 +12,7 @@ public class Location {
     private List<NPC> npcs = new ArrayList<>();
     private HashMap<String, Location> exits = new HashMap<>();
 
-    public Location(String name, String description, List<Item> locationItems, List<NPC> npcs, HashMap<String, Location> exits) {++-
+    public Location(String name, String description, List<Item> locationItems, List<NPC> npcs, HashMap<String, Location> exits) {
         this.name = name;
         this.description = description;
         this.locationItems = locationItems;

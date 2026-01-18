@@ -23,6 +23,16 @@ public class Go implements Command{
         return false;
     }
 
+    private String normalizeDirection(String input){
+        return switch (input){
+            case "s", "sever" -> "sever";
+            case "j", "jih" -> "jih";
+            case "v", "vychod" -> "vychod";
+            case "z", "zapad" -> "zapad";
+            default -> input;
+        };
+    }
+
     private String showAvailibleExits() {
         Location currentLocation = commandManager.getCurrentLocation();
         Map<String, Location> exits = currentLocation.getExits();

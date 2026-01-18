@@ -55,6 +55,7 @@ public class CommandManager {
         commands.put("poloz", new Drop());
         commands.put("pouzij", new Use());
         commands.put("utok", new Attack());
+        commands.put("hackni", new Hack());
     }
 
     public HashMap<String, Command> getCommands() {

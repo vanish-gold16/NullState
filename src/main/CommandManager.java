@@ -6,10 +6,13 @@ import commands.Exit;
 import commands.Talk;
 import dao.DialogDAO;
 import dao.NPCDAO;
+import models.Item;
 import models.Location;
 import models.Player;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Scanner;
 
 public class CommandManager {
@@ -22,6 +25,15 @@ public class CommandManager {
 
     private Scanner scanner = new Scanner(System.in);
     private HashMap<String, Command> commands = new HashMap<>();
+
+    public CommandManager() {
+        List<Item> inventory = new ArrayList<>();
+        dialogDAO = new DialogDAO();
+        npcDAO = new NPCDAO();
+        player = new Player(inventory);
+        currentLocation = new Location("Vstupni hala", "Jsi ve vstupni hale hradu.", false);
+        inicialization();
+    }
 
     /**
      * initializing commands

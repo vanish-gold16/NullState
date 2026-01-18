@@ -2,7 +2,7 @@
   "npcs": [
     {
       "name": "Glitch",
-      "description": "Glitch je Vexův nejlepší přítel a geniální hacker, ale momentálně je nezvěstný. Nosí netrunnerský overal a na hlavě má připevněný kabel. S dlouhými vlasy vypadá rozcuchaně."
+      "description": "Glitch je Vexův nejlepší přítel a geniální hacker, ale momentálně je nezvěstný. Nosí netrunnerský overal a na hlavě má připevněný kabel. S dlouhými vlasy vypadá rozcuchaně.",
       "affiliation": "Independent",
       "location": "Serverovna"
     },

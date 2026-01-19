@@ -5,6 +5,11 @@ import com.google.gson.GsonBuilder;
 import models.Player;
 import models.SaveData;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 public class SaveManager {
 
     private static final String SAVE_FILE = "src/jsons/save.json";
@@ -12,7 +17,14 @@ public class SaveManager {
 
     public SaveManager() {
         gson = new GsonBuilder().setPrettyPrinting().create();
-        // TODO
+        try{
+            Path savePath = Paths.get(SAVE_FILE).toAbsolutePath();
+            if(savePath.getParent() != null){
+                Files.createDirectories(savePath.getParent());
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void saveGame(Player player, String locationName) {

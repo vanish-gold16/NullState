@@ -1,27 +1,32 @@
 package main;
 
 import models.Location;
-import models.Player;
-
-import java.util.Scanner;
 
 public class UI {
 
     private CommandManager commandManager;
-    private Scanner scanner;
     private boolean running;
 
     public UI(){
-        // TODO: initialize
+        commandManager = new CommandManager();
+        running = false;
     }
 
     /**
      * Starts the application
      */
     public void start(){
-        // TODO: starting of the app
+        running = true;
+        Location location = commandManager.getCurrentLocation();
+        if(location != null){
+            System.out.println(location.getName());
+            System.out.println(location.getDescription());
+        }
+        commandManager.start();
+        running = false;
     }
 
-
-
+    public boolean isRunning() {
+        return running;
+    }
 }

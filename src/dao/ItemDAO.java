@@ -2,8 +2,6 @@ package dao;
 
 import com.google.gson.Gson;
 import models.Item;
-import models.Location;
-
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.HashMap;

@@ -1,7 +1,7 @@
 package dao;
 
 import com.google.gson.Gson;
-import models.Location;
+import com.google.gson.JsonElement;
 import models.NPC;
 
 import java.nio.file.Files;
@@ -15,7 +15,7 @@ public class NPCDAO {
     private Map<String, NPC> npcs = new HashMap<>();
 
     public NPCDAO() {
-        loadNPCsFromFile("npcs.json");
+        loadNPCsFromFile("src/jsons/npcs.json");
     }
 
     /**
@@ -27,12 +27,15 @@ public class NPCDAO {
             String json = new String(Files.readAllBytes(Paths.get(filePath)));
             Gson gson = new Gson();
             NPCWrapper npcWrapper = gson.fromJson(json,NPCWrapper.class);
+            if(npcWrapper == null || npcWrapper.npcs == null){
+                return;
+            }
             for(NPCData data: npcWrapper.npcs){
                 NPC npc = new NPC(
                         data.name,
                         data.description,
                         data.affiliation,
-                        data.location
+                        null
                 );
                 npcs.put(data.name, npc);
             }
@@ -53,7 +56,7 @@ public class NPCDAO {
         String name;
         String description;
         String affiliation;
-        Location location;
+        JsonElement location;
     }
 
 }

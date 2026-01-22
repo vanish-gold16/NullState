@@ -97,7 +97,7 @@ public class CommandManager {
         commands.put("mluv", new Talk(this, dialogDAO));
         commands.put("prozkoumej", new Examine());
         commands.put("vezmi", new Take());
-        commands.put("poloz", new Drop());
+        commands.put("poloz", new Drop(this));
         commands.put("pouzij", new Use());
         commands.put("utok", new Attack());
         commands.put("hackni", new Hack());

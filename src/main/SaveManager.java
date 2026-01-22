@@ -64,8 +64,15 @@ public class SaveManager {
         }
     }
 
+    /**
+     * Deletes the saves if exists
+     */
     public void deleteSave() {
-        // TODO
+        try{
+            Files.deleteIfExists(Paths.get(SAVE_FILE));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public boolean saveExists() {

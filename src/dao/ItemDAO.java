@@ -6,15 +6,16 @@ import models.Location;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class ItemDAO {
 
-    private Map<String, Item> itemsDatabase;
+    private Map<String, Item> itemsDatabase = new HashMap<>();
 
     public ItemDAO() {
-        loadItemsFromFile("items.json");
+        loadItemsFromFile("src/jsons/items.json");
     }
 
     /**

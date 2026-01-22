@@ -1,6 +1,8 @@
 package dao;
 
 import models.Location;
+import models.Item;
+import models.NPC;
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -14,9 +16,13 @@ import java.util.Map;
 public class LocationDAO {
 
     private Map<String, Location> locations = new HashMap<>();
+    private ItemDAO itemDAO;
+    private NPCDAO npcDAO;
 
     public LocationDAO() {
-        loadLocationsFromFile("locations.json");
+        itemDAO = new ItemDAO();
+        npcDAO = new NPCDAO();
+        loadLocationsFromFile("src/jsons/locations.json");
     }
 
     /**
@@ -29,6 +35,10 @@ public class LocationDAO {
             Gson gson = new Gson();
             LocationWrapper wrapper = gson.fromJson(json, LocationWrapper.class);
 
+            if(wrapper == null || wrapper.locations == null){
+                return;
+            }
+
             for(LocationData data : wrapper.locations){
                 Location loc = new Location(
                         data.name,
@@ -38,6 +48,43 @@ public class LocationDAO {
                         new HashMap<>()
                 );
                 locations.put(data.name, loc);
+            }
+
+            for(LocationData data : wrapper.locations){
+                Location loc = locations.get(data.name);
+                if(loc == null) continue;
+
+                List<Item> items = new ArrayList<>();
+                if(data.items != null){
+                    for(String itemName : data.items){
+                        Item item = itemDAO.getItemByName(itemName);
+                        if(item != null){
+                            items.add(item);
+                        }
+                    }
+                }
+                loc.setLocationItems(items);
+
+                List<NPC> npcs = new ArrayList<>();
+                if(data.npcs != null){
+                    for(String npcName : data.npcs){
+                        NPC npc = npcDAO.getNPCByName(npcName);
+                        if(npc != null){
+                            npcs.add(npc);
+                        }
+                    }
+                }
+                loc.setNpcs(npcs);
+
+                Map<String, String> exits = new HashMap<>();
+                if(data.exits != null){
+                    for(Map.Entry<String, String> entry : data.exits.entrySet()){
+                        if(locations.containsKey(entry.getValue())){
+                            exits.put(entry.getKey(), entry.getValue());
+                        }
+                    }
+                }
+                loc.setExits(exits);
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -62,7 +109,7 @@ public class LocationDAO {
         String description;
         List<String> items;
         List<String> npcs;
-        Map<String, Location> exits;
+        Map<String, String> exits;
     }
 
 }

@@ -16,7 +16,7 @@ public class Go implements Command{
         if(args.isEmpty()) return showAvailibleExits();
 
         Location currentLocation = commandManager.getCurrentLocation();
-        Map<String, Location> exits = currentLocation.getExits();
+        Map<String, String> exits = currentLocation.getExits();
 
         if(exits == null || exits.isEmpty()) return "V této lokaci nejsou žádné východy.";
 
@@ -26,7 +26,7 @@ public class Go implements Command{
             return "Tam nemůžeš.\n" + showAvailibleExits();
         }
 
-        String nextLocationName = String.valueOf(exits.get(direction));
+        String nextLocationName = exits.get(direction);
         Location nextLocation = commandManager.getLocationDAO().getLocationByName(nextLocationName);
 
         if(nextLocation == null) return "Tato lokace neexistuje.";
@@ -53,7 +53,7 @@ public class Go implements Command{
 
     private String showAvailibleExits() {
         Location currentLocation = commandManager.getCurrentLocation();
-        Map<String, Location> exits = currentLocation.getExits();
+        Map<String, String> exits = currentLocation.getExits();
 
         if(exits == null || exits.isEmpty()) return "V této lokaci nejsou žádné východy.";
 

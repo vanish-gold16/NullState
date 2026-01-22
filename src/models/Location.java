@@ -1,8 +1,8 @@
 package models;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Location {
 
@@ -10,9 +10,9 @@ public class Location {
     private String description;
     private List<Item> locationItems = new ArrayList<>();
     private List<NPC> npcs = new ArrayList<>();
-    private HashMap<String, Location> exits = new HashMap<>();
+    private Map<String, String> exits;
 
-    public Location(String name, String description, List<Item> locationItems, List<NPC> npcs, HashMap<String, Location> exits) {
+    public Location(String name, String description, List<Item> locationItems, List<NPC> npcs, Map<String, String> exits) {
         this.name = name;
         this.description = description;
         this.locationItems = locationItems;
@@ -52,11 +52,11 @@ public class Location {
         this.npcs = npcs;
     }
 
-    public HashMap<String, Location> getExits() {
+    public Map<String, String> getExits() {
         return exits;
     }
 
-    public void setExits(HashMap<String, Location> exits) {
+    public void setExits(Map<String, String> exits) {
         this.exits = exits;
     }
 }

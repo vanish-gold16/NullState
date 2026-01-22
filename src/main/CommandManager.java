@@ -95,12 +95,13 @@ public class CommandManager {
         commands.put("jdi", new Go(this));
         commands.put("vstup", new Enter());
         commands.put("mluv", new Talk(this, dialogDAO));
-        commands.put("prozkoumej", new Examine());
-        commands.put("vezmi", new Take());
+        commands.put("prozkoumej", new Examine(this));
+        commands.put("vezmi", new Take(this));
         commands.put("poloz", new Drop(this));
-        commands.put("pouzij", new Use());
-        commands.put("utok", new Attack());
-        commands.put("hackni", new Hack());
+        commands.put("pouzij", new Use(this));
+        commands.put("utok", new Attack(this));
+        commands.put("hackni", new Hack(this));
+        commands.put("help", new Help(this));
     }
 
     public void execute(){

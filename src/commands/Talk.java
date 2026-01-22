@@ -29,7 +29,7 @@ public class Talk implements Command{
             return "Tento NPC zde není.";
         }
 
-        Map<String, DialogNode> dialogNodes = dialogDAO.getDialogForNPC(npcName);
+        Map<String, DialogueNode> dialogNodes = dialogDAO.getDialogForNPC(npcName);
         if(dialogNodes == null) {
             return npc.randomInteraction(commandManager.getNpcDAO());
         }
@@ -48,12 +48,12 @@ public class Talk implements Command{
 
             try{
                 int choice = Integer.parseInt(input);
-                DialogNode currentNode = interaction.getCurrentNode();
+                DialogueNode currentNode = interaction.getCurrentNode();
                 if(choice < 1 || choice > currentNode.getOptions().size()){
                     System.out.println("Neplatná volba.");
                     continue;
                 }
-                DialogOption selectedOption = currentNode.getOptions().get(choice - 1);
+                DialogueOption selectedOption = currentNode.getOptions().get(choice - 1);
                 interaction.setCurrentNodeId(selectedOption.getNextDialogNodeId());
             } catch(NumberFormatException e){
                 System.out.println("Zadej číslo odpovědi.");

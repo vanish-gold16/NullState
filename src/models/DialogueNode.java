@@ -2,14 +2,14 @@ package models;
 
 import java.util.List;
 
-public class DialogNode {
+public class DialogueNode {
 
     private int id;
     private String npcText;
-    private List<DialogOption> options;
+    private List<DialogueOption> options;
     private boolean isEnd;
 
-    public DialogNode(int id, String npcText, List<DialogOption> options) {
+    public DialogueNode(int id, String npcText, List<DialogueOption> options) {
         this.id = id;
         this.npcText = npcText;
         this.options = options;
@@ -32,11 +32,11 @@ public class DialogNode {
         this.npcText = npcText;
     }
 
-    public List<DialogOption> getOptions() {
+    public List<DialogueOption> getOptions() {
         return options;
     }
 
-    public void setOptions(List<DialogOption> options) {
+    public void setOptions(List<DialogueOption> options) {
         this.options = options;
     }
 

@@ -5,11 +5,11 @@ import java.util.Map;
 
 public class Interaction {
 
-    private Map<String, DialogNode> dialogNodes;
+    private Map<String, DialogueNode> dialogNodes;
     private String currentNodeId;
     private boolean active;
 
-    public Interaction(Map<String, DialogNode> dialogNodes) {
+    public Interaction(Map<String, DialogueNode> dialogNodes) {
         this.dialogNodes = dialogNodes;
         this.currentNodeId = "start";
         this.active = false;
@@ -20,12 +20,12 @@ public class Interaction {
         this.active = true;
     }
 
-    public DialogNode getCurrentNode(){
+    public DialogueNode getCurrentNode(){
         return dialogNodes.get(currentNodeId);
     }
 
     public String displayCurrentNode(){
-        DialogNode node = getCurrentNode();
+        DialogueNode node = getCurrentNode();
         if(node == null){
             active = false;
             return "Konec dialogu.";
@@ -39,7 +39,7 @@ public class Interaction {
             return sb.toString();
         }
 
-        List<DialogOption> options = node.getOptions();
+        List<DialogueOption> options = node.getOptions();
         for(int i = 0; i < options.size(); i++){
             sb.append(String.format("[%d] %s\n", i + 1, options.get(i).getText()));
         }
@@ -55,11 +55,11 @@ public class Interaction {
         this.active = active;
     }
 
-    public Map<String, DialogNode> getDialogNodes() {
+    public Map<String, DialogueNode> getDialogNodes() {
         return dialogNodes;
     }
 
-    public void setDialogNodes(Map<String, DialogNode> dialogNodes) {
+    public void setDialogNodes(Map<String, DialogueNode> dialogNodes) {
         this.dialogNodes = dialogNodes;
     }
 

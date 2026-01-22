@@ -1,11 +1,11 @@
 package models;
 
-public class DialogOption {
+public class DialogueOption {
 
     private String text;
     private String nextDialogNodeId;
 
-    public DialogOption(String text, String nextDialogNodeId) {
+    public DialogueOption(String text, String nextDialogNodeId) {
         this.text = text;
         this.nextDialogNodeId = nextDialogNodeId;
     }

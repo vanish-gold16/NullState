@@ -75,8 +75,12 @@ public class SaveManager {
         }
     }
 
+    /**
+     * Checks if a save file exists.
+     * @return true if yes, false otherwise
+     */
     public boolean saveExists() {
-        // TODO
+        return Files.exists(Paths.get(SAVE_FILE));
     }
 
 }

@@ -48,8 +48,20 @@ public class SaveManager {
         }
     }
 
+    /**
+     * Loads the saved game data from the save file.
+     * @return SaveData object containing the loaded game data
+     */
     public SaveData loadGame() {
-        // TODO
+        if(!saveExists()){
+            return null;
+        }
+        try{
+            String json = Files.readString(Paths.get(SAVE_FILE));
+            return gson.fromJson(json, SaveData.class);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void deleteSave() {

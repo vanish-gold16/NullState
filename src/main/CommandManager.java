@@ -2,11 +2,13 @@ package main;
 
 import commands.*;
 import dao.DialogDAO;
+import dao.ItemDAO;
 import dao.LocationDAO;
 import dao.NPCDAO;
 import models.Item;
 import models.Location;
 import models.Player;
+import models.SaveData;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -45,7 +47,31 @@ public class CommandManager {
     }
 
     public void loadGame(){
-        // TODO
+        SaveData saveData = saveManager.loadGame();
+        if(saveData == null){
+            return;
+        }
+
+        Location savedLocation = locationDAO.getLocationByName(saveData.getCurrentLocationName());
+        if(savedLocation != null){
+            currentLocation = savedLocation;
+        }
+
+        player.setEddie(saveData.getMoney());
+        player.setCyberpsychosisLevel(saveData.getCyberpsychosis());
+
+        ItemDAO itemDAO = new ItemDAO();
+        List<Item> inventory = new ArrayList<>();
+        if(saveData.getInventoryItemNames() != null){
+            for(String itemName : saveData.getInventoryItemNames()){
+                Item item = itemDAO.getItemByName(itemName);
+                if(item != null){
+                    inventory.add(item);
+                }
+            }
+        }
+        player.getInventory().clear();
+        player.getInventory().addAll(inventory);
     }
 
     public boolean hasSave() {

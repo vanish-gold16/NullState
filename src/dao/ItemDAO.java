@@ -28,6 +28,10 @@ public class ItemDAO {
             Gson gson = new Gson();
             ItemsWrapper itemsWrapper = gson.fromJson(json, ItemsWrapper.class);
 
+            if(itemsWrapper == null || itemsWrapper.items == null){
+                return;
+            }
+
             for(ItemData data : itemsWrapper.items){
                 Item item = new Item(
                         data.name,

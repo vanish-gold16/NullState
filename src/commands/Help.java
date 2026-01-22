@@ -1,16 +1,28 @@
 package commands;
 
+import main.CommandManager;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class Help implements Command{
 
-    //TODO - implement in-game level design help
+    private CommandManager commandManager;
 
     @Override
     public String execute() {
-        return "";
+        List<String> names = new ArrayList<>(commandManager.getCommands().keySet());
+        Collections.sort(names);
+        return "Dostupné příkazy: " + String.join(", ", names);
     }
 
     @Override
     public boolean exit() {
         return false;
+    }
+
+    public Help(CommandManager commandManager) {
+        this.commandManager = commandManager;
     }
 }

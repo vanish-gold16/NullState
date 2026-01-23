@@ -25,5 +25,70 @@
       "options": [],
       "end": true
     }
+  },
+  "Bestie": {
+    "start": {
+      "npcText": "No koho vidím. Zdravím Vexi.",
+      "options": [
+        {"text": "Nálehavě potřebuju tvou pomoc! Umíram.", "nextDialogNodeId": "smalltalk"},
+        {"text": "Zatím nic", "nextDialogNodeId": "end"}
+      ],
+      "end": false
+    },
+    "smalltalk": {
+      "npcText": "Tak co bys potřeboval? Jak víš, zadarmo nic nedělam, i když jsi ve špatném stavu.",
+      "options": [
+        {"text": "Vím. Potřeboval bych dozvědět informace o Glitchovi", "nextDialogNodeId": "info"},
+        {"text": "Moc peněz nemám", "nextDialogNodeId": "info"}
+      ],
+      "end": false
+    },
+    "info": {
+      "npcText": "Hm. O svém kamaradovi? Něco se stalo? Hele, mně je to jedno. Řikám rovnou: ude to stát 15 tisíc.",
+      "options": [
+        {"text": "Sakra.",
+          "nextDialogNodeId": ""
+        },
+        {"text": "Popřemýšlím o tom (Ven)", "nextDialogNodeId": "end"}
+      ],
+      "end": true
+    },
+    "negotiation": {
+        "npcText": "Když je to až tak špatný tak můžu ti nabidnout praci. Ale nebude snadná, to ti řikam rovnou",
+        "options": [
+          {"text": "Popřemýšlím o tom (Ven)", "nextDialogNodeId": "end"}
+        ],
+        "end": false
+      }
+    },
+    "second": {
+      "npcText": "Tak zase. Co rozmýslel ses, Vexi?",
+      "options": [
+        {
+          "text": "Ano, mám peníze. (zaplátit 15000)",
+          "nextDialogNodeId": "pay"
+        },
+        {
+          "text": "Ne, tolik peněz nemám. (zahájit quest)",
+          "nextDialogNodeId": "job"
+        }
+      ],
+      "end": false
+    },
+    "pay": {
+      "npcText": "Věděla jsem, že jsi chytrej. Neplýtváš časem.",
+      "options": [
+        {"text": "Tak povídej už.", "nextDialogNodeId": "full"}
+      ],
+      "end": false
+    },
+    "job": {
+      "npcText": ""
+    },
+    "end": {
+      "npcText": "Opatruj se, Vexi.",
+      "options": [],
+      "end": true
+    }
   }
 }

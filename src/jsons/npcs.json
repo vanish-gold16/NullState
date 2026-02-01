@@ -31,16 +31,28 @@
       "location": "Postranní úlička"
     },
     {
-      "name": "Strážce Arasaky",
+      "name": "Strážce Arasaky - Metro",
       "description": "Jsou to anonymní hrozby, které blokují tvůj postup.",
       "affiliation": "Arasaka",
-      "location": ["Vstup do metra", "Koncovka"]
+      "location": "Vstup do metra"
     },
     {
-      "name": "Strážce Bergestu",
+      "name": "Strážce Arasaky - Koncovka",
+      "description": "Jsou to anonymní hrozby, které blokují tvůj postup.",
+      "affiliation": "Arasaka",
+      "location": "Koncovka"
+    },
+    {
+      "name": "Strážce Bergestu - Tunely",
       "description": "Jsou to anonymní hrozby, které blokují tvůj postup.",
       "affiliation": "Bergest",
-      "location": ["Tunely metra", "Dogtown"]
+      "location": "Tunely metra"
+    },
+    {
+      "name": "Strážce Bergestu - Dogtown",
+      "description": "Jsou to anonymní hrozby, které blokují tvůj postup.",
+      "affiliation": "Bergest",
+      "location": "Dogtown"
     }
   ]
 }

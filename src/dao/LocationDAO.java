@@ -70,6 +70,9 @@ public class LocationDAO {
                     for(String npcName : data.npcs){
                         NPC npc = npcDAO.getNPCByName(npcName);
                         if(npc != null){
+                            if(npc.getLocation() == null){
+                                npc.setLocation(loc);
+                            }
                             npcs.add(npc);
                         }
                     }

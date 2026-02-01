@@ -89,6 +89,130 @@
       "npcText": "Opatruj se, Vexi.",
       "options": [],
       "end": true
+    },
+  "Mike Kowalski": {
+    "start": {
+      "npcText": "Čau Vexi, dlouho jsme se neviděli.",
+      "options": [
+        {
+          "text": "Ahoj Mike. Jak se máš?",
+          "nextDialogNodeId": "smalltalk"
+        },
+        {
+          "text": "Zatím nic",
+          "nextDialogNodeId": "end"
+        }
+      ],
+      "end": false
+    },
+    "smalltalk": {
+      "npcText": "No víš jak, dny plynou. Co ty? Jak se vede?",
+      "options": [
+        {
+          "text": "No moc dobře to není (Povíst mu své nedávné zprávy)",
+          "nextDialogNodeId": "sympathy"
+        }
+      ],
+      "end": false
+    },
+    "sympathy": {
+      "npcText": "To mě mrzí.. Kdybys něco potřeboval, dej vědět.",
+      "options": [
+        {
+          "text": "Díky, vážím si toho.",
+          "nextDialogNodeId": "end"
+        }
+      ],
+      "end": false
+    },
+    "end": {
+      "npcText": "Měj se, Vexi.",
+      "options": [],
+      "end": true
+    },
+    "Bezdomovec": {
+      "start": {
+        "npcText": "Snažiš se jenom oddálit nevyhnutelné. Ale osud tě nastihne",
+        "options": [
+          {
+            "text": "Kdo jsi?.",
+            "nextDialogNodeId": "whoareyou"
+          },
+          {
+            "text": "(Ignorovat ho)",
+            "nextDialogNodeId": "end"
+          }
+        ],
+        "end": false
+      },
+      "whoareyou": {
+        "npcText": "Jsem ten, kdo ví všechno a nic. Mužů odpovědět na jednu otázku",
+        "options": [
+          {
+            "text": "Jak dlouho ještě budu žít? Co se se mnou děje?",
+            "nextDialogNodeId": "end"
+          },
+          {
+            "text": "Jak přežít tuhle bouři?",
+            "nextDialogNodeId": "real"
+          },
+          {
+            "text": "Co mám dělat?",
+            "nextDialogNodeId": "whatdoido"
+          }
+        ],
+        "end": false
+      },
+      "real": {
+        "npcText": "Nechej ji projít. A zůstaň tím, kým ses rozhodl být.",
+        "options": [
+          {
+            "text": "(Odejít)",
+            "nextDialogNodeId": "end"
+          }
+        ],
+        "end": true
+      },
+      "whatdoido": {
+        "npcText": "Dělej to jediné, co má v Night City cenu: jdi po stopách a drž se svýho kodexu. Jdi do Afterlife. Najdi Bestii. ",
+        "options": [
+          {
+            "text": "(Odejít)",
+            "nextDialogNodeId": "end"
+          }
+        ],
+        "end": true
+      },
+      "end": {
+        "npcText": "Ještě se uvidíme.",
+        "options": [],
+        "end": true
+      }
+    },
+    "Glitch": {
+      "start": {
+        "npcText": "Hele… chápu, že je to teď pro tebe peklo. Ale mně zbývají minuty. Pár posledních. Pomůžeš mi? ",
+        "options": [
+          {
+            "text": "Neodpustím ti… (smířit se)",
+            "nextDialogNodeId": "end"
+          },
+          {
+            "text": "Pomůžu ti. (obětovat se pro Glicha)",
+            "nextDialogNodeId": "end"
+          },
+          {
+            "text": "Seru na vás na všechny. (ahoj, 2020)",
+            "nextDialogNodeId": "end"
+          }
+        ],
+        "end": true
+      },
+      "end": {
+        "npcText": "...",
+        "options": [],
+        "end": true
+      }
     }
   }
 }

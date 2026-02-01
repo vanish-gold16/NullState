@@ -4,7 +4,6 @@ import main.CommandManager;
 import models.Item;
 import models.Player;
 
-import java.util.Iterator;
 import java.util.List;
 
 public class Use implements Command{
@@ -15,33 +14,23 @@ public class Use implements Command{
     public String execute() {
         String args = commandManager.getScanner().nextLine().trim();
         if(args.isEmpty()){
-            return "Zadej název předmětu. Použití: pouzij <predmet>";
+            return "Zadej nazev predmetu. Pouziti: pouzij <predmet>";
         }
 
         Player player = commandManager.getPlayer();
         List<Item> inventory = player.getInventory();
         if(inventory.isEmpty()){
-            return "Inventář je prázdný.";
+            return "Inventar je prazdny.";
         }
 
-        Item found = null;
-        Iterator<Item> iterator = inventory.iterator();
-        while(iterator.hasNext()){
-            Item item = iterator.next();
-            if(item.getName().equalsIgnoreCase(args)){
-                found = item;
-                iterator.remove();
-                break;
-            }
-        }
-
+        Item found = player.removeItemByName(args);
         if(found == null){
-            return "Tento předmět nemáš.";
+            return "Tento predmet nemas.";
         }
 
         if(!"consumable".equalsIgnoreCase(found.getType())){
-            inventory.add(found);
-            return "Tento předmět nelze použit.";
+            player.addItem(found);
+            return "Tento predmet nelze pouzit.";
         }
 
         int impact = found.getImpact();
@@ -59,7 +48,7 @@ public class Use implements Command{
             player.setCyberpsychosisLevel(newLevel);
         }
 
-        return "Použil jsi: " + found.getName();
+        return "Pouzil jsi: " + found.getName();
     }
 
     @Override

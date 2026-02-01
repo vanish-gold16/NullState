@@ -3,7 +3,6 @@ package commands;
 import main.CommandManager;
 import models.Item;
 
-import java.util.Iterator;
 import java.util.List;
 
 public class Take implements Command{
@@ -14,26 +13,18 @@ public class Take implements Command{
     public String execute() {
         String args = commandManager.getScanner().nextLine().trim();
         if(args.isEmpty()){
-            return "Zadej název předmetu. Použití: vezmi <predmet>";
-        }
-
-        List<Item> inventory = commandManager.getPlayer().getInventory();
-        if(inventory.size() >= 2){
-            return "Inventář je plny.";
+            return "Zadej nazev predmetu. Pouziti: vezmi <predmet>";
         }
 
         List<Item> items = commandManager.getCurrentLocation().getLocationItems();
         if(items == null || items.isEmpty()){
-            return "Na lokaci nejsou žádné předměty.";
+            return "Na lokaci nejsou zadne predmety.";
         }
 
         Item found = null;
-        Iterator<Item> iterator = items.iterator();
-        while(iterator.hasNext()){
-            Item item = iterator.next();
+        for(Item item : items){
             if(item.getName().equalsIgnoreCase(args)){
                 found = item;
-                iterator.remove();
                 break;
             }
         }
@@ -42,7 +33,11 @@ public class Take implements Command{
             return "Tento predmet tu neni.";
         }
 
-        inventory.add(found);
+        if(!commandManager.getPlayer().addItem(found)){
+            return "Inventar je plny.";
+        }
+
+        items.remove(found);
         return "Vzal jsi: " + found.getName();
     }
 

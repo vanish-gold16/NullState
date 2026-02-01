@@ -3,7 +3,6 @@ package commands;
 import main.CommandManager;
 import models.Item;
 
-import java.util.Iterator;
 import java.util.List;
 
 public class Drop implements Command{
@@ -17,31 +16,21 @@ public class Drop implements Command{
     public String execute() {
         String args = commandManager.getScanner().nextLine().trim();
         if(args.isEmpty()){
-            return "Zadej název předmětu. Použití: poloz <predmet>";
+            return "Zadej nazev predmetu. Pouziti: poloz <predmet>";
         }
 
         List<Item> inventory = commandManager.getPlayer().getInventory();
         if(inventory.isEmpty()){
-            return "Inventář je prázdný.";
+            return "Inventar je prazdny.";
         }
 
-        Item found = null;
-        Iterator<Item> iterator = inventory.iterator();
-        while(iterator.hasNext()){
-            Item item = iterator.next();
-            if(item.getName().equalsIgnoreCase(args)){
-                found = item;
-                iterator.remove();
-                break;
-            }
-        }
-
+        Item found = commandManager.getPlayer().removeItemByName(args);
         if(found == null){
-            return "Tento předmět nemáš.";
+            return "Tento predmet nemas.";
         }
 
         commandManager.getCurrentLocation().getLocationItems().add(found);
-        return "Položil jsi: " + found.getName();
+        return "Polozil jsi: " + found.getName();
     }
 
     @Override

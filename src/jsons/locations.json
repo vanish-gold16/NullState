@@ -1,9 +1,9 @@
-{
+﻿{
   "locations": [
     {
       "name": "Postranní ulička",
       "description": "Temný, stísněný prostor mezi vysokými domy...",
-      "items": ["inhibitor"],
+      "items": ["Inhibitor"],
       "npcs": ["Bezdomovec"],
       "exits": {
         "sever": "Trh v Malé Číně"
@@ -12,8 +12,8 @@
     {
       "name": "Trh v Malé Číně",
       "description": "Srdce čtvrti, ozářené neony a plné lidí. Všude hluk a blikající reklamy na implantáty. ",
-      "items": ["Žádné předměty"],
-      "npcs": ["Žádné NPC"],
+      "items": [],
+      "npcs": [],
       "exits": {
         "sever": "Vstup do metra",
         "západ": "Afterlife",
@@ -32,15 +32,15 @@
     {
       "name": "Viktor's Clinic",
       "description": "Sterilní, bíle osvětlená místnost plná kybernetických součástek. Ve vzduchu je cítit dezinfekce.",
-      "items": ["Inhibitor", "Kalibrace zbráně", "Neurologický stabilizátor", "Levný Kyberdeck"],
+      "items": ["Inhibitor", "Kalibrace zbraně", "Neurologický stabilizátor", "Levný Kyberdeck"],
       "npcs": ["Viktor"],
       "exits": {
-          "západ": "Trh v Malé Číně"
-        }
+        "západ": "Trh v Malé Číně"
+      }
     },
     {
       "name": "Vstup do metra",
-      "description": "puštěný vstup do podzemí, posprejovaný graffiti, turnikety jsou zablokované.",
+      "description": "Puštěný vstup do podzemí, posprejovaný graffiti, turnikety jsou zablokované.",
       "items": ["Inhibitor"],
       "npcs": ["Strážce Arasaky - Metro", "Dron Arasaky"],
       "exits": {
@@ -69,8 +69,8 @@
     {
       "name": "Opuštěná budova",
       "description": "Vstupní hala bývalé korporátní budovy, dnes v ruinách. Prach a ticho.",
-      "items": ["Žádné předměty"],
-      "npcs": ["Žádné NPC"],
+      "items": [],
+      "npcs": [],
       "exits": {
         "sever": "Serverovna"
       }
@@ -84,8 +84,8 @@
     },
     {
       "name": "Koncovka",
-      "description": "Liší se podle rozhodnutí hráče. Bud' kým ses rozhodl být?",
-      "items": ["Žádné předměty"],
+      "description": "Liší se podle rozhodnutí hráče. Buď kým ses rozhodl být?",
+      "items": [],
       "npcs": ["Glitch", "Wild Iskin", "Strážce Arasaky - Koncovka", "Robot Arasaky", "Adam Smasher"],
       "exits": {}
     }

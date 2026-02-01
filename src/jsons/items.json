@@ -1,4 +1,4 @@
-{
+﻿{
   "items": [
     {
       "name": "Inhibitor",
@@ -31,7 +31,7 @@
     {
       "name": "Terminál",
       "description": "Jedná se o počítačovou konzoli, která se připojuje přímo k lokálnímu serveru nebo softwaru, zabudovanou do zdi (například v metru nebo serverovně).",
-      "weight": 0,
+      "weight": 0.0,
       "type": "NC infrastructure",
       "impact": 5
     },
@@ -41,6 +41,69 @@
       "weight": 0.5,
       "type": "consumable",
       "impact": -2
+    },
+    {
+      "name": "Koktejl Silverhand",
+      "description": "Legendární drink z Afterlife. Nakopne tě, ale pálí jako střela.",
+      "weight": 0.5,
+      "type": "consumable",
+      "impact": -5
+    },
+    {
+      "name": "Kalibrace zbraně",
+      "description": "Servisní sada pro doladění zbraní. Krátce zvyšuje odolnost vůči stresu.",
+      "weight": 0.7,
+      "type": "consumable",
+      "impact": -3
+    },
+    {
+      "name": "Neurologický stabilizátor",
+      "description": "Pomůcka proti přetížení nervové soustavy. Zmírňuje cyberpsychosis.",
+      "weight": 0.3,
+      "type": "consumable",
+      "impact": -10
+    },
+    {
+      "name": "Levný Kyberdeck",
+      "description": "Levný, ale funkční kyberdeck. Umožňuje jednoduché hacky.",
+      "weight": 1.2,
+      "type": "weapon",
+      "impact": 5
+    },
+    {
+      "name": "Zápisky netrunnera",
+      "description": "Poznámky s tipy a fragmenty kódu, které zůstaly po netrunnerovi.",
+      "weight": 0.2,
+      "type": "lore",
+      "impact": 0
+    },
+    {
+      "name": "Zápisky neznámého bojovníka 2. korporativní války",
+      "description": "Staré zápisky z dob korporativních válek. Působí spíš jako vzpomínka než užitek.",
+      "weight": 0.2,
+      "type": "lore",
+      "impact": 0
+    },
+    {
+      "name": "Archivní fotka",
+      "description": "Zažloutlá fotografie z archivů Night City.",
+      "weight": 0.1,
+      "type": "lore",
+      "impact": 0
+    },
+    {
+      "name": "Starý nepřátelský AI",
+      "description": "Fragment staré nepřátelské umělé inteligence. Nebezpečný i po letech.",
+      "weight": 0.6,
+      "type": "junk",
+      "impact": 2
+    },
+    {
+      "name": "Kabel připojení k síti",
+      "description": "Datový kabel pro připojení k síti v serverovnách.",
+      "weight": 0.4,
+      "type": "tool",
+      "impact": 0
     }
   ]
 }

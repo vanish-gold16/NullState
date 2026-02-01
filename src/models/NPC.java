@@ -31,7 +31,7 @@ public class NPC {
         else if(Objects.equals(name, npcdao.getNPCByName("Viktor").name)){
             return "VEX, go and do something with your biochip! Now!";
         }
-        else if(Objects.equals(name, npcdao.getNPCByName("Kowalski").name)){
+        else if(Objects.equals(name, npcdao.getNPCByName("Mike Kowalski").name)){
             return "Good luck with your work!";
         }
         else if(Objects.equals(name, npcdao.getNPCByName("Bezdomovec").name)){
@@ -46,7 +46,7 @@ public class NPC {
                 return "Life is tough in this city";
             }
         }
-        else if(Objects.equals(name, npcdao.getNPCByName("Enemies").name)){
+        else if(isEnemyByName()){
             int replica = random.nextInt(1, 4);
             if(replica == 1){
                 return "You'll regret coming here!";
@@ -61,6 +61,13 @@ public class NPC {
         else{
             return "...";
         }
+    }
+
+    private boolean isEnemyByName(){
+        return Objects.equals(name, "Strážce Arasaky - Metro")
+                || Objects.equals(name, "Strážce Arasaky - Koncovka")
+                || Objects.equals(name, "Strážce Bergestu - Tunely")
+                || Objects.equals(name, "Strážce Bergestu - Dogtown");
     }
 
     public String getAffiliation() {

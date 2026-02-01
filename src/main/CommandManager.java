@@ -38,7 +38,7 @@ public class CommandManager {
         npcDAO = new NPCDAO();
         locationDAO = new LocationDAO();
         player = new Player(inventory);
-        currentLocation = locationDAO.getLocationByName("Postranní úlička");
+        currentLocation = locationDAO.getLocationByName("Postranní ulička");
         inicialization();
     }
 

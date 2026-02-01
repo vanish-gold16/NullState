@@ -1,12 +1,12 @@
 {
   "locations": [
     {
-      "name": "Postranní úlička",
+      "name": "Postranní ulička",
       "description": "Temný, stísněný prostor mezi vysokými domy...",
       "items": ["inhibitor"],
-      "npcs": ["Bezdomověc"],
+      "npcs": ["Bezdomovec"],
       "exits": {
-        "sever": "Trh v malé Číně"
+        "sever": "Trh v Malé Číně"
       }
     },
     {
@@ -30,7 +30,7 @@
       }
     },
     {
-      "name": "Victor's Clinic",
+      "name": "Viktor's Clinic",
       "description": "Sterilní, bíle osvětlená místnost plná kybernetických součástek. Ve vzduchu je cítit dezinfekce.",
       "items": ["Inhibitor", "Kalibrace zbráně", "Neurologický stabilizátor", "Levný Kyberdeck"],
       "npcs": ["Viktor"],
@@ -67,7 +67,7 @@
       }
     },
     {
-      "name": "Opuštěná budová",
+      "name": "Opuštěná budova",
       "description": "Vstupní hala bývalé korporátní budovy, dnes v ruinách. Prach a ticho.",
       "items": ["Žádné předměty"],
       "npcs": ["Žádné NPC"],

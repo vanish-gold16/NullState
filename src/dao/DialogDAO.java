@@ -28,7 +28,18 @@ public class DialogDAO {
         }
 
         Type type = new TypeToken<Map<String, Map<String, DialogueNode>>>() {}.getType();
-        allDialogs = gson.fromJson(new InputStreamReader(inputStream), type);
+        Map<String, Map<String, DialogueNode>> raw = gson.fromJson(new InputStreamReader(inputStream), type);
+        if(raw == null){
+            allDialogs = new HashMap<>();
+            return;
+        }
+        allDialogs = new HashMap<>();
+        for(Map.Entry<String, Map<String, DialogueNode>> entry : raw.entrySet()){
+            String key = entry.getKey();
+            if(key != null){
+                allDialogs.put(key.toLowerCase(), entry.getValue());
+            }
+        }
     }
 
     public Map<String, DialogueNode> getDialogForNPC(String NPCName){

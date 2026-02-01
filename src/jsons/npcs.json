@@ -1,4 +1,4 @@
-{
+﻿{
   "npcs": [
     {
       "name": "Glitch",
@@ -20,7 +20,7 @@
     },
     {
       "name": "Mike Kowalski",
-      "description": " Je Polák, má na sobě neprůstřelnou vestu a dlouhé blond vlasy svázané do copu. Jako bývalý partner, který již „vypadl ze hry“, tráví své dny v baru.",
+      "description": "Je Polák, má na sobě neprůstřelnou vestu a dlouhé blond vlasy svázané do copu. Jako bývalý partner, který již „vypadl ze hry“, tráví své dny v baru.",
       "affiliation": "Independent",
       "location": "Afterlife"
     },
@@ -28,7 +28,7 @@
       "name": "Bezdomovec",
       "description": "Je to zvláštní postava, která mluví v hádankách. Může, ale nemusí být halucinací způsobenou čipem.",
       "affiliation": "Unknown",
-      "location": "Postranní úlička"
+      "location": "Postranní ulička"
     },
     {
       "name": "Strážce Arasaky - Metro",

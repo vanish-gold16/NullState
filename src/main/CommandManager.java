@@ -93,7 +93,7 @@ public class CommandManager {
         commands.put("exit", new Exit());
         commands.put("status", new Status(this));
         commands.put("jdi", new Go(this));
-        commands.put("vstup", new Enter());
+        commands.put("vstup", new Enter(this));
         commands.put("mluv", new Talk(this, dialogDAO));
         commands.put("prozkoumej", new Examine(this));
         commands.put("vezmi", new Take(this));

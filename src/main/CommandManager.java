@@ -99,6 +99,7 @@ public class CommandManager {
         commands.put("vezmi", new Take(this));
         commands.put("poloz", new Drop(this));
         commands.put("pouzij", new Use(this));
+        commands.put("inventar", new Inventory(this));
         commands.put("utok", new Attack(this));
         commands.put("hackni", new Hack(this));
         commands.put("help", new Help(this));

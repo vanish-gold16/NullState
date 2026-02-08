@@ -81,9 +81,7 @@ public class CommandManager {
 
     public void start() {
         inicialization();
-        do{
-            execute();
-        }while(!isExit);
+        execute();
     }
 
     /**
@@ -153,6 +151,10 @@ public class CommandManager {
 
     public void setCurrentLocation(Location currentLocation) {
         this.currentLocation = currentLocation;
+    }
+
+    public boolean isExit() {
+        return isExit;
     }
 
     private void checkGameEnd(){

@@ -86,7 +86,7 @@
       "name": "Koncovka",
       "description": "Liší se podle rozhodnutí hráče. Buď kým ses rozhodl být?",
       "items": [],
-      "npcs": ["Glitch", "Wild Iskin", "Strážce Arasaky - Koncovka", "Robot Arasaky", "Adam Smasher"],
+      "npcs": ["Glitch",  "Strážce Arasaky - Koncovka", "Robot Arasaky"],
       "exits": {}
     }
   ]

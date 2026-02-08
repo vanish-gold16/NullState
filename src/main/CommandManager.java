@@ -29,6 +29,7 @@ public class CommandManager {
     private HashMap<String, Command> commands = new HashMap<>();
 
     private boolean isExit;
+    private static final String END_LOCATION_NAME = "Koncovka";
 
     public CommandManager() {
         saveManager = new SaveManager();
@@ -113,6 +114,9 @@ public class CommandManager {
         if(commands.containsKey(command)){
             System.out.println(commands.get(command).execute());
             isExit = commands.get(command).exit();
+            if(!isExit){
+                checkGameEnd();
+            }
         }
         else{
             System.out.println("Špatný příkaz, zadej znovu.");
@@ -149,5 +153,12 @@ public class CommandManager {
 
     public void setCurrentLocation(Location currentLocation) {
         this.currentLocation = currentLocation;
+    }
+
+    private void checkGameEnd(){
+        if(currentLocation != null && END_LOCATION_NAME.equals(currentLocation.getName())){
+            System.out.println("Dosahl jsi konce hry.");
+            isExit = true;
+        }
     }
 }

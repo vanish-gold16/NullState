@@ -4,11 +4,13 @@ import models.Location;
 
 public class UI {
 
+    private TextPrinter printer;
     private CommandManager commandManager;
     private boolean running;
 
     public UI(){
         commandManager = new CommandManager();
+        printer = new TextPrinter();
         running = false;
     }
 
@@ -51,7 +53,12 @@ public class UI {
         }
     }
 
+    public void test(){
+        printer.type("haha pidrilla a a sasfasagasaf ", 60);
+    }
+
     private void runGameLoop(){
+        test();
         while(running && !commandManager.isExit()){
             Location location = commandManager.getCurrentLocation();
             if(location != null){

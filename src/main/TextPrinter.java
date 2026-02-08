@@ -2,19 +2,17 @@ package main;
 
 public class TextPrinter {
 
-    public void type(String text, int delayMs) {
+    public void type(String text, int pauseMs) {
         if(text == null){
             return;
         }
-        for(int i = 0; i < text.length(); i++){
-            System.out.print(text.charAt(i));
+        System.out.println(text);
+        if(pauseMs > 0){
             try{
-                Thread.sleep(delayMs);
+                Thread.sleep(pauseMs);
             } catch(InterruptedException e){
                 Thread.currentThread().interrupt();
-                break;
             }
         }
-        System.out.println();
     }
 }

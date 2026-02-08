@@ -52,13 +52,25 @@ public class UI {
             }
         }
     }
-
-    public void test(){
-        printer.type("haha pidrilla a a sasfasagasaf ", 60);
-    }
-
     private void runGameLoop(){
-        test();
+
+        printer.type("Říká se, že okvětní lístky sakury padají rychlostí pěti centimetrů za sekundu. ", 2500);
+        printer.type("Nemohu si to ověřit. ", 2000);
+        printer.type("V tomhle městě žádné sakury nerostou. \n", 3000);
+        printer.type("""           
+                |   | |   | |     |    
+                | | | |   | |     |    
+                |   | | _ | | _ _ | _ _\n""", 5000);
+        skip();
+        printer.type("Pronásleduje tě krutá bolest hlavy, někde v oblasti přístavu. ", 1000);
+        printer.type("Všechno kolem je syrové a nepřátelské. ", 2000);
+        printer.type("Asfalt je stále mokrý po nedávném, zde vzácném dešti. ", 3000);
+        printer.type("Úzká ulička, sevřená podivně starými budovami. ", 1500);
+        printer.type("Vzpomínky na včerejšek se pomalu vracejí. ", 1500);
+        printer.type("Útržky událostí. ", 1000);
+        printer.type("A pak i důvod, proč ti v chrámu tepá bolest. ", 2000);
+        printer.type("Arasaka.", 2000);
+
         while(running && !commandManager.isExit()){
             Location location = commandManager.getCurrentLocation();
             if(location != null){
@@ -72,6 +84,9 @@ public class UI {
                 commandManager.saveGame();
             }
         }
+    }
+    public void skip(){
+        System.out.println("\n\n\n\n\n\n\n");
     }
 
     public boolean isRunning() {

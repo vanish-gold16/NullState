@@ -80,7 +80,9 @@
       "description": "Místnost plná hučících serverů a kabelů.",
       "items": ["Inhibitor", "Kabel připojení k síti"],
       "npcs": ["Glitch"],
-      "exits": {}
+      "exits": {
+        "východ": "Koncovka"
+      }
     },
     {
       "name": "Koncovka",

@@ -8,8 +8,8 @@ public class TextPrinter {
 
     private static final BufferedReader IN = new BufferedReader(new InputStreamReader(System.in));
 
-    public static void waitEnter() {
-        System.out.print("\n[Pokračujte stisknutím Enter…]");
+    public void waitEnter() {
+        System.out.print("...");
         try {
             IN.readLine();
         } catch (IOException ignored) {}

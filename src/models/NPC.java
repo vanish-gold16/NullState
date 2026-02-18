@@ -70,6 +70,11 @@ public class NPC {
                 || Objects.equals(name, "Strážce Bergestu - Dogtown");
     }
 
+    @Override
+    public String toString() {
+        return name;
+    }
+
     public String getAffiliation() {
         return affiliation;
     }

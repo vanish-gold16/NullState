@@ -34,12 +34,12 @@ public class Interaction {
         StringBuilder sb = new StringBuilder();
         sb.append("\n").append(node.getNpcText()).append("\n");
 
-        if(node.isEnd()){
+        List<DialogueOption> options = node.getOptions();
+        if(node.isEnd() || options == null || options.isEmpty()){
             active = false;
             return sb.toString();
         }
 
-        List<DialogueOption> options = node.getOptions();
         for(int i = 0; i < options.size(); i++){
             sb.append(String.format("[%d] %s\n", i + 1, options.get(i).getText()));
         }

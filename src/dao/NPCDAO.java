@@ -15,7 +15,7 @@ public class NPCDAO {
     private Map<String, NPC> npcs = new HashMap<>();
 
     public NPCDAO() {
-        loadNPCsFromFile("src/jsons/npcs.json");
+        loadNPCsFromFile("jsons/npcs.json");
     }
 
     /**

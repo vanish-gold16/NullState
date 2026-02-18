@@ -13,7 +13,7 @@ public class ItemDAO {
     private Map<String, Item> itemsDatabase = new HashMap<>();
 
     public ItemDAO() {
-        loadItemsFromFile("src/jsons/items.json");
+        loadItemsFromFile("jsons/items.json");
     }
 
     /**

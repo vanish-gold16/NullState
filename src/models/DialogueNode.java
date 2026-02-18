@@ -1,5 +1,7 @@
 package models;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 public class DialogueNode {
@@ -7,6 +9,7 @@ public class DialogueNode {
     private int id;
     private String npcText;
     private List<DialogueOption> options;
+    @SerializedName("end")
     private boolean isEnd;
 
     public DialogueNode(int id, String npcText, List<DialogueOption> options) {

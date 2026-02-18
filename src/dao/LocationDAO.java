@@ -22,7 +22,7 @@ public class LocationDAO {
     public LocationDAO() {
         itemDAO = new ItemDAO();
         npcDAO = new NPCDAO();
-        loadLocationsFromFile("src/jsons/locations.json");
+        loadLocationsFromFile("jsons/locations.json");
     }
 
     /**

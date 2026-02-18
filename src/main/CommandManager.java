@@ -88,7 +88,7 @@ public class CommandManager {
      * initializing commands
      */
     public void inicialization() {
-        // commands.put("pomoc", )
+        commands.put("pomoc", new Help(this));
         commands.put("exit", new Exit());
         commands.put("status", new Status(this));
         commands.put("jdi", new Go(this));
@@ -105,7 +105,7 @@ public class CommandManager {
     }
 
     public void execute(){
-        System.out.println(">>");
+        System.out.print(">> ");
         String command = scanner.next();
         command = command.trim().toLowerCase();
 

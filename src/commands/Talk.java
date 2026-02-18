@@ -5,7 +5,6 @@ import main.CommandManager;
 import models.*;
 
 import java.util.Map;
-import java.util.Scanner;
 
 public class Talk implements Command{
 
@@ -16,8 +15,10 @@ public class Talk implements Command{
     public String execute() {
         String args = commandManager.getScanner().nextLine().trim();
 
+        if(args.equals("talk")) return "Použití: mluv <jméno_NPC>";
+
         if(args.isEmpty()) {
-            return "Zadej s kym chceš mluvit. Použití: talk <jméno_NPC>";
+            return "Zadej s kym chceš mluvit. Použití: mluv <jméno_NPC>";
         }
 
         String npcName = args.toLowerCase();
@@ -37,14 +38,13 @@ public class Talk implements Command{
         Interaction interaction = new Interaction(dialogNodes);
         interaction.startDialog();
 
-        Scanner scanner = new Scanner(System.in);
         while(interaction.isActive()){
             System.out.println(interaction.displayCurrentNode());
 
             if(!interaction.isActive()) break;
 
-            System.out.println("> ");
-            String input = scanner.nextLine().trim();
+            System.out.print(">> ");
+            String input = commandManager.getScanner().nextLine().trim();
 
             try{
                 int choice = Integer.parseInt(input);

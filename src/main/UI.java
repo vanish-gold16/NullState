@@ -1,15 +1,19 @@
 package main;
 
+import dao.DialogDAO;
 import models.Location;
 
 public class UI {
 
     private TextPrinter printer;
     private CommandManager commandManager;
+    private DialogDAO dialogDAO;
+
     private boolean running;
 
     public UI(){
         commandManager = new CommandManager();
+        dialogDAO = new DialogDAO();
         printer = new TextPrinter();
         running = false;
     }
@@ -18,6 +22,7 @@ public class UI {
      * Starts the application
      */
     public void start(){
+
         running = true;
         java.util.Scanner menuScanner = new java.util.Scanner(System.in);
 
@@ -63,7 +68,7 @@ public class UI {
         printer.type("""           
                 |   | |   | |     |    
                 | | | |   | |     |    
-                |   | | _ | | _ _ | _ _\n""", 5000);
+                |   | | _ | | _ _ | _ _\n""", 1000);
         printer.waitEnter();
         skip();
         printer.type("Pronásleduje tě krutá bolest hlavy, někde v oblasti přístavu. ", 1000);
@@ -73,13 +78,14 @@ public class UI {
         printer.type("Vzpomínky na včerejšek se pomalu vracejí. ", 2000);
         printer.type("Útržky událostí. \n", 2000);
         printer.type("A pak i důvod, proč ti v chrámu tepá bolest. \n", 2000);
-        printer.type("Arasaka.\n", 2000);
+        printer.type("Arasaka.\n\n", 4000);
 
         while(running && !commandManager.isExit()){
             Location location = commandManager.getCurrentLocation();
             if(location != null){
                 System.out.println(location.getName());
                 System.out.println(location.getDescription());
+                System.out.println("NPC: " + location.getNpcs());
             }
 
             commandManager.start();

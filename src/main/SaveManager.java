@@ -15,7 +15,7 @@ import java.util.List;
 
 public class SaveManager {
 
-    private static final String SAVE_FILE = "src/jsons/save.json";
+    private static final String SAVE_FILE = "jsons/save.json";
     private Gson gson;
 
     public SaveManager() {

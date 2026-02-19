@@ -29,4 +29,60 @@ public class TextPrinter {
             }
         }
     }
+
+    public void skip(){
+        System.out.println("\n\n\n\n\n\n\n");
+    }
+
+    public void backstreet(){
+        System.out.println("(aby pokračovat ve čtení textu stiskněte Enter po ..., jinak ne)");
+        waitEnter();
+
+        type("Říká se, že okvětní lístky sakury padají rychlostí pěti centimetrů za sekundu. ", 3000);
+        type("Nemohu si to ověřit. ", 2000);
+        type("V tomhle městě žádné sakury nerostou. \n", 3000);
+        type("""           
+                |   | |   | |     |    
+                | | | |   | |     |    
+                |   | | _ | | _ _ | _ _\n""", 1000);
+        waitEnter();
+        skip();
+        type("Pronásleduje mně krutá bolest hlavy, někde v oblasti přístavu. ", 1000);
+        type("Všechno kolem je syrové a nepřátelské. ", 2000);
+        type("Asfalt je stále mokrý po nedávném, zde vzácném dešti. \n", 3000);
+        type("Úzká ulička, sevřená podivně starými budovami. \n", 2000);
+        type("Vzpomínky na včerejšek se pomalu vracejí. ", 2000);
+        type("Útržky událostí. \n", 2000);
+        type("A pak i důvod, proč ti v chrámu tepá bolest. \n", 2000);
+        type("Arasaka.\n\n", 4000);
+    }
+
+    public void market(){
+        type("Trh v Malé Číně. Srdce tohohle města.", 2000);
+        type("Kdysi jsem ho považoval za krásné místo.", 3000);
+        type("Ano… ", 1000);
+        type("tehdy, když jsem sem přijel ze svého klidného a útulného Juneau.", 3000);
+        type("Jednoho z posledních měst v Severní Americe, kde ještě přežívá skutečný les.", 4000);
+        type("Jednoho z posledních měst v Severní Americe, kde ještě přežívá skutečný les.", 4000);
+        type("Ano. ", 2000);
+        type("Čeká tam na mě ještě někdo?", 2000);
+        type("Od chvíle, kdy se Aljaška po čtvrté korporátní válce v roce 2084 odtrhla od NUSA, ", 3000);
+        type("nemám s rodinou žádný kontakt.\n ", 3000);
+        type("A vrátit se tam…", 3000);
+        type("to už také není možné.", 2000);
+        waitEnter();
+    }
+
+    public void bar(){
+        type("Bez přehánění legendární místo, které stálo už dávno před Datacrashem.", 3000);
+        type("Všechny vážné žoldácké zakázky se domlouvaly za jeho zdmi.", 2000);
+        type("Bestie – neotřesitelná královna Afterlife – v poslední době nepouští dovnitř jen tak někoho.", 4000);
+        type("Teď je to místo jen pro „své“.\n", 2000);
+        type("A já mezi ně patřil.\n", 2000);
+        type("Pamatuji si ten bar plný lidí, naplněný hlučnými sny o budoucnosti a tichými výčitkami z minulosti.\n", 4000);
+        type("Teď je tu prázdno. ", 2000);
+        type("Zima. \n", 2000);
+        type("Tohle město nakonec spolkne každého. ", 2000);
+        waitEnter();
+    }
 }

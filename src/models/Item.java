@@ -8,6 +8,11 @@ public class Item {
     private String type;
     private int impact;
 
+    @Override
+    public String toString() {
+        return name + " (" + description + ")";
+    }
+
     public Item(String name, String description, double weight, String type, int impact) {
         this.name = name;
         this.description = description;

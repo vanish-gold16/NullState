@@ -83,9 +83,12 @@ public class UI {
         while(running && !commandManager.isExit()){
             Location location = commandManager.getCurrentLocation();
             if(location != null){
+                System.out.println();
                 System.out.println(location.getName());
                 System.out.println(location.getDescription());
                 System.out.println("NPC: " + location.getNpcs());
+                System.out.println(location.getLocationItems());
+                System.out.println();
             }
 
             commandManager.start();

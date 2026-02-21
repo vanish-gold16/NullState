@@ -87,9 +87,22 @@ public class TextPrinter {
     }
 
     public void clinic(){
-        type("Místo, kde mi už nesčetněkrát zachránili život.", 3000);
+        type("Místo, kde mi už nesčetněkrát zachránili život.\n", 3000);
         type("Viktor.", 1000);
         type("Můj anděl strážný.", 1000);
+        waitEnter();
+    }
+
+    public void metroEnter(){
+        type("Kdysi místo zábavy pro skejťáky, prostor pro graffiti a jedno z mála skutečně tichých míst ve městě.", 5000);
+        type("Alespoň do nedávna.", 2000);
+        type("Zhruba před týdnem se tam usadila Arasaka.\n", 3000);
+        type("Údajně kvůli „udržení pořádku“ –", 2000);
+        type("prý příliš mnoho rabovačů a jiných problémových existencí.", 3000);
+        type("Jenže celé město už dávno ví, že se tam nejspíš nacházejí tunely spojující Night City s Dogtownem.", 5000);
+        type("Nezávislým městem a kapsou anarchie v Pacifica.\n", 3000);
+        type("Pokud Arasaka ten průchod najde, získá absolutní kontrolu nad všemi podzemními obchody ve městě.", 4000);
+        type("A já je hodlám předběhnout.", 2000);
         waitEnter();
     }
 }

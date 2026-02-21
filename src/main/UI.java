@@ -78,7 +78,7 @@ public class UI {
                     printer.clinic();
                     break;
                 case("Vstup do metra"):
-
+                    printer.metroEnter();
                     break;
                 case("Tunely metra"):
 

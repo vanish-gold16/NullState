@@ -54,23 +54,26 @@ public class TextPrinter {
         type("Vzpomínky na včerejšek se pomalu vracejí. ", 2000);
         type("Útržky událostí. \n", 2000);
         type("A pak i důvod, proč ti v chrámu tepá bolest. \n", 2000);
-        type("Arasaka.\n\n", 4000);
+        type("Arasaka.\n", 4000);
     }
 
     public void market(){
-        type("Trh v Malé Číně. Srdce tohohle města.", 2000);
+        type("Trh v Malé Číně. Srdce tohohle města.\n", 2000);
         type("Kdysi jsem ho považoval za krásné místo.", 3000);
         type("Ano… ", 1000);
-        type("tehdy, když jsem sem přijel ze svého klidného a útulného Juneau.", 3000);
+        type("tehdy, když jsem sem přijel ze svého klidného a útulného Juneau.\n", 3000);
         type("Jednoho z posledních měst v Severní Americe, kde ještě přežívá skutečný les.", 4000);
-        type("Jednoho z posledních měst v Severní Americe, kde ještě přežívá skutečný les.", 4000);
-        type("Ano. ", 2000);
-        type("Čeká tam na mě ještě někdo?", 2000);
+        type("Ano.\n ", 2000);
+        type("Čeká tam na mě ještě někdo?\n", 2000);
         type("Od chvíle, kdy se Aljaška po čtvrté korporátní válce v roce 2084 odtrhla od NUSA, ", 3000);
         type("nemám s rodinou žádný kontakt.\n ", 3000);
         type("A vrátit se tam…", 3000);
-        type("to už také není možné.", 2000);
+        type("to už také není možné.\n", 2000);
         waitEnter();
+    }
+
+    public String marketHint(){
+        return "\n*Měl bych nejdříve jit za Bestii...*\n";
     }
 
     public void bar(){
@@ -82,14 +85,14 @@ public class TextPrinter {
         type("Pamatuji si ten bar plný lidí, naplněný hlučnými sny o budoucnosti a tichými výčitkami z minulosti.\n", 4000);
         type("Teď je tu prázdno. ", 2000);
         type("Zima. \n", 2000);
-        type("Tohle město nakonec spolkne každého. ", 2000);
+        type("Tohle město nakonec spolkne každého.\n ", 2000);
         waitEnter();
     }
 
     public void clinic(){
         type("Místo, kde mi už nesčetněkrát zachránili život.\n", 3000);
         type("Viktor.", 1000);
-        type("Můj anděl strážný.", 1000);
+        type("Můj anděl strážný.\n", 1000);
         waitEnter();
     }
 
@@ -98,11 +101,11 @@ public class TextPrinter {
         type("Alespoň do nedávna.", 2000);
         type("Zhruba před týdnem se tam usadila Arasaka.\n", 3000);
         type("Údajně kvůli „udržení pořádku“ –", 2000);
-        type("prý příliš mnoho rabovačů a jiných problémových existencí.", 3000);
-        type("Jenže celé město už dávno ví, že se tam nejspíš nacházejí tunely spojující Night City s Dogtownem.", 5000);
+        type("prý příliš mnoho rabovačů a jiných problémových existencí.\n", 3000);
+        type("Jenže celé město už dávno ví, že se tam nejspíš nacházejí tunely spojující Night City s Dogtownem.\n", 5000);
         type("Nezávislým městem a kapsou anarchie v Pacifica.\n", 3000);
-        type("Pokud Arasaka ten průchod najde, získá absolutní kontrolu nad všemi podzemními obchody ve městě.", 4000);
-        type("A já je hodlám předběhnout.", 2000);
+        type("Pokud Arasaka ten průchod najde, získá absolutní kontrolu nad všemi podzemními obchody ve městě.\n", 4000);
+        type("A já je hodlám předběhnout.\n", 2000);
         waitEnter();
     }
 
@@ -110,29 +113,29 @@ public class TextPrinter {
         type("Špinavé. Plné krys, jiskřících kabelů a zápachu, který se nedal ignorovat.", 3000);
         type("Zatracený Vex.\n", 1000);
         type("Kupodivu tu nebyl ani jediný „pracovník“ Arasaky.\n", 3000);
-        type("Zdá se, že je nakonec zabila vlastní byrokracie.", 3000);
+        type("Zdá se, že je nakonec zabila vlastní byrokracie.\n", 3000);
         waitEnter();
     }
 
     public void dogtown(){
-        type("Velkolepý a obávaný Dogtown.", 2000);
+        type("Velkolepý a obávaný Dogtown.\n", 2000);
         type("Útočiště pro ty, kteří se nikdy nevešli do rámce zákona.", 3000);
         type("Hlídky projíždějí ulicemi.", 2000);
-        type("Vojáci patrolují na každém rohu.", 2000);
-        type("Musím být opatrný.", 1000);
+        type("Vojáci patrolují na každém rohu.\n", 2000);
+        type("Musím být opatrný.\n", 1000);
         waitEnter();
     }
 
     public void building(){
-        type("Starý, rozviklaný dům.", 2000);
+        type("Starý, rozviklaný dům.\n", 2000);
         type("Podle vzhledu postavený před víc než sto lety.", 3000);
-        type("Možná to kdysi býval obyčejný obytný dům.", 3000);
+        type("Možná to kdysi býval obyčejný obytný dům.\n", 3000);
         type("Teď z něj zůstala jen opuštěná skořápka bez elektřiny a bez jakéhokoli komfortu, ", 4000);
-        type("na který si lidstvo kdysi zvyklo.", 2000);
-        type("Ideální úkryt pro netrunnera, že?", 2000);
+        type("na který si lidstvo kdysi zvyklo.\n", 2000);
+        type("Ideální úkryt pro netrunnera, že?\n", 2000);
         type("Vexi… ", 2000);
         type("prosím.", 1000);
-        type("Ať jsi tam.", 2000);
+        type("Ať jsi tam.\n", 2000);
         waitEnter();
     }
 
@@ -142,7 +145,7 @@ public class TextPrinter {
         type("Zpoza dveří se ozývá bzučení běžící techniky a sotva slyšitelný lidský dech.\n", 4000);
         type("Srdce mi buší tak zběsile, jako by se chtělo vyrvat z hrudi.", 3000);
         type("Copak jsem byl vždycky takový zbabělec?", 2000);
-        type("A vůbec… co vlastně znamená být zbabělcem?", 3000);
+        type("A vůbec… co vlastně znamená být zbabělcem?\n", 3000);
         waitEnter();
     }
 }

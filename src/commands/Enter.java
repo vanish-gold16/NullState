@@ -40,7 +40,7 @@ public class Enter implements Command{
         }
 
         commandManager.setCurrentLocation(nextLocation);
-        return commandManager.getCurrentLocation().getName() + "\n" + commandManager.getCurrentLocation().getDescription();
+        return "Presun uspesny.";
     }
 
     private String normalizeDirection(String input){

@@ -60,16 +60,19 @@ public class UI {
         }
     }
     private void runGameLoop(){
+        String lastShownLocationName = null;
 
         while(running && !commandManager.isExit()){
             Location location = commandManager.getCurrentLocation();
 
-            switch(location.getName()){
+            if(location != null && !location.getName().equals(lastShownLocationName)){
+                switch(location.getName()){
                 case("Postranní ulička"):
                     printer.backstreet();
                     break;
                 case("Trh v Malé Číně"):
                     printer.market();
+                    printer.marketHint();
                     break;
                 case("Afterlife"):
                     printer.bar();
@@ -93,13 +96,12 @@ public class UI {
                     printer.serverRoom();
                     break;
                 case("Koncovka"):
-
+                    // TODO
                     break;
                 default:
                     throw new IllegalStateException("Unexpected value: " + location);
-            }
+                }
 
-            if(location != null){
                 System.out.println();
                 System.out.println(location.getName());
                 System.out.println(location.getDescription());
@@ -107,6 +109,7 @@ public class UI {
                 System.out.println("NPC: " + location.getNpcs());
                 System.out.println(location.getLocationItems());
                 System.out.println();
+                lastShownLocationName = location.getName();
             }
 
             commandManager.start();

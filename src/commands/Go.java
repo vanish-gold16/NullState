@@ -33,7 +33,7 @@ public class Go implements Command{
 
         commandManager.setCurrentLocation(nextLocation);
 
-        return commandManager.getCurrentLocation().getName() + "\n" + commandManager.getCurrentLocation().getDescription();
+        return "Presun uspesny.";
     }
 
     @Override

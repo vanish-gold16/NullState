@@ -122,4 +122,17 @@ public class TextPrinter {
         type("Musím být opatrný.", 1000);
         waitEnter();
     }
+
+    public void building(){
+        type("Starý, rozviklaný dům.", 2000);
+        type("Podle vzhledu postavený před víc než sto lety.", 3000);
+        type("Možná to kdysi býval obyčejný obytný dům.", 3000);
+        type("Teď z něj zůstala jen opuštěná skořápka bez elektřiny a bez jakéhokoli komfortu, ", 4000);
+        type("na který si lidstvo kdysi zvyklo.", 2000);
+        type("Ideální úkryt pro netrunnera, že?", 2000);
+        type("Vexi… ", 2000);
+        type("prosím.", 1000);
+        type("Ať jsi tam.", 2000);
+        waitEnter();
+    }
 }

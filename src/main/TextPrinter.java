@@ -113,4 +113,13 @@ public class TextPrinter {
         type("Zdá se, že je nakonec zabila vlastní byrokracie.", 3000);
         waitEnter();
     }
+
+    public void dogtown(){
+        type("Velkolepý a obávaný Dogtown.", 2000);
+        type("Útočiště pro ty, kteří se nikdy nevešli do rámce zákona.", 3000);
+        type("Hlídky projíždějí ulicemi.", 2000);
+        type("Vojáci patrolují na každém rohu.", 2000);
+        type("Musím být opatrný.", 1000);
+        waitEnter();
+    }
 }

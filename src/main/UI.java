@@ -84,7 +84,7 @@ public class UI {
                     printer.tunels();
                     break;
                 case("Dogtown"):
-
+                    printer.dogtown();
                     break;
                 case("Opuštěná budova"):
 

@@ -72,7 +72,29 @@ public class UI {
                     printer.market();
                     break;
                 case("Afterlife"):
-                    printer.
+                    printer.bar();
+                    break;
+                case("Viktor's Clinic"):
+                    printer.clinic();
+                    break;
+                case("Vstup do metra"):
+
+                    break;
+                case("Tunely metra"):
+
+                    break;
+                case("Dogtown"):
+
+                    break;
+                case("Opuštěná budova"):
+
+                    break;
+                case("Serverovna"):
+
+                    break;
+                case("Koncovka"):
+
+                    break;
                 default:
                     throw new IllegalStateException("Unexpected value: " + location);
             }

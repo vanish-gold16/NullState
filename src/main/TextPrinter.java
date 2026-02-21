@@ -85,4 +85,11 @@ public class TextPrinter {
         type("Tohle město nakonec spolkne každého. ", 2000);
         waitEnter();
     }
+
+    public void clinic(){
+        type("Místo, kde mi už nesčetněkrát zachránili život.", 3000);
+        type("Viktor.", 1000);
+        type("Můj anděl strážný.", 1000);
+        waitEnter();
+    }
 }

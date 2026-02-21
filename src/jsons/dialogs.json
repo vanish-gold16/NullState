@@ -73,8 +73,13 @@
       ],
       "end": false
     },
+    "full": {
+      "npcText": "Glitch je v serverovne opustene budovy za Dogtownem. Cestu hlidaji ozbrojenci a drony. Pokud tam jdes, priprav se.",
+      "options": [],
+      "end": true
+    },
     "job": {
-      "npcText": "",
+      "npcText": "Tak poslouchej. Penize ted nech stranou. Udelej pro me praci a pak dostanes vsechny informace.",
       "options": [],
       "end": true
     },

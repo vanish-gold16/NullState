@@ -105,4 +105,12 @@ public class TextPrinter {
         type("A já je hodlám předběhnout.", 2000);
         waitEnter();
     }
+
+    public void tunels(){
+        type("Špinavé. Plné krys, jiskřících kabelů a zápachu, který se nedal ignorovat.", 3000);
+        type("Zatracený Vex.\n", 1000);
+        type("Kupodivu tu nebyl ani jediný „pracovník“ Arasaky.\n", 3000);
+        type("Zdá se, že je nakonec zabila vlastní byrokracie.", 3000);
+        waitEnter();
+    }
 }

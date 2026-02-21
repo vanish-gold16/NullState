@@ -81,7 +81,7 @@ public class UI {
                     printer.metroEnter();
                     break;
                 case("Tunely metra"):
-
+                    printer.tunels();
                     break;
                 case("Dogtown"):
 

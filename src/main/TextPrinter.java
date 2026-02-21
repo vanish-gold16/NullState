@@ -135,4 +135,14 @@ public class TextPrinter {
         type("Ať jsi tam.", 2000);
         waitEnter();
     }
+
+    public void serverRoom(){
+        type("Stojím přede dveřmi.", 2000);
+        type("Zatmělo se mi před očima a nohy sotva poslouchají.\n", 3000);
+        type("Zpoza dveří se ozývá bzučení běžící techniky a sotva slyšitelný lidský dech.\n", 4000);
+        type("Srdce mi buší tak zběsile, jako by se chtělo vyrvat z hrudi.", 3000);
+        type("Copak jsem byl vždycky takový zbabělec?", 2000);
+        type("A vůbec… co vlastně znamená být zbabělcem?", 3000);
+        waitEnter();
+    }
 }

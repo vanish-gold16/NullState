@@ -90,7 +90,7 @@ public class UI {
                     printer.building();
                     break;
                 case("Serverovna"):
-
+                    printer.serverRoom();
                     break;
                 case("Koncovka"):
 

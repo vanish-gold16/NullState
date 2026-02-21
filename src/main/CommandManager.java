@@ -30,6 +30,7 @@ public class CommandManager {
 
     private boolean isExit;
     private static final String END_LOCATION_NAME = "Koncovka";
+    private static final int MOVE_CYBERPSYCHOSIS_INCREASE = 10;
 
     public CommandManager() {
         saveManager = new SaveManager();
@@ -150,7 +151,22 @@ public class CommandManager {
     }
 
     public void setCurrentLocation(Location currentLocation) {
+        if(currentLocation == null){
+            return;
+        }
+
+        boolean locationChanged = this.currentLocation == null
+                || !this.currentLocation.getName().equals(currentLocation.getName());
+
         this.currentLocation = currentLocation;
+
+        if(locationChanged && player != null){
+            try{
+                player.increaseCyberpsychosis(MOVE_CYBERPSYCHOSIS_INCREASE);
+            } catch (InterruptedException e){
+                Thread.currentThread().interrupt();
+            }
+        }
     }
 
     public boolean isExit() {

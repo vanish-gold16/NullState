@@ -47,7 +47,7 @@
       "description": "Legendární drink z Afterlife. Nakopne tě, ale pálí jako střela.",
       "weight": 0.5,
       "type": "consumable",
-      "impact": -5
+      "impact": -10
     },
     {
       "name": "Kalibrace zbraně",

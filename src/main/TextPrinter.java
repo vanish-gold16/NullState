@@ -59,15 +59,15 @@ public class TextPrinter {
 
     public void market(){
         type("Trh v Malé Číně. Srdce tohohle města.\n", 2000);
-        type("Kdysi jsem ho považoval za krásné místo.", 3000);
+        type("Kdysi jsem ho považoval za krásné místo. ", 3000);
         type("Ano… ", 1000);
         type("tehdy, když jsem sem přijel ze svého klidného a útulného Juneau.\n", 3000);
-        type("Jednoho z posledních měst v Severní Americe, kde ještě přežívá skutečný les.", 4000);
-        type("Ano.\n ", 2000);
+        type("Jednoho z posledních měst v Severní Americe, kde ještě přežívá skutečný les. ", 4000);
+        type("Ano.\n", 2000);
         type("Čeká tam na mě ještě někdo?\n", 2000);
         type("Od chvíle, kdy se Aljaška po čtvrté korporátní válce v roce 2084 odtrhla od NUSA, ", 3000);
-        type("nemám s rodinou žádný kontakt.\n ", 3000);
-        type("A vrátit se tam…", 3000);
+        type("nemám s rodinou žádný kontakt.\n", 3000);
+        type("A vrátit se tam… ", 3000);
         type("to už také není možné.\n", 2000);
         waitEnter();
     }
@@ -77,15 +77,15 @@ public class TextPrinter {
     }
 
     public void bar(){
-        type("Bez přehánění legendární místo, které stálo už dávno před Datacrashem.", 3000);
-        type("Všechny vážné žoldácké zakázky se domlouvaly za jeho zdmi.", 2000);
+        type("Bez přehánění legendární místo, které stálo už dávno před Datacrashem.\n", 3000);
+        type("Všechny vážné žoldácké zakázky se domlouvaly za jeho zdmi.\n", 2000);
         type("Bestie – neotřesitelná královna Afterlife – v poslední době nepouští dovnitř jen tak někoho.", 4000);
         type("Teď je to místo jen pro „své“.\n", 2000);
         type("A já mezi ně patřil.\n", 2000);
         type("Pamatuji si ten bar plný lidí, naplněný hlučnými sny o budoucnosti a tichými výčitkami z minulosti.\n", 4000);
         type("Teď je tu prázdno. ", 2000);
         type("Zima. \n", 2000);
-        type("Tohle město nakonec spolkne každého.\n ", 2000);
+        type("Tohle město nakonec spolkne každého.\n", 2000);
         waitEnter();
     }
 

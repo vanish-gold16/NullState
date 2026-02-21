@@ -71,8 +71,9 @@ public class UI {
                     printer.backstreet();
                     break;
                 case("Trh v Malé Číně"):
+                    commandManager.saveGame();
                     printer.market();
-                    printer.marketHint();
+                    System.out.println(printer.marketHint());
                     break;
                 case("Afterlife"):
                     printer.bar();
@@ -103,6 +104,7 @@ public class UI {
                 }
 
                 System.out.println();
+                System.out.println("Cyberpsychosis: " + commandManager.getPlayer().getCyberpsychosisLevel());
                 System.out.println(location.getName());
                 System.out.println(location.getDescription());
                 System.out.println(location.getExits());

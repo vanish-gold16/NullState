@@ -20,8 +20,12 @@ public class Talk implements Command{
     private static final String BESTIE_NAME = "bestie";
     private static final String VIKTOR_NAME = "viktor";
     private static final String MIKE_NAME = "mike kowalski";
+    private static final String GLITCH_NAME = "glitch";
     private static final String QUEST_NODE_ID = "job";
     private static final String BESTIE_FULL_NODE_ID = "full";
+    private static final String GLITCH_ENDING_1_NODE_ID = "ending_1";
+    private static final String GLITCH_ENDING_2_NODE_ID = "ending_2";
+    private static final String GLITCH_ENDING_3_NODE_ID = "ending_3";
     private static final int QUEST_CYBERPSYCHOSIS_INCREASE = 30;
     private static final int MIKE_CYBERPSYCHOSIS_REDUCTION = 20;
     private static final String VIKTOR_BUY_CYBERDECK_NODE_ID = "buy_cyberdeck";
@@ -130,6 +134,9 @@ public class Talk implements Command{
         if(BESTIE_NAME.equals(npcName)){
             commandManager.setBestieDialogueCompleted(true);
         }
+        if(GLITCH_NAME.equals(npcName) && isGlitchEndingNode(interaction.getCurrentNodeId())){
+            showCreditsAndExit();
+        }
 
         return "Konec rozhovoru s " + npc.getName() + ".";
     }
@@ -236,5 +243,33 @@ public class Talk implements Command{
             newLevel = 0;
         }
         player.setCyberpsychosisLevel(newLevel);
+    }
+
+    private boolean isGlitchEndingNode(String nodeId){
+        if(nodeId == null){
+            return false;
+        }
+        return GLITCH_ENDING_1_NODE_ID.equals(nodeId)
+                || GLITCH_ENDING_2_NODE_ID.equals(nodeId)
+                || GLITCH_ENDING_3_NODE_ID.equals(nodeId);
+    }
+
+    private void showCreditsAndExit(){
+        System.out.println();
+        System.out.println("=== TITULKY ===");
+        System.out.println("Game Director: Ivan Mytrofanov");
+        System.out.println("Lead Developer: Ivan Mytrofanov");
+        System.out.println("Story Writer: Ivan Mytrofanov");
+        System.out.println("Quest Design: Ivan Mytrofanov");
+        System.out.println("Dialogue Design: Ivan Mytrofanov");
+        System.out.println("Gameplay Design: Ivan Mytrofanov");
+        System.out.println("Systems Design: Ivan Mytrofanov");
+        System.out.println("Level Design: Ivan Mytrofanov");
+        System.out.println("UI/UX: Ivan Mytrofanov");
+        System.out.println("QA Testing: Ivan Mytrofanov");
+        System.out.println("Production: Ivan Mytrofanov");
+        System.out.println("Special Thanks: Ivan Mytrofanov");
+        System.out.println("================");
+        System.exit(0);
     }
 }

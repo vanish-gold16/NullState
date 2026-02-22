@@ -169,7 +169,14 @@
   },
   "Glitch": {
     "start": {
-      "npcText": "Hele... chápu, že je to teď pro tebe peklo. Ale mně zbývají minuty. Pár posledních. Pomůžeš mi?",
+      "npcText": "... co?",
+      "options": [
+        {"text": "Glitchi... konečne... prosím pomůž mi (povíst mu co se stalo)", "nextDialogNodeId": "almost_ending"}
+      ],
+      "end": false
+    },
+    "almost_ending": {
+      "npcText": "Hele... chápu, že je to teď pro tebe peklo. Ale mně taky zbývají minuty. Pár posledních. Pomůžeš mi?",
       "options": [
         {"text": "Neodpustím ti... (smířit se)", "nextDialogNodeId": "ending_1"},
         {"text": "Pomůžu ti. (obětovat se pro Glicha)", "nextDialogNodeId": "ending_2"},

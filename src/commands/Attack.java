@@ -4,29 +4,32 @@ import main.CommandManager;
 import models.Item;
 import models.NPC;
 
-import java.util.Iterator;
 import java.util.List;
 
-public class Attack implements Command{
+public class Attack implements Command {
 
     private CommandManager commandManager;
 
     @Override
     public String execute() {
-        if(!hasPistol()){
-            return "Nemáš pistoli.";
+        // Consume any optional target text after "utok"
+        // so leftover tokens are not parsed as new commands.
+        commandManager.getScanner().nextLine();
+
+        if (!hasPistol()) {
+            return "Nemas pistoli.";
         }
 
         List<NPC> npcs = commandManager.getCurrentLocation().getNpcs();
         NPC enemy = findEnemy(npcs);
-        if(enemy == null){
-            return "Na lokaci nejsou žadné nepřátele.";
+        if (enemy == null) {
+            return "Na lokaci nejsou zadni nepratele.";
         }
 
         npcs.remove(enemy);
-        try{
+        try {
             commandManager.getPlayer().increaseCyberpsychosis(15);
-        } catch (InterruptedException e){
+        } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
 
@@ -38,24 +41,26 @@ public class Attack implements Command{
         return false;
     }
 
-    private boolean hasPistol(){
-        for(Item item : commandManager.getPlayer().getInventory()){
-            if(item.getName().toLowerCase().contains("pistole")){
+    private boolean hasPistol() {
+        for (Item item : commandManager.getPlayer().getInventory()) {
+            if (item.getName().toLowerCase().contains("pistole")) {
                 return true;
             }
         }
         return false;
     }
 
-    private NPC findEnemy(List<NPC> npcs){
-        if(npcs == null) return null;
-        for(NPC npc : npcs){
+    private NPC findEnemy(List<NPC> npcs) {
+        if (npcs == null) {
+            return null;
+        }
+        for (NPC npc : npcs) {
             String affiliation = npc.getAffiliation();
             String name = npc.getName() == null ? "" : npc.getName().toLowerCase();
-            if("Arasaka".equalsIgnoreCase(affiliation) || "Bergest".equalsIgnoreCase(affiliation)){
+            if ("Arasaka".equalsIgnoreCase(affiliation) || "Bergest".equalsIgnoreCase(affiliation)) {
                 return npc;
             }
-            if(name.contains("strážce") || name.contains("dron") || name.contains("enemy")){
+            if (name.contains("strazce") || name.contains("dron") || name.contains("enemy")) {
                 return npc;
             }
         }

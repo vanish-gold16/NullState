@@ -84,12 +84,18 @@ public class Talk implements Command{
                 if(paymentAmount > 0){
                     Player player = commandManager.getPlayer();
                     int currentMoney = player.getEddie();
+                    String nextNodeId = selectedOption.getNextDialogNodeId();
+
+                    if(isViktorPaidPurchase(npcName, nextNodeId) && player.isInventoryFull()){
+                        System.out.println("Inventar je plny. Nakup u Viktora se neprovedl.");
+                        continue;
+                    }
 
                     if(currentMoney >= paymentAmount){
                         player.setEddie(currentMoney - paymentAmount);
                         System.out.println("Zaplatil jsi " + paymentAmount + " eddies.");
-                        handleViktorPurchase(npcName, selectedOption.getNextDialogNodeId(), player);
-                        interaction.setCurrentNodeId(selectedOption.getNextDialogNodeId());
+                        handleViktorPurchase(npcName, nextNodeId, player);
+                        interaction.setCurrentNodeId(nextNodeId);
                     } else {
                         System.out.println("Nemas dostatek eddies. Potrebujes " + paymentAmount + ". Vyber jinou moznost.");
                     }
@@ -170,6 +176,14 @@ public class Talk implements Command{
         if(VIKTOR_BUY_INHIBITOR_NODE_ID.equals(nextNodeId)){
             grantItem(player, INHIBITOR_NAME, "Koupil jsi Inhibitor.");
         }
+    }
+
+    private boolean isViktorPaidPurchase(String npcName, String nextNodeId){
+        if(!VIKTOR_NAME.equals(npcName) || nextNodeId == null){
+            return false;
+        }
+        return VIKTOR_BUY_CYBERDECK_NODE_ID.equals(nextNodeId)
+                || VIKTOR_BUY_INHIBITOR_NODE_ID.equals(nextNodeId);
     }
 
     private void grantOneTimeItem(Player player, String itemName, String successMessage){

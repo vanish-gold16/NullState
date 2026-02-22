@@ -91,14 +91,14 @@ public class TextPrinter {
 
     public void clinic(){
         type("Místo, kde mi už nesčetněkrát zachránili život.\n", 3000);
-        type("Viktor.", 1000);
+        type("Viktor. ", 1000);
         type("Můj anděl strážný.\n", 1000);
         waitEnter();
     }
 
     public void metroEnter(){
-        type("Kdysi místo zábavy pro skejťáky, prostor pro graffiti a jedno z mála skutečně tichých míst ve městě.", 5000);
-        type("Alespoň do nedávna.", 2000);
+        type("Kdysi místo zábavy pro skejťáky, prostor pro graffiti a jedno z mála skutečně tichých míst ve městě. ", 5000);
+        type("Alespoň do nedávna. ", 2000);
         type("Zhruba před týdnem se tam usadila Arasaka.\n", 3000);
         type("Údajně kvůli „udržení pořádku“ –", 2000);
         type("prý příliš mnoho rabovačů a jiných problémových existencí.\n", 3000);

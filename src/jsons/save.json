@@ -1,8 +1,9 @@
 {
-  "currentLocationName": "Afterlife",
-  "money": 20000,
-  "cyberpsychosis": 15,
+  "currentLocationName": "Viktor\u0027s Clinic",
+  "money": 5000,
+  "cyberpsychosis": 35,
   "inventoryItemNames": [
-    "Inhibitor"
+    "Inhibitor",
+    "Koktejl Silverhand"
   ]
 }

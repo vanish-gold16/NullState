@@ -46,23 +46,9 @@
     "info": {
       "npcText": "Hm. O svém kamarádovi? Něco se stalo? Hele, mně je to jedno. Říkám rovnou: bude to stát 15 tisíc.",
       "options": [
-        {"text": "Sakra.", "nextDialogNodeId": "negotiation"},
-        {"text": "Popřemýšlím o tom (Ven)", "nextDialogNodeId": "end"}
-      ],
-      "end": false
-    },
-    "negotiation": {
-      "npcText": "Když je to až tak špatné, tak můžu ti nabídnout práci. Ale nebude snadná, to ti říkám rovnou.",
-      "options": [
-        {"text": "Popřemýšlím o tom (Ven)", "nextDialogNodeId": "end"}
-      ],
-      "end": false
-    },
-    "second": {
-      "npcText": "Tak zase. Co rozmyslel ses, Vexi?",
-      "options": [
-        {"text": "Ano, mám peníze. (zaplatit 15000)", "nextDialogNodeId": "pay"},
-        {"text": "Ne, tolik peněz nemám. (zahájit quest)", "nextDialogNodeId": "job"}
+        {"text": "Dobře. (zaplatit 15000)", "nextDialogNodeId": "pay"},
+        {"text": "Popřemýšlím o tom (Ven)", "nextDialogNodeId": "end"},
+        {"text": "Nemam na to. Vemu quest.", "nextDialogNodeId": "job"}
       ],
       "end": false
     },
@@ -74,7 +60,7 @@
       "end": false
     },
     "full": {
-      "npcText": "Glitch je v serverovne opustene budovy za Dogtownem. Cestu hlidaji ozbrojenci a drony. Pokud tam jdes, priprav se.",
+      "npcText": "Glitch je v serverovne opustene budovy za Dogtownem. Vim ze existuje cesta pres opustenou stanici metra Cestu hlidaji ozbrojenci a drony. Pokud tam jdes, priprav se.",
       "options": [],
       "end": true
     },

@@ -1,10 +1,12 @@
 package commands;
 
 import dao.DialogDAO;
+import dao.ItemDAO;
 import main.CommandManager;
 import models.DialogueNode;
 import models.DialogueOption;
 import models.Interaction;
+import models.Item;
 import models.NPC;
 import models.Player;
 
@@ -14,10 +16,16 @@ import java.util.regex.Pattern;
 
 public class Talk implements Command{
 
-    private static final Pattern PAYMENT_PATTERN = Pattern.compile("zaplatit\\s*(\\d+)", Pattern.CASE_INSENSITIVE);
+    private static final Pattern PAYMENT_PATTERN = Pattern.compile("zaplatit\\s*([\\d\\s]+)", Pattern.CASE_INSENSITIVE);
+    private static final String BESTIE_NAME = "bestie";
+    private static final String QUEST_NODE_ID = "job";
+    private static final String PAY_NODE_ID = "pay";
+    private static final int QUEST_CYBERPSYCHOSIS_INCREASE = 30;
+    private static final String VIKTOR_PISTOL_NAME = "Pistole od Viktora";
 
     private CommandManager commandManager;
     private DialogDAO dialogDAO;
+    private ItemDAO itemDAO;
 
     @Override
     public String execute() {
@@ -72,12 +80,23 @@ public class Talk implements Command{
                     if(currentMoney >= paymentAmount){
                         player.setEddie(currentMoney - paymentAmount);
                         System.out.println("Zaplatil jsi " + paymentAmount + " eddies.");
+                        if(BESTIE_NAME.equals(npcName) && PAY_NODE_ID.equals(selectedOption.getNextDialogNodeId())){
+                            grantViktorPistol(player);
+                        }
                         interaction.setCurrentNodeId(selectedOption.getNextDialogNodeId());
                     } else {
-                        System.out.println("Nemas dostatek eddies. Potrebujes " + paymentAmount + ".");
-                        interaction.setCurrentNodeId(resolveFallbackNodeId(dialogNodes));
+                        System.out.println("Nemas dostatek eddies. Potrebujes " + paymentAmount + ". Vyber jinou moznost.");
                     }
                     continue;
+                }
+
+                if(BESTIE_NAME.equals(npcName) && QUEST_NODE_ID.equals(selectedOption.getNextDialogNodeId())){
+                    try{
+                        commandManager.getPlayer().increaseCyberpsychosis(QUEST_CYBERPSYCHOSIS_INCREASE);
+                        System.out.println("Quest byl skipnut. Cyberpsychosis +30.");
+                    } catch (InterruptedException e){
+                        Thread.currentThread().interrupt();
+                    }
                 }
 
                 interaction.setCurrentNodeId(selectedOption.getNextDialogNodeId());
@@ -97,6 +116,7 @@ public class Talk implements Command{
     public Talk(CommandManager commandManager, DialogDAO dialogDAO) {
         this.commandManager = commandManager;
         this.dialogDAO = dialogDAO;
+        this.itemDAO = new ItemDAO();
     }
 
     private int extractPaymentAmount(String optionText){
@@ -110,16 +130,39 @@ public class Talk implements Command{
         }
 
         try{
-            return Integer.parseInt(matcher.group(1));
+            String numericAmount = matcher.group(1).replaceAll("\\D", "");
+            if(numericAmount.isEmpty()){
+                return 0;
+            }
+            return Integer.parseInt(numericAmount);
         } catch (NumberFormatException e){
             return 0;
         }
     }
 
-    private String resolveFallbackNodeId(Map<String, DialogueNode> dialogNodes){
-        if(dialogNodes != null && dialogNodes.containsKey("job")){
-            return "job";
+    private void grantViktorPistol(Player player){
+        if(player == null){
+            return;
         }
-        return "end";
+
+        for(Item inventoryItem : player.getInventory()){
+            if(inventoryItem.getName() != null
+                    && inventoryItem.getName().equalsIgnoreCase(VIKTOR_PISTOL_NAME)){
+                System.out.println("Pistoli od Viktora uz mas.");
+                return;
+            }
+        }
+
+        Item viktorPistol = itemDAO.getItemByName(VIKTOR_PISTOL_NAME);
+        if(viktorPistol == null){
+            System.out.println("Nepodarilo se najit pistoli od Viktora.");
+            return;
+        }
+
+        if(player.addItem(viktorPistol)){
+            System.out.println("Od Viktora jsi dostal jednoduchou pistoli.");
+        } else {
+            System.out.println("Inventar je plny. Pistoli od Viktora jsi nemohl prijmout.");
+        }
     }
 }

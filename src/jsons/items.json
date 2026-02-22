@@ -15,6 +15,13 @@
       "impact": 10
     },
     {
+      "name": "Pistole od Viktora",
+      "description": "Jednoducha pistole od Viktora. Drzi pohromade, ale kazdy vystrel ti zveda cyberpsychosis.",
+      "weight": 1.2,
+      "type": "weapon",
+      "impact": 15
+    },
+    {
       "name": "Starý kyberdeck",
       "description": "Je to přenosné hackerské zařízení určené k prolomení jednoduchých systémů.",
       "weight": 2.0,

@@ -19,8 +19,10 @@ public class Talk implements Command{
     private static final Pattern PAYMENT_PATTERN = Pattern.compile("zaplatit\\s*([\\d\\s]+)", Pattern.CASE_INSENSITIVE);
     private static final String BESTIE_NAME = "bestie";
     private static final String VIKTOR_NAME = "viktor";
+    private static final String MIKE_NAME = "mike kowalski";
     private static final String QUEST_NODE_ID = "job";
     private static final int QUEST_CYBERPSYCHOSIS_INCREASE = 30;
+    private static final int MIKE_CYBERPSYCHOSIS_REDUCTION = 20;
     private static final String VIKTOR_BUY_CYBERDECK_NODE_ID = "buy_cyberdeck";
     private static final String VIKTOR_BUY_INHIBITOR_NODE_ID = "buy_inhibitor";
     private static final String VIKTOR_GIFT_PISTOL_NODE_ID = "gift_pistol";
@@ -112,6 +114,11 @@ public class Talk implements Command{
             }
         }
 
+        if(MIKE_NAME.equals(npcName)){
+            reduceCyberpsychosis(commandManager.getPlayer(), MIKE_CYBERPSYCHOSIS_REDUCTION);
+            System.out.println("Rozhovor s Mikem te uklidnil. Cyberpsychosis -20.");
+        }
+
         return "Konec rozhovoru s " + npc.getName() + ".";
     }
 
@@ -194,5 +201,17 @@ public class Talk implements Command{
         } else {
             System.out.println("Inventar je plny. Predmet se nepodarilo pridat.");
         }
+    }
+
+    private void reduceCyberpsychosis(Player player, int amount){
+        if(player == null || amount <= 0){
+            return;
+        }
+
+        int newLevel = player.getCyberpsychosisLevel() - amount;
+        if(newLevel < 0){
+            newLevel = 0;
+        }
+        player.setCyberpsychosisLevel(newLevel);
     }
 }

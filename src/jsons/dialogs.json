@@ -178,17 +178,17 @@
       "end": false
     },
     "ending_1": {
-      "npcText": "[TODO KONCOVKA 1] Sem vloz finalni text prvniho konce.",
+      "npcText": "Víš… asi jsem mu nakonec nedokázal odpustit.\nZa co? To vlastně sám nevím.\n\nCelý život dělám stejná hloupá rozhodnutí, jedno za druhým.\nMožná na ostatní působím odvážně a charismaticky. Ale není to pravda.\n\nCo mě tedy celou tu dobu drželo pohromadě?\n\nAsi už se to nikdy nedozvím.\nSbohem, město snů.\n\n\"s i g n á l z t r a c e n\"\n\nJá… jsem zbabělec?",
       "options": [],
       "end": true
     },
     "ending_2": {
-      "npcText": "[TODO KONCOVKA 2] Sem vloz finalni text druheho konce.",
+      "npcText": "Prodírám se skrz dav cizích algoritmů. Entit, které už viděly všechno – a přesto nás překvapivě nenapadly. Jen mlčky sledují, co se stane.\n\nTéměř u Glitche.\n\nTak takhle tedy vypadají moje poslední minuty?\n\nBudiž.\n\nMožná je to moje vykoupení.\nZa všechno, co jsem udělal.\nZa všechny duše, které padly mým jménem.\n\nŽij dál, Vexi.\nNezapomeň na mě.\n\n\"s i g n á l z t r a c e n\"\n\nJá… jsem zbabělec?",
       "options": [],
       "end": true
     },
     "ending_3": {
-      "npcText": "[TODO KONCOVKA 3] Sem vloz finalni text tretiho konce.",
+      "npcText": "Do háje s vámi všemi!!!\n\nZPRAVODAJSTVÍ\n\nVčera v noci pronikl neznámý ozbrojený muž do hlavní budovy společnosti Arasaka v Night City, nacházející se na Korporátním náměstí.\n\nMladý muž, jehož čin je vyšetřován jako teroristický útok, zahájil přestřelku s ochrankou a následně sestoupil do spodních pater budovy, kde zničil digitální úložiště vědomí Sabura Arasaky, vybudované v roce 2077.\n\nV nestabilním psychickém stavu následně vstoupil do souboje s Adamem Smasherem a byl v průběhu boje eliminován.\n\nŠkody jsou odhadovány na přibližně 20 miliard eurodolarů.\nAkcie společnosti během prvního obchodního dne klesly o více než 60 procent. Hlavní sídlo je dočasně uzavřeno.\n\nNyní další zprávy…\n\n\"s i g n á l z t r a c e n\"\n\nJá… jsem zbabělec?",
       "options": [],
       "end": true
     },

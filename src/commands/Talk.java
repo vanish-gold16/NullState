@@ -21,6 +21,7 @@ public class Talk implements Command{
     private static final String VIKTOR_NAME = "viktor";
     private static final String MIKE_NAME = "mike kowalski";
     private static final String QUEST_NODE_ID = "job";
+    private static final String BESTIE_FULL_NODE_ID = "full";
     private static final int QUEST_CYBERPSYCHOSIS_INCREASE = 30;
     private static final int MIKE_CYBERPSYCHOSIS_REDUCTION = 20;
     private static final String VIKTOR_BUY_CYBERDECK_NODE_ID = "buy_cyberdeck";
@@ -98,10 +99,12 @@ public class Talk implements Command{
                 if(BESTIE_NAME.equals(npcName) && QUEST_NODE_ID.equals(selectedOption.getNextDialogNodeId())){
                     try{
                         commandManager.getPlayer().increaseCyberpsychosis(QUEST_CYBERPSYCHOSIS_INCREASE);
-                        System.out.println("Quest byl skipnut. Cyberpsychosis +30.");
+                        System.out.println("Quest byl skipnut a povazovan za splneny. Cyberpsychosis +30.");
                     } catch (InterruptedException e){
                         Thread.currentThread().interrupt();
                     }
+                    interaction.setCurrentNodeId(BESTIE_FULL_NODE_ID);
+                    continue;
                 }
 
                 if(VIKTOR_NAME.equals(npcName) && VIKTOR_GIFT_PISTOL_NODE_ID.equals(selectedOption.getNextDialogNodeId())){

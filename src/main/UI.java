@@ -92,7 +92,7 @@ public class UI {
                 System.out.println(location.getDescription());
                 System.out.println(location.getExits());
                 System.out.println("NPC: " + location.getNpcs());
-                System.out.println(location.getLocationItems());
+                System.out.println("Items: " + location.getLocationItems());
                 System.out.println();
 
                 if (isCheckpointLocation(location.getName())) {

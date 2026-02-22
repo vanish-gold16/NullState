@@ -64,13 +64,6 @@
       "impact": -3
     },
     {
-      "name": "Neurologický stabilizátor",
-      "description": "Pomůcka proti přetížení nervové soustavy. Zmírňuje cyberpsychosis.",
-      "weight": 0.3,
-      "type": "consumable",
-      "impact": -10
-    },
-    {
       "name": "Levný Kyberdeck",
       "description": "Levný, ale funkční kyberdeck. Umožňuje jednoduché hacky.",
       "weight": 1.2,

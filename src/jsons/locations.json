@@ -32,7 +32,7 @@
     {
       "name": "Viktor's Clinic",
       "description": "Sterilní, bíle osvětlená místnost plná kybernetických součástek. Ve vzduchu je cítit dezinfekce.",
-      "items": ["Inhibitor", "Kalibrace zbraně", "Neurologický stabilizátor", "Levný Kyberdeck"],
+      "items": ["Inhibitor", "Kalibrace zbraně", "Levný Kyberdeck"],
       "npcs": ["Viktor"],
       "exits": {
         "západ": "Trh v Malé Číně"

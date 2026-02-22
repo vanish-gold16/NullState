@@ -9,7 +9,7 @@
       "end": false
     },
     "smalltalk": {
-      "npcText": "Sakra, Vexi. Snad to zvládneš. Udělám ti slevu, ale podle mě stejně hodně nekoupíš.",
+      "npcText": "Sakra, Vexi. Snad to zvládneš. Udělám ti slevu, ale podle mě stejně hodně nekoupíš.\n Můžeš si vzit pistoli. Je to dárek. Ale dávej pozor! To zvzší kyberpsychozu",
       "options": [
         {"text": "Díky, vážím si toho.", "nextDialogNodeId": "shop"}
       ],

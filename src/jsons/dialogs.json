@@ -17,8 +17,34 @@
     },
     "shop": {
       "npcText": "Tak pojď, podíváme se, co mám na skladě.",
-      "options": [],
-      "end": true
+      "options": [
+        {"text": "Koupit Levný Kyberdeck (zaplatit 15000)", "nextDialogNodeId": "buy_cyberdeck"},
+        {"text": "Koupit Inhibitor (zaplatit 2000)", "nextDialogNodeId": "buy_inhibitor"},
+        {"text": "Nemam cim se branit, potrebuju pistoli.", "nextDialogNodeId": "gift_pistol"},
+        {"text": "To je vsechno, diky.", "nextDialogNodeId": "end"}
+      ],
+      "end": false
+    },
+    "buy_cyberdeck": {
+      "npcText": "Mas to tam. Levny Kyberdeck je tvuj.",
+      "options": [
+        {"text": "Ukaz jeste neco.", "nextDialogNodeId": "shop"}
+      ],
+      "end": false
+    },
+    "buy_inhibitor": {
+      "npcText": "Jeden inhibitor pro tebe. Pouzij ho, az bude nejhur.",
+      "options": [
+        {"text": "Co jeste mas?", "nextDialogNodeId": "shop"}
+      ],
+      "end": false
+    },
+    "gift_pistol": {
+      "npcText": "Vezmi si tuhle jednoduchou pistoli. Ber to jako laskavost.",
+      "options": [
+        {"text": "Diky, Viktore.", "nextDialogNodeId": "shop"}
+      ],
+      "end": false
     },
     "end": {
       "npcText": "Dobře, kdybys něco potřeboval, víš kde mě najít.",

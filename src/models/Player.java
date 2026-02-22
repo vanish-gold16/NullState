@@ -28,7 +28,7 @@ public class Player {
 
     public Player(List<Item> inventory) {
         this.inventory = inventory;
-        this.cyberpsychosisLevel = 20;
+        this.cyberpsychosisLevel = 10;
         this.eddie = 20000;
     }
 

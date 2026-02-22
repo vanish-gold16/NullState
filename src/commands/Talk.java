@@ -18,10 +18,15 @@ public class Talk implements Command{
 
     private static final Pattern PAYMENT_PATTERN = Pattern.compile("zaplatit\\s*([\\d\\s]+)", Pattern.CASE_INSENSITIVE);
     private static final String BESTIE_NAME = "bestie";
+    private static final String VIKTOR_NAME = "viktor";
     private static final String QUEST_NODE_ID = "job";
-    private static final String PAY_NODE_ID = "pay";
     private static final int QUEST_CYBERPSYCHOSIS_INCREASE = 30;
-    private static final String VIKTOR_PISTOL_NAME = "Pistole od Viktora";
+    private static final String VIKTOR_BUY_CYBERDECK_NODE_ID = "buy_cyberdeck";
+    private static final String VIKTOR_BUY_INHIBITOR_NODE_ID = "buy_inhibitor";
+    private static final String VIKTOR_GIFT_PISTOL_NODE_ID = "gift_pistol";
+    private static final String CHEAP_CYBERDECK_NAME = "Levný Kyberdeck";
+    private static final String INHIBITOR_NAME = "Inhibitor";
+    private static final String SIMPLE_PISTOL_NAME = "Pistole Militech";
 
     private CommandManager commandManager;
     private DialogDAO dialogDAO;
@@ -80,9 +85,7 @@ public class Talk implements Command{
                     if(currentMoney >= paymentAmount){
                         player.setEddie(currentMoney - paymentAmount);
                         System.out.println("Zaplatil jsi " + paymentAmount + " eddies.");
-                        if(BESTIE_NAME.equals(npcName) && PAY_NODE_ID.equals(selectedOption.getNextDialogNodeId())){
-                            grantViktorPistol(player);
-                        }
+                        handleViktorPurchase(npcName, selectedOption.getNextDialogNodeId(), player);
                         interaction.setCurrentNodeId(selectedOption.getNextDialogNodeId());
                     } else {
                         System.out.println("Nemas dostatek eddies. Potrebujes " + paymentAmount + ". Vyber jinou moznost.");
@@ -97,6 +100,10 @@ public class Talk implements Command{
                     } catch (InterruptedException e){
                         Thread.currentThread().interrupt();
                     }
+                }
+
+                if(VIKTOR_NAME.equals(npcName) && VIKTOR_GIFT_PISTOL_NODE_ID.equals(selectedOption.getNextDialogNodeId())){
+                    grantOneTimeItem(commandManager.getPlayer(), SIMPLE_PISTOL_NAME, "Od Viktora jsi dostal jednoduchou pistoli.");
                 }
 
                 interaction.setCurrentNodeId(selectedOption.getNextDialogNodeId());
@@ -140,29 +147,52 @@ public class Talk implements Command{
         }
     }
 
-    private void grantViktorPistol(Player player){
+    private void handleViktorPurchase(String npcName, String nextNodeId, Player player){
+        if(!VIKTOR_NAME.equals(npcName) || nextNodeId == null){
+            return;
+        }
+
+        if(VIKTOR_BUY_CYBERDECK_NODE_ID.equals(nextNodeId)){
+            grantItem(player, CHEAP_CYBERDECK_NAME, "Koupil jsi Levny Kyberdeck.");
+            return;
+        }
+
+        if(VIKTOR_BUY_INHIBITOR_NODE_ID.equals(nextNodeId)){
+            grantItem(player, INHIBITOR_NAME, "Koupil jsi Inhibitor.");
+        }
+    }
+
+    private void grantOneTimeItem(Player player, String itemName, String successMessage){
         if(player == null){
             return;
         }
 
         for(Item inventoryItem : player.getInventory()){
             if(inventoryItem.getName() != null
-                    && inventoryItem.getName().equalsIgnoreCase(VIKTOR_PISTOL_NAME)){
-                System.out.println("Pistoli od Viktora uz mas.");
+                    && inventoryItem.getName().equalsIgnoreCase(itemName)){
+                System.out.println("Tento predmet uz mas.");
                 return;
             }
         }
 
-        Item viktorPistol = itemDAO.getItemByName(VIKTOR_PISTOL_NAME);
-        if(viktorPistol == null){
-            System.out.println("Nepodarilo se najit pistoli od Viktora.");
+        grantItem(player, itemName, successMessage);
+    }
+
+    private void grantItem(Player player, String itemName, String successMessage){
+        if(player == null || itemName == null || itemName.isBlank()){
             return;
         }
 
-        if(player.addItem(viktorPistol)){
-            System.out.println("Od Viktora jsi dostal jednoduchou pistoli.");
+        Item item = itemDAO.getItemByName(itemName);
+        if(item == null){
+            System.out.println("Nepodarilo se najit predmet: " + itemName + ".");
+            return;
+        }
+
+        if(player.addItem(item)){
+            System.out.println(successMessage);
         } else {
-            System.out.println("Inventar je plny. Pistoli od Viktora jsi nemohl prijmout.");
+            System.out.println("Inventar je plny. Predmet se nepodarilo pridat.");
         }
     }
 }

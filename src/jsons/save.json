@@ -1,9 +1,8 @@
 {
-  "currentLocationName": "Viktor\u0027s Clinic",
-  "money": 5000,
-  "cyberpsychosis": 35,
+  "currentLocationName": "Trh v Malé Číně",
+  "money": 20000,
+  "cyberpsychosis": 10,
   "inventoryItemNames": [
-    "Inhibitor",
-    "Koktejl Silverhand"
+    "Inhibitor"
   ]
 }

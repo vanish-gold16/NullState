@@ -34,6 +34,12 @@ public class UI {
             System.out.println("[2] Nahrat hru");
             System.out.println("[3] Konec");
             System.out.print("> ");
+            System.out.println("""
+                    === NullState ===
+                    [1] Nova hra
+                    [2] Nahrat hru
+                    [3] Konec
+                    Pozor! Ulozeni probiha automaticky po dulezitym pribehovym """);
 
             String choice = menuScanner.nextLine().trim();
 

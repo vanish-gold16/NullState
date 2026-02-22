@@ -73,7 +73,7 @@ public class TextPrinter {
     }
 
     public String marketHint(){
-        return "\n*Měl bych nejdříve jit za Bestii...*\n";
+        return "\n*Měl bych nejdříve jit do Afterlife...*\n";
     }
 
     public void bar(){

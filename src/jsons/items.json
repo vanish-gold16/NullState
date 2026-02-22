@@ -15,13 +15,6 @@
       "impact": 10
     },
     {
-      "name": "Pistole od Viktora",
-      "description": "Jednoducha pistole od Viktora. Drzi pohromade, ale kazdy vystrel ti zveda cyberpsychosis.",
-      "weight": 1.2,
-      "type": "weapon",
-      "impact": 15
-    },
-    {
       "name": "Starý kyberdeck",
       "description": "Je to přenosné hackerské zařízení určené k prolomení jednoduchých systémů.",
       "weight": 2.0,
@@ -55,20 +48,6 @@
       "weight": 0.5,
       "type": "consumable",
       "impact": -10
-    },
-    {
-      "name": "Kalibrace zbraně",
-      "description": "Servisní sada pro doladění zbraní. Krátce zvyšuje odolnost vůči stresu.",
-      "weight": 0.7,
-      "type": "consumable",
-      "impact": -3
-    },
-    {
-      "name": "Levný Kyberdeck",
-      "description": "Levný, ale funkční kyberdeck. Umožňuje jednoduché hacky.",
-      "weight": 1.2,
-      "type": "weapon",
-      "impact": 5
     },
     {
       "name": "Zápisky netrunnera",

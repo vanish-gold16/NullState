@@ -73,7 +73,7 @@ public class UI {
 
     private void runGameLoop() {
         String lastShownLocationName = null;
-        Set<String> visitedStoryLocations = new HashSet<>();
+         Set<String> visitedStoryLocations = new HashSet<>();
 
         while (running && !commandManager.isExit()) {
             Location location = commandManager.getCurrentLocation();
@@ -84,16 +84,16 @@ public class UI {
 
                 if (isFirstStoryVisit) {
                     showLocationArt(location.getName());
-
-                    System.out.println();
-                    System.out.println("Cyberpsychosis: " + commandManager.getPlayer().getCyberpsychosisLevel());
-                    System.out.println(location.getName());
-                    System.out.println(location.getDescription());
-                    System.out.println(location.getExits());
-                    System.out.println("NPC: " + location.getNpcs());
-                    System.out.println(location.getLocationItems());
-                    System.out.println();
                 }
+
+                System.out.println();
+                System.out.println("Cyberpsychosis: " + commandManager.getPlayer().getCyberpsychosisLevel());
+                System.out.println(location.getName());
+                System.out.println(location.getDescription());
+                System.out.println(location.getExits());
+                System.out.println("NPC: " + location.getNpcs());
+                System.out.println(location.getLocationItems());
+                System.out.println();
 
                 if (isCheckpointLocation(location.getName())) {
                     commandManager.saveGame();

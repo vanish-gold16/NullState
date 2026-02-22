@@ -15,6 +15,13 @@
       "impact": 10
     },
     {
+      "name": "Levný Kyberdeck",
+      "description": "Levný, ale funkční kyberdeck. Umožňuje jednoduché hacky.",
+      "weight": 1.2,
+      "type": "weapon",
+      "impact": 5
+    },
+    {
       "name": "Starý kyberdeck",
       "description": "Je to přenosné hackerské zařízení určené k prolomení jednoduchých systémů.",
       "weight": 2.0,

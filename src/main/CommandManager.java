@@ -7,17 +7,26 @@ import dao.LocationDAO;
 import dao.NPCDAO;
 import models.Item;
 import models.Location;
+import models.NPC;
 import models.Player;
 import models.SaveData;
 
+import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 public class CommandManager {
 
+    private static final String END_LOCATION_NAME = "Koncovka";
+    private static final int MOVE_CYBERPSYCHOSIS_INCREASE = 10;
+    private static final String MARKET_LOCATION = "trh v male cine";
+    private static final String DIRECTION_NORTH = "sever";
+
     private static DialogDAO dialogDAO;
+
     private NPCDAO npcDAO;
     private LocationDAO locationDAO;
     private SaveManager saveManager;
@@ -29,49 +38,53 @@ public class CommandManager {
     private HashMap<String, Command> commands = new HashMap<>();
 
     private boolean isExit;
-    private static final String END_LOCATION_NAME = "Koncovka";
-    private static final int MOVE_CYBERPSYCHOSIS_INCREASE = 10;
+    private boolean bestieDialogueCompleted;
 
     public CommandManager() {
         saveManager = new SaveManager();
         isExit = false;
+        bestieDialogueCompleted = false;
+
         List<Item> inventory = new ArrayList<>();
         dialogDAO = new DialogDAO();
         npcDAO = new NPCDAO();
         locationDAO = new LocationDAO();
         player = new Player(inventory);
         currentLocation = locationDAO.getLocationByName("Postranní ulička");
-        inicialization();
+
+        initialization();
     }
 
-    public void saveGame(){
-        saveManager.saveGame(player, currentLocation.getName());
+    public void saveGame() {
+        saveManager.saveGame(player, currentLocation.getName(), bestieDialogueCompleted);
     }
 
-    public void loadGame(){
+    public void loadGame() {
         SaveData saveData = saveManager.loadGame();
-        if(saveData == null){
+        if (saveData == null) {
             return;
         }
 
         Location savedLocation = locationDAO.getLocationByName(saveData.getCurrentLocationName());
-        if(savedLocation != null){
+        if (savedLocation != null) {
             currentLocation = savedLocation;
         }
 
         player.setEddie(saveData.getMoney());
         player.setCyberpsychosisLevel(saveData.getCyberpsychosis());
+        bestieDialogueCompleted = saveData.isBestieDialogueCompleted();
 
         ItemDAO itemDAO = new ItemDAO();
         List<Item> inventory = new ArrayList<>();
-        if(saveData.getInventoryItemNames() != null){
-            for(String itemName : saveData.getInventoryItemNames()){
+        if (saveData.getInventoryItemNames() != null) {
+            for (String itemName : saveData.getInventoryItemNames()) {
                 Item item = itemDAO.getItemByName(itemName);
-                if(item != null){
+                if (item != null) {
                     inventory.add(item);
                 }
             }
         }
+
         player.getInventory().clear();
         player.getInventory().addAll(inventory);
     }
@@ -81,14 +94,14 @@ public class CommandManager {
     }
 
     public void start() {
-        inicialization();
+        initialization();
         execute();
     }
 
     /**
-     * initializing commands
+     * Initializes commands.
      */
-    public void inicialization() {
+    public void initialization() {
         commands.put("pomoc", new Help(this));
         commands.put("exit", new Exit());
         commands.put("status", new Status(this));
@@ -105,21 +118,142 @@ public class CommandManager {
         commands.put("help", new Help(this));
     }
 
-    public void execute(){
+    public void execute() {
         System.out.print(">> ");
         String command = scanner.next();
         command = command.trim().toLowerCase();
 
-        if(commands.containsKey(command)){
+        if (commands.containsKey(command)) {
             System.out.println(commands.get(command).execute());
             isExit = commands.get(command).exit();
-            if(!isExit){
+            if (!isExit) {
                 checkGameEnd();
             }
+        } else {
+            System.out.println("Spatny prikaz, zadej znovu.");
         }
-        else{
-            System.out.println("Špatný příkaz, zadej znovu.");
+    }
+
+    public String movePlayer(String rawDirection, String invalidDirectionMessage) {
+        String directionInput = rawDirection == null ? "" : rawDirection.trim().toLowerCase();
+        if (directionInput.isEmpty()) {
+            return showAvailableExits();
         }
+
+        Location location = getCurrentLocation();
+        if (location == null) {
+            return "Aktualni lokace neni dostupna.";
+        }
+
+        Map<String, String> exits = location.getExits();
+        if (exits == null || exits.isEmpty()) {
+            return "V teto lokaci nejsou zadne vychody.";
+        }
+
+        String movementLockMessage = getMovementLockMessage(location);
+        if (movementLockMessage != null) {
+            return movementLockMessage;
+        }
+
+        String normalizedDirection = normalizeDirection(directionInput);
+        if (isMarketNorthBlocked(location, normalizedDirection)) {
+            return "Cesta na sever z trhu je zatim zamcena. Nejdriv si promluv s Bestii v Afterlife.";
+        }
+
+        String resolvedDirection = resolveExitDirection(exits, directionInput);
+        if (resolvedDirection == null) {
+            return invalidDirectionMessage + "\n" + showAvailableExits();
+        }
+
+        String nextLocationName = exits.get(resolvedDirection);
+        Location nextLocation = locationDAO.getLocationByName(nextLocationName);
+        if (nextLocation == null) {
+            return "Tato lokace neexistuje.";
+        }
+
+        setCurrentLocation(nextLocation);
+        return "Presun uspesny.";
+    }
+
+    private String getMovementLockMessage(Location location) {
+        if (location == null || location.getNpcs() == null) {
+            return null;
+        }
+
+        for (NPC npc : location.getNpcs()) {
+            if (isHostile(npc)) {
+                return "Nejdriv musis zlikvidovat nepratele v lokaci.";
+            }
+        }
+        return null;
+    }
+
+    private boolean isHostile(NPC npc) {
+        if (npc == null) {
+            return false;
+        }
+
+        String affiliation = npc.getAffiliation() == null ? "" : npc.getAffiliation();
+        if ("Arasaka".equalsIgnoreCase(affiliation) || "Bergest".equalsIgnoreCase(affiliation)) {
+            return true;
+        }
+
+        String normalizedName = normalizeText(npc.getName());
+        return normalizedName.contains("strazce")
+                || normalizedName.contains("dron")
+                || normalizedName.contains("robot")
+                || normalizedName.contains("enemy");
+    }
+
+    private boolean isMarketNorthBlocked(Location location, String normalizedDirection) {
+        if (location == null) {
+            return false;
+        }
+        String normalizedLocation = normalizeText(location.getName());
+        return MARKET_LOCATION.equals(normalizedLocation)
+                && DIRECTION_NORTH.equals(normalizedDirection)
+                && !bestieDialogueCompleted;
+    }
+
+    private String showAvailableExits() {
+        Location location = getCurrentLocation();
+        if (location == null || location.getExits() == null || location.getExits().isEmpty()) {
+            return "V teto lokaci nejsou zadne vychody.";
+        }
+        return "Dostupne vychody:\n" + String.join(",", location.getExits().keySet());
+    }
+
+    private String resolveExitDirection(Map<String, String> exits, String inputDirection) {
+        if (exits == null || exits.isEmpty()) {
+            return null;
+        }
+
+        String normalizedInput = normalizeDirection(inputDirection);
+        for (String key : exits.keySet()) {
+            if (normalizeDirection(key).equals(normalizedInput)) {
+                return key;
+            }
+        }
+        return null;
+    }
+
+    private String normalizeDirection(String input) {
+        String normalized = normalizeText(input);
+        return switch (normalized) {
+            case "s", "sever" -> "sever";
+            case "j", "jih" -> "jih";
+            case "v", "vychod" -> "vychod";
+            case "z", "zapad" -> "zapad";
+            default -> normalized;
+        };
+    }
+
+    private String normalizeText(String text) {
+        if (text == null) {
+            return "";
+        }
+        String normalized = Normalizer.normalize(text, Normalizer.Form.NFD);
+        return normalized.replaceAll("\\p{M}", "").toLowerCase();
     }
 
     public HashMap<String, Command> getCommands() {
@@ -150,8 +284,16 @@ public class CommandManager {
         return locationDAO;
     }
 
+    public boolean isBestieDialogueCompleted() {
+        return bestieDialogueCompleted;
+    }
+
+    public void setBestieDialogueCompleted(boolean bestieDialogueCompleted) {
+        this.bestieDialogueCompleted = bestieDialogueCompleted;
+    }
+
     public void setCurrentLocation(Location currentLocation) {
-        if(currentLocation == null){
+        if (currentLocation == null) {
             return;
         }
 
@@ -160,10 +302,10 @@ public class CommandManager {
 
         this.currentLocation = currentLocation;
 
-        if(locationChanged && player != null){
-            try{
+        if (locationChanged && player != null) {
+            try {
                 player.increaseCyberpsychosis(MOVE_CYBERPSYCHOSIS_INCREASE);
-            } catch (InterruptedException e){
+            } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
             }
         }
@@ -173,8 +315,8 @@ public class CommandManager {
         return isExit;
     }
 
-    private void checkGameEnd(){
-        if(currentLocation != null && END_LOCATION_NAME.equals(currentLocation.getName())){
+    private void checkGameEnd() {
+        if (currentLocation != null && END_LOCATION_NAME.equals(currentLocation.getName())) {
             System.out.println("Dosahl jsi konce hry.");
             isExit = true;
         }

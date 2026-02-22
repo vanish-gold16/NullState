@@ -51,7 +51,7 @@
     {
       "name": "Tunely metra",
       "description": "Temné, vlhké chodby, kde pobíhají krysy. Ze stropu visí kabely a jiskří.",
-      "items": ["Zápisky netrunnera", "Zápisky neznámého bojovníka 2. korporativní války", "Inhibitor", "Archivní fotka", "Starý nepřátelský AI"],
+      "items": ["Zápisky netrunnera", "Zápisky neznámého bojovníka 2. korporativní války", "Inhibitor"],
       "npcs": ["Strážce Bergestu - Tunely"],
       "exits": {
         "sever": "Dogtown"

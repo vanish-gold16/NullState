@@ -30,7 +30,7 @@ public class SaveManager {
         }
     }
 
-    public void saveGame(Player player, String locationName) {
+    public void saveGame(Player player, String locationName, boolean bestieDialogueCompleted) {
         List<String> inventoryItems = new ArrayList<>();
         for(Item item : player.getInventory()){
             inventoryItems.add(item.getName());
@@ -39,7 +39,8 @@ public class SaveManager {
                 locationName,
                 player.getEddie(),
                 player.getCyberpsychosisLevel(),
-                inventoryItems
+                inventoryItems,
+                bestieDialogueCompleted
         );
         try{
             Files.writeString(Paths.get(SAVE_FILE), gson.toJson(saveData));

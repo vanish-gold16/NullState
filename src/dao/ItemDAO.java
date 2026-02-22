@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import models.Item;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.text.Normalizer;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -52,6 +53,25 @@ public class ItemDAO {
      */
     public Item getItemByName(String name){
         return itemsDatabase.get(name);
+    }
+
+    public Item getItemByNameNormalized(String name){
+        if(name == null || name.isBlank()){
+            return null;
+        }
+
+        String normalizedName = normalize(name);
+        for(Map.Entry<String, Item> entry : itemsDatabase.entrySet()){
+            if(normalize(entry.getKey()).equals(normalizedName)){
+                return entry.getValue();
+            }
+        }
+        return null;
+    }
+
+    private String normalize(String value){
+        String normalized = Normalizer.normalize(value, Normalizer.Form.NFD);
+        return normalized.replaceAll("\\p{M}", "").toLowerCase().trim();
     }
 
     private static class ItemsWrapper{

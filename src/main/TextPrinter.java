@@ -110,7 +110,7 @@ public class TextPrinter {
     }
 
     public void tunels(){
-        type("Špinavé. Plné krys, jiskřících kabelů a zápachu, který se nedal ignorovat.", 3000);
+        type("Špinavé. Plné krys, jiskřících kabelů a zápachu, který se nedal ignorovat. ", 3000);
         type("Zatracený Vex.\n", 1000);
         type("Kupodivu tu nebyl ani jediný „pracovník“ Arasaky.\n", 3000);
         type("Zdá se, že je nakonec zabila vlastní byrokracie.\n", 3000);
@@ -119,8 +119,8 @@ public class TextPrinter {
 
     public void dogtown(){
         type("Velkolepý a obávaný Dogtown.\n", 2000);
-        type("Útočiště pro ty, kteří se nikdy nevešli do rámce zákona.", 3000);
-        type("Hlídky projíždějí ulicemi.", 2000);
+        type("Útočiště pro ty, kteří se nikdy nevešli do rámce zákona. ", 3000);
+        type("Hlídky projíždějí ulicemi. ", 2000);
         type("Vojáci patrolují na každém rohu.\n", 2000);
         type("Musím být opatrný.\n", 1000);
         waitEnter();
@@ -128,7 +128,7 @@ public class TextPrinter {
 
     public void building(){
         type("Starý, rozviklaný dům.\n", 2000);
-        type("Podle vzhledu postavený před víc než sto lety.", 3000);
+        type("Podle vzhledu postavený před víc než sto lety. ", 3000);
         type("Možná to kdysi býval obyčejný obytný dům.\n", 3000);
         type("Teď z něj zůstala jen opuštěná skořápka bez elektřiny a bez jakéhokoli komfortu, ", 4000);
         type("na který si lidstvo kdysi zvyklo.\n", 2000);
@@ -140,11 +140,11 @@ public class TextPrinter {
     }
 
     public void serverRoom(){
-        type("Stojím přede dveřmi.", 2000);
+        type("Stojím přede dveřmi. ", 2000);
         type("Zatmělo se mi před očima a nohy sotva poslouchají.\n", 3000);
         type("Zpoza dveří se ozývá bzučení běžící techniky a sotva slyšitelný lidský dech.\n", 4000);
-        type("Srdce mi buší tak zběsile, jako by se chtělo vyrvat z hrudi.", 3000);
-        type("Copak jsem byl vždycky takový zbabělec?", 2000);
+        type("Srdce mi buší tak zběsile, jako by se chtělo vyrvat z hrudi. ", 3000);
+        type("Copak jsem byl vždycky takový zbabělec? ", 2000);
         type("A vůbec… co vlastně znamená být zbabělcem?\n", 3000);
         waitEnter();
     }

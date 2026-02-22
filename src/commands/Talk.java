@@ -27,7 +27,7 @@ public class Talk implements Command{
     private static final String VIKTOR_BUY_CYBERDECK_NODE_ID = "buy_cyberdeck";
     private static final String VIKTOR_BUY_INHIBITOR_NODE_ID = "buy_inhibitor";
     private static final String VIKTOR_GIFT_PISTOL_NODE_ID = "gift_pistol";
-    private static final String CHEAP_CYBERDECK_NAME = "Levný Kyberdeck";
+    private static final String CHEAP_CYBERDECK_NAME = "Levny Kyberdeck";
     private static final String INHIBITOR_NAME = "Inhibitor";
     private static final String SIMPLE_PISTOL_NAME = "Pistole Militech";
 
@@ -127,6 +127,9 @@ public class Talk implements Command{
             reduceCyberpsychosis(commandManager.getPlayer(), MIKE_CYBERPSYCHOSIS_REDUCTION);
             System.out.println("Rozhovor s Mikem te uklidnil. Cyberpsychosis -20.");
         }
+        if(BESTIE_NAME.equals(npcName)){
+            commandManager.setBestieDialogueCompleted(true);
+        }
 
         return "Konec rozhovoru s " + npc.getName() + ".";
     }
@@ -208,6 +211,9 @@ public class Talk implements Command{
         }
 
         Item item = itemDAO.getItemByName(itemName);
+        if(item == null){
+            item = itemDAO.getItemByNameNormalized(itemName);
+        }
         if(item == null){
             System.out.println("Nepodarilo se najit predmet: " + itemName + ".");
             return;

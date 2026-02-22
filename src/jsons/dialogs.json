@@ -171,10 +171,25 @@
     "start": {
       "npcText": "Hele... chápu, že je to teď pro tebe peklo. Ale mně zbývají minuty. Pár posledních. Pomůžeš mi?",
       "options": [
-        {"text": "Neodpustím ti... (smířit se)", "nextDialogNodeId": "end"},
-        {"text": "Pomůžu ti. (obětovat se pro Glicha)", "nextDialogNodeId": "end"},
-        {"text": "Seru na vás na všechny. (ahoj, 2020)", "nextDialogNodeId": "end"}
+        {"text": "Neodpustím ti... (smířit se)", "nextDialogNodeId": "ending_1"},
+        {"text": "Pomůžu ti. (obětovat se pro Glicha)", "nextDialogNodeId": "ending_2"},
+        {"text": "Seru na vás na všechny. (ahoj, 2020)", "nextDialogNodeId": "ending_3"}
       ],
+      "end": false
+    },
+    "ending_1": {
+      "npcText": "[TODO KONCOVKA 1] Sem vloz finalni text prvniho konce.",
+      "options": [],
+      "end": true
+    },
+    "ending_2": {
+      "npcText": "[TODO KONCOVKA 2] Sem vloz finalni text druheho konce.",
+      "options": [],
+      "end": true
+    },
+    "ending_3": {
+      "npcText": "[TODO KONCOVKA 3] Sem vloz finalni text tretiho konce.",
+      "options": [],
       "end": true
     },
     "end": {

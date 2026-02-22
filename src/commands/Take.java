@@ -3,6 +3,7 @@ package commands;
 import main.CommandManager;
 import models.Item;
 
+import java.text.Normalizer;
 import java.util.List;
 
 public class Take implements Command{
@@ -38,7 +39,7 @@ public class Take implements Command{
         }
 
         items.remove(found);
-        return "Vzal jsi: " + found.getName();
+        return buildPickupMessage(found);
     }
 
     @Override
@@ -48,5 +49,42 @@ public class Take implements Command{
 
     public Take(CommandManager commandManager) {
         this.commandManager = commandManager;
+    }
+
+    private String buildPickupMessage(Item item){
+        String baseMessage = "Vzal jsi: " + item.getName();
+        String loreMessage = getLorePickupText(item.getName());
+        if(loreMessage == null){
+            return baseMessage;
+        }
+        return baseMessage + "\n\n" + loreMessage;
+    }
+
+    private String getLorePickupText(String itemName){
+        String normalized = normalize(itemName);
+        if("zapisky netrunnera".equals(normalized)){
+            return "Síť už dávno není jen nástroj. Je to organismus. \n" +
+                    "Roste, učí se a pamatuje si víc, než by měla. \n" +
+                    "Lidé si mysleli, že po Datacrash je pod kontrolou. Není. Nikdy nebyla.\n" +
+                    "Korporace staví firewally jako zdi starých pevností, ale zapomínají, \n" +
+                    "že každá pevnost padne zevnitř. \n" +
+                    "Největší hrozbou nejsou AI duchové ani černé ICE. \n" +
+                    "Jsou to ambice lidí, kteří věří, že mohou vlastnit samotnou informaci.";
+        }
+        if("zapisky neznameho bojovnika 2. korporativni valky".equals(normalized)){
+            return "Den 43.\n" +
+                    "Už si nepamatuji, za koho vlastně bojuji. Loga na uniformách se mění rychleji než rozkazy. \n" +
+                    "Včera jsme chránili konvoj s léky. Dnes jsme ten samý konvoj přepadli, protože „změna smlouvy“.\n" +
+                    "Říkají tomu válka. Ale války mívají ideály.";
+        }
+        return null;
+    }
+
+    private String normalize(String value){
+        if(value == null){
+            return "";
+        }
+        String normalized = Normalizer.normalize(value, Normalizer.Form.NFD);
+        return normalized.replaceAll("\\p{M}", "").toLowerCase().trim();
     }
 }

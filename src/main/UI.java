@@ -31,7 +31,7 @@ public class UI {
     }
 
     /**
-     * Starts the application
+     * Starts the main menu loop and dispatches game start/load actions.
      */
     public void start() {
         running = true;
@@ -71,6 +71,10 @@ public class UI {
         }
     }
 
+    /**
+     * Runs gameplay loop until user exits.
+     * Handles first-visit story rendering, location state output and checkpoint saves.
+     */
     private void runGameLoop() {
         String lastShownLocationName = null;
          Set<String> visitedStoryLocations = new HashSet<>();
@@ -106,6 +110,10 @@ public class UI {
         }
     }
 
+    /**
+     * Prints location-specific story text for first visit.
+     * @param locationName raw location name from world data
+     */
     private void showLocationArt(String locationName) {
         String normalized = normalizeLocationName(locationName);
         switch (normalized) {

@@ -55,6 +55,11 @@ public class ItemDAO {
         return itemsDatabase.get(name);
     }
 
+    /**
+     * Finds item by name using diacritic-insensitive String
+     * @param name user-facing item name
+     * @return matching item or null when not found
+     */
     public Item getItemByNameNormalized(String name){
         if(name == null || name.isBlank()){
             return null;

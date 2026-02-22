@@ -18,6 +18,10 @@ public class DialogDAO {
         loadDialogs();
     }
 
+    /**
+     * Loads all dialogue trees from JSON resource and stores them
+     * in lowercase-keyed map for case-insensitive NPC lookup.
+     */
     private void loadDialogs(){
         Gson gson = new Gson();
         InputStream inputStream = getClass().getResourceAsStream("/jsons/dialogs.json");
@@ -42,6 +46,12 @@ public class DialogDAO {
         }
     }
 
+    /**
+     * Returns dialogue tree for given NPC name.
+     *
+     * @param NPCName NPC name
+     * @return dialogue nodes map for NPC or null when not found
+     */
     public Map<String, DialogueNode> getDialogForNPC(String NPCName){
         return allDialogs.get(NPCName.toLowerCase());
     }

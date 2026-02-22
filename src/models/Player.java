@@ -10,6 +10,11 @@ public class Player {
     private int cyberpsychosisLevel;
     private int eddie;
 
+    /**
+     * Increases cyberpsychosis and immediately checks game-over condition.
+     * @param amount positive increase amount
+     * @throws InterruptedException when game-over delay sleep is interrupted
+     */
     public void increaseCyberpsychosis(int amount) throws InterruptedException {
         if(amount > 0){
             setCyberpsychosisLevel(this.cyberpsychosisLevel + amount);
@@ -17,6 +22,10 @@ public class Player {
         gameOver();
     }
 
+    /**
+     * Ends the game when cyberpsychosis threshold is reached.
+     * @throws InterruptedException when game-over delay sleep is interrupted
+     */
     public void gameOver() throws InterruptedException {
         if(this.cyberpsychosisLevel >= 100){
             System.out.println("Vex got cyberpsychosis.");
@@ -28,7 +37,7 @@ public class Player {
 
     public Player(List<Item> inventory) {
         this.inventory = inventory;
-        this.cyberpsychosisLevel = 10;
+        this.cyberpsychosisLevel = 20;
         this.eddie = 20000;
     }
 
@@ -69,6 +78,12 @@ public class Player {
         return inventory.size() >= MAX_SLOTS;
     }
 
+    /**
+     * Adds item to inventory if there is a free slot.
+     *
+     * @param item item to add
+     * @return true when item was added
+     */
     public boolean addItem(Item item) {
         if(item == null){
             return false;
@@ -80,6 +95,12 @@ public class Player {
         return true;
     }
 
+    /**
+     * Removes first inventory item matching provided name (case-insensitive).
+     *
+     * @param name item name
+     * @return removed item or null when not found
+     */
     public Item removeItemByName(String name) {
         if(name == null || name.isBlank()){
             return null;
@@ -94,6 +115,11 @@ public class Player {
         return null;
     }
 
+    /**
+     * Calculates total inventory weight.
+     *
+     * @return sum of item weights in inventory
+     */
     public double getTotalWeight() {
         double total = 0.0;
         for(Item item : inventory){
@@ -102,6 +128,11 @@ public class Player {
         return total;
     }
 
+    /**
+     * Builds human-readable inventory summary.
+     *
+     * @return formatted inventory text
+     */
     public String formatInventory() {
         if(inventory.isEmpty()){
             return "Inventar je prazdny.";

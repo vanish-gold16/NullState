@@ -30,6 +30,12 @@ public class SaveManager {
         }
     }
 
+    /**
+     * Serializes and writes the current game state to the save file.
+     * @param player active player
+     * @param locationName current location name
+     * @param bestieDialogueCompleted whether Bestie story gate is unlocked
+     */
     public void saveGame(Player player, String locationName, boolean bestieDialogueCompleted) {
         List<String> inventoryItems = new ArrayList<>();
         for(Item item : player.getInventory()){
@@ -50,8 +56,8 @@ public class SaveManager {
     }
 
     /**
-     * Loads the saved game data from the save file.
-     * @return SaveData object containing the loaded game data
+     * Loads saved game from disk.
+     * @return parsed save data, or null when save does not exist
      */
     public SaveData loadGame() {
         if(!saveExists()){
@@ -66,7 +72,7 @@ public class SaveManager {
     }
 
     /**
-     * Deletes the saves if exists
+     * Deletes the save file if it exists.
      */
     public void deleteSave() {
         try{
@@ -78,7 +84,8 @@ public class SaveManager {
 
     /**
      * Checks if a save file exists.
-     * @return true if yes, false otherwise
+     *
+     * @return true when save file is present
      */
     public boolean saveExists() {
         return Files.exists(Paths.get(SAVE_FILE));

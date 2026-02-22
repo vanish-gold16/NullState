@@ -65,6 +65,12 @@ public class Hack implements Command{
         return false;
     }
 
+    /**
+     * finding enemy by name
+     * @param npcs npc list
+     * @param name of the npc
+     * @return npc or null if not found
+     */
     private NPC findEnemyByName(List<NPC> npcs, String name){
         if(npcs == null) return null;
         for(NPC npc : npcs){

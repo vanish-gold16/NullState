@@ -19,8 +19,9 @@ public class NPCDAO {
     }
 
     /**
-     * Load NPCs from a file
-     * @param filePath the path to the file
+     * Loads NPC definitions from JSON into in-memory map.
+     *
+     * @param filePath NPC JSON path
      */
     private void loadNPCsFromFile(String filePath){
         try{
@@ -44,6 +45,12 @@ public class NPCDAO {
         }
     }
 
+    /**
+     * Returns NPC by exact name.
+     *
+     * @param name NPC name
+     * @return NPC or null when not found
+     */
     public NPC getNPCByName(String name){
         return npcs.get(name);
     }

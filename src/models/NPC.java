@@ -22,7 +22,9 @@ public class NPC {
     }
 
     /**
-     * interaction patterns for non-written dialogues
+     * Generates fallback interaction
+     * @param npcdao NPC repository used for known-name checks
+     * @return interaction line
      */
     public String randomInteraction(NPCDAO npcdao){
         if(Objects.equals(name, npcdao.getNPCByName("Bestie").name)){
@@ -63,6 +65,10 @@ public class NPC {
         }
     }
 
+    /**
+     * Checks is this NPC name belongs to known enemy.
+     * @return true when NPC name is one of predefined enemy names
+     */
     private boolean isEnemyByName(){
         return Objects.equals(name, "Strážce Arasaky - Metro")
                 || Objects.equals(name, "Strážce Arasaky - Koncovka")

@@ -13,10 +13,18 @@ public class DialogueService {
         this.delayMs = delayMs;
     }
 
+    /**
+     * Prints one dialogue phrase with delay
+     * @param text phrase to print
+     */
     public void say(String text) {
         printer.type(text, delayMs);
     }
 
+    /**
+     * Renders current dialogue node
+     * @param node dialogue node to render
+     */
     public void displayNode(DialogueNode node) {
         if(node == null){
             say("Konec dialogu.");

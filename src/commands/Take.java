@@ -51,6 +51,11 @@ public class Take implements Command{
         this.commandManager = commandManager;
     }
 
+    /**
+     * Builds pickup result message and appends lore text for special collectible notes.
+     * @param item picked up item
+     * @return final message displayed to player
+     */
     private String buildPickupMessage(Item item){
         String baseMessage = "Vzal jsi: " + item.getName();
         String loreMessage = getLorePickupText(item.getName());
@@ -60,6 +65,11 @@ public class Take implements Command{
         return baseMessage + "\n\n" + loreMessage;
     }
 
+    /**
+     * Returns additional story text
+     * @param itemName picked up item name
+     * @return lore text for supported items or null for regular items
+     */
     private String getLorePickupText(String itemName){
         String normalized = normalize(itemName);
         if("zapisky netrunnera".equals(normalized)){

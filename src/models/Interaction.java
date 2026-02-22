@@ -15,15 +15,26 @@ public class Interaction {
         this.active = false;
     }
 
+    /**
+     * Starts dialogue interaction from the default start node.
+     */
     public void startDialog(){
         this.currentNodeId = "start";
         this.active = true;
     }
 
+    /**
+     * Returns currently active dialogue node
+     * @return current node or null when node id is invalid
+     */
     public DialogueNode getCurrentNode(){
         return dialogNodes.get(currentNodeId);
     }
 
+    /**
+     * Formats node text and options for display.
+     * @return printable dialogue block
+     */
     public String displayCurrentNode(){
         DialogueNode node = getCurrentNode();
         if(node == null){

@@ -50,6 +50,11 @@ public class Attack implements Command {
         return false;
     }
 
+    /**
+     * finding enemy of location
+     * @param npcs - all npcs
+     * @return enemy npc or null if not found
+     */
     private NPC findEnemy(List<NPC> npcs) {
         if (npcs == null) {
             return null;

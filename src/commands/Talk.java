@@ -160,6 +160,12 @@ public class Talk implements Command{
         this.itemDAO = new ItemDAO();
     }
 
+    /**
+     * Parses payment amount from dialogue option text, for example:
+     * "(zaplatit 15000)" -> 15000
+     * @param optionText raw option text
+     * @return parsed payment amount or 0
+     */
     private int extractPaymentAmount(String optionText){
         if(optionText == null){
             return 0;
@@ -181,6 +187,13 @@ public class Talk implements Command{
         }
     }
 
+    /**
+     * Grants purchased Viktor item after successful payment based on selected dialogue node.
+     *
+     * @param npcName normalized NPC name
+     * @param nextNodeId target node chosen by player
+     * @param player active player
+     */
     private void handleViktorPurchase(String npcName, String nextNodeId, Player player){
         if(!VIKTOR_NAME.equals(npcName) || nextNodeId == null){
             return;
@@ -196,6 +209,13 @@ public class Talk implements Command{
         }
     }
 
+    /**
+     * Checks whether selected option is one of Viktor's paid purchase branches.
+     *
+     * @param npcName normalized NPC name
+     * @param nextNodeId selected dialogue node id
+     * @return true when branch represents paid Viktor shop action
+     */
     private boolean isViktorPaidPurchase(String npcName, String nextNodeId){
         if(!VIKTOR_NAME.equals(npcName) || nextNodeId == null){
             return false;
@@ -204,6 +224,13 @@ public class Talk implements Command{
                 || VIKTOR_BUY_INHIBITOR_NODE_ID.equals(nextNodeId);
     }
 
+    /**
+     * Grants an item only if player does not already have it in inventory.
+     *
+     * @param player active player
+     * @param itemName item identifier
+     * @param successMessage message shown when item is granted
+     */
     private void grantOneTimeItem(Player player, String itemName, String successMessage){
         if(player == null){
             return;
@@ -220,6 +247,13 @@ public class Talk implements Command{
         grantItem(player, itemName, successMessage);
     }
 
+    /**
+     * Adds item to player's inventory by name with fallback normalized lookup.
+     *
+     * @param player active player
+     * @param itemName item identifier
+     * @param successMessage message shown after successful add
+     */
     private void grantItem(Player player, String itemName, String successMessage){
         if(player == null || itemName == null || itemName.isBlank()){
             return;
@@ -241,6 +275,12 @@ public class Talk implements Command{
         }
     }
 
+    /**
+     * Reduces cyberpsychosis level with lower bound at zero.
+     *
+     * @param player active player
+     * @param amount reduction amount
+     */
     private void reduceCyberpsychosis(Player player, int amount){
         if(player == null || amount <= 0){
             return;
@@ -253,6 +293,12 @@ public class Talk implements Command{
         player.setCyberpsychosisLevel(newLevel);
     }
 
+    /**
+     * Checks whether current dialogue node represents one of final Glitch endings.
+     *
+     * @param nodeId current node id
+     * @return true when node is ending_1, ending_2 or ending_3
+     */
     private boolean isGlitchEndingNode(String nodeId){
         if(nodeId == null){
             return false;
@@ -262,6 +308,12 @@ public class Talk implements Command{
                 || GLITCH_ENDING_3_NODE_ID.equals(nodeId);
     }
 
+    /**
+     * Checks whether node corresponds to meaningful Bestie story progression.
+     *
+     * @param nodeId selected node id
+     * @return true when progression gate should be unlocked
+     */
     private boolean isBestieStoryNode(String nodeId){
         if(nodeId == null){
             return false;
@@ -272,6 +324,9 @@ public class Talk implements Command{
                 || QUEST_NODE_ID.equals(nodeId);
     }
 
+    /**
+     * Prints final credits and terminates the process with exit code 0.
+     */
     private void showCreditsAndExit(){
         System.out.println();
         System.out.println("=== TITULKY ===");

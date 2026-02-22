@@ -16,6 +16,12 @@ public class TextPrinter {
     }
 
 
+    /**
+     * Prints text with optional pause after output.
+     *
+     * @param text text to print
+     * @param pauseMs pause duration in milliseconds
+     */
     public void type(String text, int pauseMs) {
         if(text == null){
             return;
@@ -34,6 +40,9 @@ public class TextPrinter {
         System.out.println("\n\n\n\n\n\n\n");
     }
 
+    /**
+     * Prints intro story sequence for starting backstreet location.
+     */
     public void backstreet(){
         System.out.println("(aby pokračovat ve čtení textu stiskněte Enter po ..., jinak ne)");
         waitEnter();
@@ -57,6 +66,9 @@ public class TextPrinter {
         type("Arasaka.\n", 4000);
     }
 
+    /**
+     * Prints story sequence for market location.
+     */
     public void market(){
         type("Trh v Malé Číně. Srdce tohohle města.\n", 2000);
         type("Kdysi jsem ho považoval za krásné místo. ", 3000);
@@ -72,10 +84,18 @@ public class TextPrinter {
         waitEnter();
     }
 
+    /**
+     * Returns narrative hint shown on market location.
+     *
+     * @return one-line hint text
+     */
     public String marketHint(){
         return "\n*Měl bych nejdříve jit do Afterlife...*\n";
     }
 
+    /**
+     * Prints story sequence for Afterlife bar location.
+     */
     public void bar(){
         type("Bez přehánění legendární místo, které stálo už dávno před Datacrashem.\n", 3000);
         type("Všechny vážné žoldácké zakázky se domlouvaly za jeho zdmi.\n", 2000);
@@ -89,6 +109,9 @@ public class TextPrinter {
         waitEnter();
     }
 
+    /**
+     * Prints story sequence for Viktor's clinic location.
+     */
     public void clinic(){
         type("Místo, kde mi už nesčetněkrát zachránili život.\n", 3000);
         type("Viktor. ", 1000);
@@ -96,6 +119,9 @@ public class TextPrinter {
         waitEnter();
     }
 
+    /**
+     * Prints story sequence for metro entrance location.
+     */
     public void metroEnter(){
         type("Kdysi místo zábavy pro skejťáky, prostor pro graffiti a jedno z mála skutečně tichých míst ve městě. ", 5000);
         type("Alespoň do nedávna. ", 2000);
@@ -109,6 +135,9 @@ public class TextPrinter {
         waitEnter();
     }
 
+    /**
+     * Prints story sequence for metro tunnels location.
+     */
     public void tunels(){
         type("Špinavé. Plné krys, jiskřících kabelů a zápachu, který se nedal ignorovat. ", 3000);
         type("Zatracený Vex.\n", 1000);
@@ -117,6 +146,9 @@ public class TextPrinter {
         waitEnter();
     }
 
+    /**
+     * Prints story sequence for Dogtown location.
+     */
     public void dogtown(){
         type("Velkolepý a obávaný Dogtown.\n", 2000);
         type("Útočiště pro ty, kteří se nikdy nevešli do rámce zákona. ", 3000);
@@ -126,6 +158,9 @@ public class TextPrinter {
         waitEnter();
     }
 
+    /**
+     * Prints story sequence for abandoned building location.
+     */
     public void building(){
         type("Starý, rozviklaný dům.\n", 2000);
         type("Podle vzhledu postavený před víc než sto lety. ", 3000);
@@ -139,6 +174,9 @@ public class TextPrinter {
         waitEnter();
     }
 
+    /**
+     * Prints story sequence for server room location.
+     */
     public void serverRoom(){
         type("Stojím přede dveřmi. ", 2000);
         type("Zatmělo se mi před očima a nohy sotva poslouchají.\n", 3000);

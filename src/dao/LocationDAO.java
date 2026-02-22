@@ -26,8 +26,10 @@ public class LocationDAO {
     }
 
     /**
-     * Load locations from a file
-     * @param filePath the path to the file
+     * Loads locations, their items, NPCs and exits from JSON file,
+     * and resolves references to in-memory objects.
+     *
+     * @param filePath location JSON path
      */
     private void loadLocationsFromFile(String filePath){
         try{
@@ -95,9 +97,10 @@ public class LocationDAO {
     }
 
     /**
-     * Get location by name
-     * @param name the name of the location
-     * @return
+     * Returns location by exact name key.
+     *
+     * @param name location name
+     * @return location instance or null when not found
      */
     public Location getLocationByName(String name){
         return locations.get(name);

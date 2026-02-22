@@ -55,10 +55,16 @@ public class CommandManager {
         initialization();
     }
 
+    /**
+     * saves current game state to disk.
+     */
     public void saveGame() {
         saveManager.saveGame(player, currentLocation.getName(), bestieDialogueCompleted);
     }
 
+    /**
+     * Loads game state from the save file
+     */
     public void loadGame() {
         SaveData saveData = saveManager.loadGame();
         if (saveData == null) {
@@ -89,10 +95,17 @@ public class CommandManager {
         player.getInventory().addAll(inventory);
     }
 
+    /**
+     * Checks whether a save file exists and can be loaded.
+     * @return true if save file exists
+     */
     public boolean hasSave() {
         return saveManager.saveExists();
     }
 
+    /**
+     * Runs one full command-processing cycle.
+     */
     public void start() {
         initialization();
         execute();
@@ -118,6 +131,9 @@ public class CommandManager {
         commands.put("help", new Help(this));
     }
 
+    /**
+     * Reads and executes one user command and then checks game-end condition.
+     */
     public void execute() {
         System.out.print(">> ");
         String command = scanner.next();
@@ -134,6 +150,12 @@ public class CommandManager {
         }
     }
 
+    /**
+     * Validates and does movement from the current location.
+     * @param rawDirection user-entered direction text
+     * @param invalidDirectionMessage message to display when direction is not available
+     * @return result text describing movement outcome
+     */
     public String movePlayer(String rawDirection, String invalidDirectionMessage) {
         String directionInput = rawDirection == null ? "" : rawDirection.trim().toLowerCase();
         if (directionInput.isEmpty()) {
@@ -175,6 +197,11 @@ public class CommandManager {
         return "Presun uspesny.";
     }
 
+    /**
+     * Returns a blocking movement reason when location still contains hostile NPCs.
+     * @param location current location
+     * @return lock message or null when movement is allowed
+     */
     private String getMovementLockMessage(Location location) {
         if (location == null || location.getNpcs() == null) {
             return null;
@@ -188,6 +215,11 @@ public class CommandManager {
         return null;
     }
 
+    /**
+     * Determines whether NPC should be treated as hostile for movement lock.
+     * @param npc NPC to evaluate
+     * @return true when NPC is enemy-like by affiliation or name marker
+     */
     private boolean isHostile(NPC npc) {
         if (npc == null) {
             return false;
@@ -205,6 +237,13 @@ public class CommandManager {
                 || normalizedName.contains("enemy");
     }
 
+    /**
+     * Applies story gate that blocks north exit from market
+     * until Bestie dialogue is completed.
+     * @param location current location
+     * @param normalizedDirection normalized movement direction
+     * @return true when gate is still locked
+     */
     private boolean isMarketNorthBlocked(Location location, String normalizedDirection) {
         if (location == null) {
             return false;
@@ -292,6 +331,12 @@ public class CommandManager {
         this.bestieDialogueCompleted = bestieDialogueCompleted;
     }
 
+    /**
+     * Updates current location and applies movement cyberpsychosis increase
+     * only if the location actually changed.
+     *
+     * @param currentLocation destination location
+     */
     public void setCurrentLocation(Location currentLocation) {
         if (currentLocation == null) {
             return;

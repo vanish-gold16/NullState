@@ -23,6 +23,8 @@ public class Talk implements Command{
     private static final String GLITCH_NAME = "glitch";
     private static final String QUEST_NODE_ID = "job";
     private static final String BESTIE_FULL_NODE_ID = "full";
+    private static final String BESTIE_INFO_NODE_ID = "info";
+    private static final String BESTIE_PAY_NODE_ID = "pay";
     private static final String GLITCH_ENDING_1_NODE_ID = "ending_1";
     private static final String GLITCH_ENDING_2_NODE_ID = "ending_2";
     private static final String GLITCH_ENDING_3_NODE_ID = "ending_3";
@@ -65,6 +67,7 @@ public class Talk implements Command{
 
         Interaction interaction = new Interaction(dialogNodes);
         interaction.startDialog();
+        boolean bestieStoryProgressReached = false;
 
         while(interaction.isActive()){
             System.out.println(interaction.displayCurrentNode());
@@ -83,12 +86,17 @@ public class Talk implements Command{
                 }
 
                 DialogueOption selectedOption = currentNode.getOptions().get(choice - 1);
+                String nextNodeId = selectedOption.getNextDialogNodeId();
+
+                if(BESTIE_NAME.equals(npcName) && isBestieStoryNode(nextNodeId)){
+                    bestieStoryProgressReached = true;
+                }
+
                 int paymentAmount = extractPaymentAmount(selectedOption.getText());
 
                 if(paymentAmount > 0){
                     Player player = commandManager.getPlayer();
                     int currentMoney = player.getEddie();
-                    String nextNodeId = selectedOption.getNextDialogNodeId();
 
                     if(isViktorPaidPurchase(npcName, nextNodeId) && player.isInventoryFull()){
                         System.out.println("Inventar je plny. Nakup u Viktora se neprovedl.");
@@ -131,7 +139,7 @@ public class Talk implements Command{
             reduceCyberpsychosis(commandManager.getPlayer(), MIKE_CYBERPSYCHOSIS_REDUCTION);
             System.out.println("Rozhovor s Mikem te uklidnil. Cyberpsychosis -20.");
         }
-        if(BESTIE_NAME.equals(npcName)){
+        if(BESTIE_NAME.equals(npcName) && bestieStoryProgressReached){
             commandManager.setBestieDialogueCompleted(true);
         }
         if(GLITCH_NAME.equals(npcName) && isGlitchEndingNode(interaction.getCurrentNodeId())){
@@ -252,6 +260,16 @@ public class Talk implements Command{
         return GLITCH_ENDING_1_NODE_ID.equals(nodeId)
                 || GLITCH_ENDING_2_NODE_ID.equals(nodeId)
                 || GLITCH_ENDING_3_NODE_ID.equals(nodeId);
+    }
+
+    private boolean isBestieStoryNode(String nodeId){
+        if(nodeId == null){
+            return false;
+        }
+        return BESTIE_INFO_NODE_ID.equals(nodeId)
+                || BESTIE_PAY_NODE_ID.equals(nodeId)
+                || BESTIE_FULL_NODE_ID.equals(nodeId)
+                || QUEST_NODE_ID.equals(nodeId);
     }
 
     private void showCreditsAndExit(){

@@ -81,17 +81,29 @@ models/ # Game entities
 
 Examples of supported player commands:
 jdi
+
 vstup
+
 exit
+
 utok
+
 hackni
+
 mluv
+
 vezmi
+
 poloz
+
 pouzij
+
 inventar
+
 status
+
 help
+
 
 # Note
 Educational project, non-commercial usage only

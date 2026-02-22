@@ -3,9 +3,19 @@ package main;
 import dao.DialogDAO;
 import models.Location;
 
+import java.text.Normalizer;
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 public class UI {
+
+    private static final Set<String> CHECKPOINT_LOCATIONS = new HashSet<>(Set.of(
+            "trh v male cine",
+            "tunely metra",
+            "dogtown",
+            "opustena budova"
+    ));
 
     private TextPrinter printer;
     private CommandManager commandManager;
@@ -13,7 +23,7 @@ public class UI {
 
     private boolean running;
 
-    public UI(){
+    public UI() {
         commandManager = new CommandManager();
         dialogDAO = new DialogDAO();
         printer = new TextPrinter();
@@ -23,34 +33,29 @@ public class UI {
     /**
      * Starts the application
      */
-    public void start(){
-
+    public void start() {
         running = true;
         Scanner menuScanner = new Scanner(System.in);
 
-        while(running){
+        while (running) {
             System.out.println("=== NullState ===");
             System.out.println("[1] Nova hra");
             System.out.println("[2] Nahrat hru");
             System.out.println("[3] Konec");
+            System.out.println("Ukladani probiha jen v dulezitych bodech pribehu.");
             System.out.print("> ");
-            System.out.println("""
-                    === NullState ===
-                    [1] Nova hra
-                    [2] Nahrat hru
-                    [3] Konec
-                    Pozor! Ulozeni probiha automaticky po dulezitym pribehovym """);
 
             String choice = menuScanner.nextLine().trim();
 
-            switch (choice){
+            switch (choice) {
                 case "1":
                     commandManager = new CommandManager();
+                    commandManager.saveGame();
                     runGameLoop();
                     break;
                 case "2":
                     commandManager = new CommandManager();
-                    if(!commandManager.hasSave()){
+                    if (!commandManager.hasSave()) {
                         System.out.println("Zadny ulozeny postup nebyl nalezen.");
                         continue;
                     }
@@ -65,49 +70,15 @@ public class UI {
             }
         }
     }
-    private void runGameLoop(){
+
+    private void runGameLoop() {
         String lastShownLocationName = null;
 
-        while(running && !commandManager.isExit()){
+        while (running && !commandManager.isExit()) {
             Location location = commandManager.getCurrentLocation();
 
-            if(location != null && !location.getName().equals(lastShownLocationName)){
-                switch(location.getName()){
-                case("Postranní ulička"):
-                    printer.backstreet();
-                    break;
-                case("Trh v Malé Číně"):
-                    commandManager.saveGame();
-                    printer.market();
-                    System.out.println(printer.marketHint());
-                    break;
-                case("Afterlife"):
-                    printer.bar();
-                    break;
-                case("Viktor's Clinic"):
-                    printer.clinic();
-                    break;
-                case("Vstup do metra"):
-                    printer.metroEnter();
-                    break;
-                case("Tunely metra"):
-                    printer.tunels();
-                    break;
-                case("Dogtown"):
-                    printer.dogtown();
-                    break;
-                case("Opuštěná budova"):
-                    printer.building();
-                    break;
-                case("Serverovna"):
-                    printer.serverRoom();
-                    break;
-                case("Koncovka"):
-                    // TODO
-                    break;
-                default:
-                    throw new IllegalStateException("Unexpected value: " + location);
-                }
+            if (location != null && !location.getName().equals(lastShownLocationName)) {
+                showLocationArt(location.getName());
 
                 System.out.println();
                 System.out.println("Cyberpsychosis: " + commandManager.getPlayer().getCyberpsychosisLevel());
@@ -117,15 +88,69 @@ public class UI {
                 System.out.println("NPC: " + location.getNpcs());
                 System.out.println(location.getLocationItems());
                 System.out.println();
+
+                if (isCheckpointLocation(location.getName())) {
+                    commandManager.saveGame();
+                }
+
                 lastShownLocationName = location.getName();
             }
 
             commandManager.start();
-
-            if(!commandManager.isExit()){
-                commandManager.saveGame();
-            }
         }
+    }
+
+    private void showLocationArt(String locationName) {
+        String normalized = normalizeLocationName(locationName);
+        switch (normalized) {
+            case "postranni ulicka":
+                printer.backstreet();
+                break;
+            case "trh v male cine":
+                printer.market();
+                System.out.println(printer.marketHint());
+                break;
+            case "afterlife":
+                printer.bar();
+                break;
+            case "viktor's clinic":
+                printer.clinic();
+                break;
+            case "vstup do metra":
+                printer.metroEnter();
+                break;
+            case "tunely metra":
+                printer.tunels();
+                break;
+            case "dogtown":
+                printer.dogtown();
+                break;
+            case "opustena budova":
+                printer.building();
+                break;
+            case "serverovna":
+                printer.serverRoom();
+                break;
+            case "koncovka":
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + locationName);
+        }
+    }
+
+    private boolean isCheckpointLocation(String locationName) {
+        if (locationName == null) {
+            return false;
+        }
+        return CHECKPOINT_LOCATIONS.contains(normalizeLocationName(locationName));
+    }
+
+    private String normalizeLocationName(String value) {
+        if (value == null) {
+            return "";
+        }
+        String normalized = Normalizer.normalize(value, Normalizer.Form.NFD);
+        return normalized.replaceAll("\\p{M}", "").toLowerCase();
     }
 
     public boolean isRunning() {
